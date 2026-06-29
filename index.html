@@ -3,22 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Rocker's Burger — Campanha Copa</title>
+<title>Rocker's Burger — Campanha 04</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html, body {
-    background: #060807;
-    min-height: 100vh;
-  }
+  html, body { background: #060807; min-height: 100vh; }
 
   body {
     font-family: 'Manrope', sans-serif;
-    color: #ffffff;
+    color: #fff;
     font-weight: 600;
-    padding: 1.25rem 0.9rem 3rem;
+    padding: 1.25rem 0.9rem 3.5rem;
     position: relative;
     overflow-x: hidden;
   }
@@ -28,302 +25,223 @@
     position: fixed;
     top: -10%; left: -20%;
     width: 70%; height: 40%;
-    background: radial-gradient(circle, rgba(20,90,60,0.35) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
+    background: radial-gradient(circle, rgba(20,90,60,0.38) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
   }
   body::after {
     content: '';
     position: fixed;
     bottom: -10%; right: -20%;
     width: 70%; height: 40%;
-    background: radial-gradient(circle, rgba(232,184,75,0.12) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
+    background: radial-gradient(circle, rgba(232,184,75,0.13) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
   }
 
   .container { max-width: 420px; margin: 0 auto; position: relative; z-index: 1; }
 
-  /* Glass card base */
   .glass {
     background: rgba(255,255,255,0.06);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.11);
     border-radius: 20px;
   }
-
   .glass.green {
-    background: rgba(20,120,75,0.18);
+    background: rgba(20,120,75,0.2);
     border: 1px solid rgba(62,207,142,0.35);
+  }
+  .glass.gold {
+    background: rgba(232,184,75,0.1);
+    border: 1px solid rgba(232,184,75,0.3);
   }
 
   /* Header */
   .header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    display: flex; align-items: center; gap: 12px;
     margin-bottom: 1.5rem;
     padding: 0.9rem 1.1rem;
   }
-  .logo-circle {
-    width: 46px; height: 46px;
-    border-radius: 13px;
-    background: linear-gradient(135deg, #e8b84b, #c9952f);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: #1a1306;
-    flex-shrink: 0;
+  .logo {
+    width: 46px; height: 46px; border-radius: 13px;
+    overflow: hidden; flex-shrink: 0;
+    background: rgba(255,255,255,0.08);
   }
-  .header-text { flex: 1; min-width: 0; }
+  .logo img { width: 100%; height: 100%; object-fit: cover; }
+  .header-text { flex: 1; }
   .brand-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 0.03em;
-    line-height: 1.1;
-    color: #ffffff;
+    font-size: 22px; letter-spacing: 0.03em;
+    line-height: 1.1; color: #fff;
   }
-  .brand-sub {
-    font-size: 11px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.5);
-    margin-top: 2px;
-    letter-spacing: 0.02em;
-  }
+  .brand-sub { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.45); margin-top: 2px; }
+
   .period-pill {
     display: inline-block;
-    font-size: 10px;
-    font-weight: 800;
+    font-size: 10px; font-weight: 800;
     color: #3ecf8e;
     background: rgba(62,207,142,0.12);
-    border: 1px solid rgba(62,207,142,0.3);
+    border: 1px solid rgba(62,207,142,0.28);
     border-radius: 20px;
-    padding: 5px 11px;
-    margin-bottom: 1.25rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
+    padding: 5px 12px;
+    margin-bottom: 1.4rem;
+    text-transform: uppercase; letter-spacing: 0.07em;
   }
 
-  /* Diagnostic text card */
-  .diag-card {
-    padding: 1.2rem 1.25rem;
-    margin-bottom: 14px;
-  }
-  .diag-label {
-    font-size: 10px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.45);
-    margin-bottom: 8px;
-  }
-  .diag-text {
-    font-size: 14.5px;
-    font-weight: 600;
-    line-height: 1.65;
-    color: #ffffff;
-  }
-  .diag-text b, .diag-text strong {
-    color: #3ecf8e;
-    font-weight: 800;
-  }
-
-  /* Headline metric card (the most important data) */
-  .headline-card {
-    padding: 1.4rem 1.3rem;
-    margin-bottom: 14px;
+  /* Hero metric */
+  .hero {
+    padding: 1.5rem 1.3rem;
+    margin-bottom: 12px;
     text-align: center;
   }
-  .headline-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 10px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+  .hero-tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.08em;
     color: #3ecf8e;
     background: rgba(62,207,142,0.15);
-    border-radius: 20px;
-    padding: 4px 12px;
-    margin-bottom: 12px;
+    border-radius: 20px; padding: 4px 12px;
+    margin-bottom: 14px;
   }
-  .headline-number {
+  .hero-number {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 56px;
-    line-height: 1;
-    color: #3ecf8e;
-    letter-spacing: 0.01em;
+    font-size: 64px; line-height: 1;
+    color: #3ecf8e; letter-spacing: 0.01em;
   }
-  .headline-sub {
-    font-size: 13px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.65);
-    margin-top: 8px;
-    line-height: 1.5;
+  .hero-label {
+    font-size: 14px; font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    margin-top: 8px; line-height: 1.5;
   }
+  .hero-label b { color: #3ecf8e; font-weight: 800; }
 
   /* Section title */
   .section-title {
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.4);
-    margin: 1.5rem 0 10px;
-    padding-left: 2px;
+    font-size: 10px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.09em;
+    color: rgba(255,255,255,0.38);
+    margin: 1.5rem 0 10px; padding-left: 2px;
   }
 
-  /* Metric grid */
-  .metric-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 6px;
-  }
-  .metric-card {
-    padding: 0.95rem 1rem;
-  }
-  .metric-card.positive {
-    background: rgba(20,120,75,0.18);
-    border: 1px solid rgba(62,207,142,0.32);
-  }
-  .metric-label {
-    font-size: 10.5px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.55);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: 6px;
-  }
-  .metric-value {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    color: #ffffff;
-    line-height: 1;
-  }
-  .metric-card.positive .metric-value { color: #3ecf8e; }
-  .metric-note {
-    font-size: 10.5px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.45);
-    margin-top: 5px;
-    line-height: 1.4;
-  }
-  .metric-card.positive .metric-note { color: rgba(62,207,142,0.75); }
+  /* 2-col grid */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
 
-  /* Funnel */
-  .funnel-card {
-    padding: 1.1rem 1rem;
-    margin-bottom: 6px;
-  }
-  .funnel-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .funnel-step {
-    flex: 1;
-    text-align: center;
-    padding: 0.7rem 0.4rem;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.05);
-  }
-  .funnel-step.end {
+  .metric-card { padding: 0.95rem 1rem; }
+  .metric-card.green {
     background: rgba(20,120,75,0.2);
     border: 1px solid rgba(62,207,142,0.3);
+    border-radius: 20px;
   }
-  .funnel-step-label {
-    font-size: 9.5px;
-    font-weight: 800;
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-    margin-bottom: 4px;
+  .metric-card.neutral {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 20px;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
   }
-  .funnel-step.end .funnel-step-label { color: #3ecf8e; }
-  .funnel-step-value {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 19px;
-    color: #ffffff;
-  }
-  .funnel-step.end .funnel-step-value { color: #3ecf8e; }
-  .funnel-arrow {
-    font-size: 16px;
-    color: rgba(255,255,255,0.3);
-    flex-shrink: 0;
-  }
-  .funnel-rates {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-  }
-  .funnel-rate { text-align: center; }
-  .funnel-rate-value {
-    font-size: 16px;
-    font-weight: 800;
-    color: #3ecf8e;
-  }
-  .funnel-rate-label {
-    font-size: 9.5px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.4);
-    margin-top: 2px;
-  }
-
-  /* Chart card */
-  .chart-card {
-    padding: 1.1rem 1.1rem 1.2rem;
-    margin-bottom: 12px;
-  }
-  .chart-title {
-    font-size: 12.5px;
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 2px;
-  }
-  .chart-subtitle {
-    font-size: 10.5px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 0.9rem;
-  }
-  .chart-wrap { position: relative; width: 100%; }
-
-  /* Small stat row */
-  .small-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+  .m-label {
+    font-size: 10px; font-weight: 800;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase; letter-spacing: 0.04em;
     margin-bottom: 6px;
   }
-  .small-card {
-    padding: 0.8rem 0.9rem;
-  }
-  .small-label {
-    font-size: 10px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.45);
-    margin-bottom: 4px;
-  }
-  .small-value {
+  .metric-card.green .m-label { color: rgba(62,207,142,0.7); }
+  .m-value {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    color: #ffffff;
+    font-size: 30px; color: #fff; line-height: 1;
+  }
+  .metric-card.green .m-value { color: #3ecf8e; }
+  .m-note { font-size: 10.5px; font-weight: 700; color: rgba(255,255,255,0.4); margin-top: 5px; line-height: 1.4; }
+  .metric-card.green .m-note { color: rgba(62,207,142,0.65); }
+
+  /* Evolution card */
+  .evo-card { padding: 1.1rem 1.2rem; margin-bottom: 10px; }
+  .evo-title { font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+  .evo-sub { font-size: 10.5px; font-weight: 600; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+  .chart-wrap { position: relative; width: 100%; }
+
+  /* Funnel */
+  .funnel-card { padding: 1.1rem 1rem; margin-bottom: 10px; }
+  .funnel-row { display: flex; align-items: center; gap: 6px; }
+  .funnel-step {
+    flex: 1; text-align: center;
+    padding: 0.65rem 0.3rem;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .funnel-step.highlight {
+    background: rgba(20,120,75,0.22);
+    border: 1px solid rgba(62,207,142,0.32);
+  }
+  .f-label {
+    font-size: 9px; font-weight: 800;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .funnel-step.highlight .f-label { color: #3ecf8e; }
+  .f-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px; color: #fff;
+  }
+  .funnel-step.highlight .f-value { color: #3ecf8e; }
+  .f-arrow { font-size: 14px; color: rgba(255,255,255,0.25); flex-shrink: 0; }
+  .funnel-rates {
+    display: flex; justify-content: space-around;
+    margin-top: 10px; padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .f-rate { text-align: center; }
+  .f-rate-val { font-size: 16px; font-weight: 800; color: #3ecf8e; }
+  .f-rate-label { font-size: 9.5px; font-weight: 700; color: rgba(255,255,255,0.38); margin-top: 2px; }
+
+  /* Highlight text card */
+  .text-card { padding: 1.15rem 1.2rem; margin-bottom: 10px; }
+  .text-card-label {
+    font-size: 10px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.09em;
+    color: rgba(62,207,142,0.7); margin-bottom: 8px;
+  }
+  .text-card-body {
+    font-size: 14px; font-weight: 600;
+    line-height: 1.7; color: #fff;
+  }
+  .text-card-body b { color: #3ecf8e; font-weight: 800; }
+
+  /* Comparison row */
+  .comp-row {
+    display: flex; align-items: center;
+    padding: 0.85rem 1.1rem;
+    margin-bottom: 8px;
+    gap: 12px;
+  }
+  .comp-label { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.55); flex: 1; }
+  .comp-before {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px; color: rgba(255,255,255,0.3);
+    white-space: nowrap;
+  }
+  .comp-arrow { font-size: 14px; color: rgba(255,255,255,0.25); }
+  .comp-after {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; color: #3ecf8e;
+    white-space: nowrap;
+  }
+  .comp-delta {
+    font-size: 10px; font-weight: 800;
+    color: #3ecf8e;
+    background: rgba(62,207,142,0.12);
+    border-radius: 20px; padding: 3px 8px;
+    white-space: nowrap;
   }
 
   /* Footer */
   .footer {
     margin-top: 1.75rem;
-    padding-top: 1.1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 10.5px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.35);
-    text-align: center;
-    line-height: 1.6;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 10.5px; font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    text-align: center; line-height: 1.6;
   }
 </style>
 </head>
@@ -332,189 +250,234 @@
 
   <!-- Header -->
   <div class="header glass">
-    <div class="logo-circle" style="background: rgba(255,255,255,0.08); padding: 0; overflow: hidden;"><img src="https://raw.githubusercontent.com/WesleyRickAraujo/RockersADS/main/logo.png" alt="Rocker's Burger" style="width: 100%; height: 100%; object-fit: cover; border-radius: 13px;"></div>
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/WesleyRickAraujo/RockersADS/main/logo.png" alt="Rocker's Burger">
+    </div>
     <div class="header-text">
       <div class="brand-title">Rocker's Burger</div>
-      <div class="brand-sub">Campanha Copa — Mensagem/Tráfego</div>
+      <div class="brand-sub">Campanha 04 — Engajamento</div>
     </div>
   </div>
 
-  <span class="period-pill">11 a 18 de junho · 2026</span>
+  <span class="period-pill">22 a 27 de junho · 2026</span>
 
-  <!-- Diagnostic text -->
-  <div class="glass diag-card">
-    <div class="diag-label">Diagnóstico</div>
-    <div class="diag-text">
-      A campanha mudou de patamar. Não é só uma evolução — é um <b>salto de categoria</b>. O funil está limpo, sem vazamento no meio do caminho, e o custo por resultado final continua extremamente saudável.
+  <!-- Hero -->
+  <div class="glass green hero">
+    <div class="hero-tag">Melhor resultado da conta até agora</div>
+    <div class="hero-number">1,93%</div>
+    <div class="hero-label">CTR — maior taxa de cliques <b>desde o primeiro anúncio</b>. A cada campanha o número cresce.</div>
+  </div>
+
+  <!-- Evolução CTR -->
+  <p class="section-title">Evolução do CTR — campanha a campanha</p>
+  <div class="glass evo-card">
+    <div class="evo-title">O algoritmo está aprendendo</div>
+    <div class="evo-sub">Taxa de cliques crescendo a cada campanha</div>
+    <div class="chart-wrap" style="height: 160px;">
+      <canvas id="chartCTR" role="img" aria-label="Evolução do CTR ao longo das campanhas: reconhecimento 0,08%, Copa 1,24%, campanha atual 1,93%">CTR: reconhecimento 0,08%. Copa 1,24%. Atual 1,93%.</canvas>
     </div>
   </div>
 
-  <!-- Headline: o dado que mais importa -->
-  <div class="glass green headline-card">
-    <div class="headline-tag"><i></i>O dado que mais importa</div>
-    <div class="headline-number">15,8x</div>
-    <div class="headline-sub">O CTR saltou de 0,08% para 1,24% — resultado direto da nova copy, do CTA direto e da troca de objetivo para Mensagem/Tráfego.</div>
+  <!-- KPIs positivos -->
+  <p class="section-title">Resultados da campanha</p>
+  <div class="grid2">
+    <div class="metric-card green">
+      <div class="m-label">Páginas abertas</div>
+      <div class="m-value">159</div>
+      <div class="m-note">✓ +43 vs campanha Copa</div>
+    </div>
+    <div class="metric-card green">
+      <div class="m-label">Custo / página</div>
+      <div class="m-value">R$0,44</div>
+      <div class="m-note">✓ R$0,06 mais barato que antes</div>
+    </div>
+    <div class="metric-card green">
+      <div class="m-label">Cliques no link</div>
+      <div class="m-value">194</div>
+      <div class="m-note">✓ +50 cliques vs Copa</div>
+    </div>
+    <div class="metric-card green">
+      <div class="m-label">Custo / clique</div>
+      <div class="m-value">R$0,36</div>
+      <div class="m-note">✓ 11% mais barato que antes</div>
+    </div>
+    <div class="metric-card neutral">
+      <div class="m-label">Alcance</div>
+      <div class="m-value">6.992</div>
+      <div class="m-note">pessoas únicas</div>
+    </div>
+    <div class="metric-card neutral">
+      <div class="m-label">Engajamentos</div>
+      <div class="m-value">1.938</div>
+      <div class="m-note">R$0,036 por interação</div>
+    </div>
   </div>
 
-  <!-- Metrics -->
-  <p class="section-title">Resumo da campanha</p>
-  <div class="metric-grid">
-    <div class="glass metric-card">
-      <div class="metric-label">Investido</div>
-      <div class="metric-value">R$58</div>
-      <div class="metric-note">83% de R$70 previstos</div>
-    </div>
-    <div class="glass metric-card">
-      <div class="metric-label">Alcance</div>
-      <div class="metric-value">9.850</div>
-      <div class="metric-note">pessoas únicas · freq 1,18</div>
-    </div>
-    <div class="glass metric-card positive">
-      <div class="metric-label">CTR no link</div>
-      <div class="metric-value">1,24%</div>
-      <div class="metric-note">✓ 15,8x maior que antes</div>
-    </div>
-    <div class="glass metric-card positive">
-      <div class="metric-label">Páginas no Anotai</div>
-      <div class="metric-value">116</div>
-      <div class="metric-note">✓ R$0,50 por resultado</div>
-    </div>
-  </div>
-
-  <!-- Funnel -->
-  <p class="section-title">Funil até o pedido</p>
+  <!-- Funil -->
+  <p class="section-title">Funil até o anotai</p>
   <div class="glass funnel-card">
     <div class="funnel-row">
       <div class="funnel-step">
-        <div class="funnel-step-label">Impressões</div>
-        <div class="funnel-step-value">11.637</div>
+        <div class="f-label">Impressões</div>
+        <div class="f-value">10.069</div>
       </div>
-      <span class="funnel-arrow">→</span>
+      <span class="f-arrow">→</span>
       <div class="funnel-step">
-        <div class="funnel-step-label">Cliques</div>
-        <div class="funnel-step-value">144</div>
+        <div class="f-label">Cliques</div>
+        <div class="f-value">194</div>
       </div>
-      <span class="funnel-arrow">→</span>
-      <div class="funnel-step end">
-        <div class="funnel-step-label">Anotai</div>
-        <div class="funnel-step-value">116</div>
+      <span class="f-arrow">→</span>
+      <div class="funnel-step highlight">
+        <div class="f-label">Anotai</div>
+        <div class="f-value">159</div>
       </div>
     </div>
     <div class="funnel-rates">
-      <div class="funnel-rate">
-        <div class="funnel-rate-value">1,2%</div>
-        <div class="funnel-rate-label">impressão → clique</div>
+      <div class="f-rate">
+        <div class="f-rate-val">1,93%</div>
+        <div class="f-rate-label">impressão → clique</div>
       </div>
-      <div class="funnel-rate">
-        <div class="funnel-rate-value">80,6%</div>
-        <div class="funnel-rate-label">clique → página aberta</div>
+      <div class="f-rate">
+        <div class="f-rate-val">81,9%</div>
+        <div class="f-rate-label">clique → página aberta</div>
       </div>
     </div>
   </div>
 
-  <!-- Charts -->
-  <p class="section-title">Comparativos</p>
+  <!-- Visitas ao perfil -->
+  <p class="section-title">Destaque — visitas ao perfil do instagram</p>
+  <div class="glass green text-card">
+    <div class="text-card-label">🚀 Alta de 188%</div>
+    <div class="text-card-body">
+      As visitas ao perfil saltaram de <b>58 para 167</b> — quase o triplo. O anúncio está gerando curiosidade real pela marca: as pessoas clicam, exploram o perfil e conhecem a Rocker's. Fortalecimento de marca acontecendo junto com o tráfego.
+    </div>
+  </div>
 
-  <div class="glass chart-card">
-    <div class="chart-title">CTR — antes vs. agora</div>
-    <div class="chart-subtitle">Percentual de pessoas que clicaram no anúncio</div>
+  <!-- Comparativo Copa -->
+  <p class="section-title">Comparativo com campanha anterior</p>
+  <div class="comp-row glass">
+    <span class="comp-label">CTR</span>
+    <span class="comp-before">1,24%</span>
+    <span class="comp-arrow">→</span>
+    <span class="comp-after">1,93%</span>
+    <span class="comp-delta">+56%</span>
+  </div>
+  <div class="comp-row glass">
+    <span class="comp-label">Páginas abertas</span>
+    <span class="comp-before">116</span>
+    <span class="comp-arrow">→</span>
+    <span class="comp-after">159</span>
+    <span class="comp-delta">+37%</span>
+  </div>
+  <div class="comp-row glass">
+    <span class="comp-label">Custo / página</span>
+    <span class="comp-before">R$0,50</span>
+    <span class="comp-arrow">→</span>
+    <span class="comp-after">R$0,44</span>
+    <span class="comp-delta">-12%</span>
+  </div>
+  <div class="comp-row glass">
+    <span class="comp-label">Visitas ao perfil</span>
+    <span class="comp-before">58</span>
+    <span class="comp-arrow">→</span>
+    <span class="comp-after">167</span>
+    <span class="comp-delta">+188%</span>
+  </div>
+  <div class="comp-row glass">
+    <span class="comp-label">Custo / clique</span>
+    <span class="comp-before">R$0,40</span>
+    <span class="comp-arrow">→</span>
+    <span class="comp-after">R$0,36</span>
+    <span class="comp-delta">-11%</span>
+  </div>
+
+  <!-- Chart engajamentos -->
+  <p class="section-title">Engajamentos por campanha</p>
+  <div class="glass evo-card">
+    <div class="evo-title">Interações crescendo</div>
+    <div class="evo-sub">Curtidas, cliques, salvamentos e mais</div>
     <div class="chart-wrap" style="height: 150px;">
-      <canvas id="chartCTR" role="img" aria-label="CTR da campanha anterior 0,08% comparado à campanha atual 1,24%, um salto de 15,8 vezes">CTR anterior: 0,08%. CTR atual: 1,24%.</canvas>
-    </div>
-  </div>
-
-  <div class="glass chart-card">
-    <div class="chart-title">CPM — antes vs. agora</div>
-    <div class="chart-subtitle">Custo por mil pessoas alcançadas — alta natural da Copa</div>
-    <div class="chart-wrap" style="height: 150px;">
-      <canvas id="chartCPM" role="img" aria-label="CPM da campanha anterior R$1,27 comparado à campanha atual R$4,99, quase 4 vezes maior devido à concorrência da Copa do Mundo">CPM anterior: R$1,27. CPM atual: R$4,99.</canvas>
-    </div>
-  </div>
-
-  <div class="glass chart-card">
-    <div class="chart-title">Retenção do vídeo</div>
-    <div class="chart-subtitle">De quem assistiu 3 segundos ou mais</div>
-    <div class="chart-wrap" style="height: 170px;">
-      <canvas id="chartRetencao" role="img" aria-label="Retenção do vídeo: 47% chega a 25%, 47% chega a 50%, queda forte para 11% em 75%, 8% chega ao final">Retenção: 25% do vídeo 47%, 50% do vídeo 47%, 75% do vídeo 11%, 95% do vídeo 8%, 100% do vídeo 8%.</canvas>
-    </div>
-  </div>
-
-  <!-- Small stats -->
-  <p class="section-title">Outros indicadores</p>
-  <div class="small-grid">
-    <div class="glass small-card">
-      <div class="small-label">Engajamentos</div>
-      <div class="small-value">1.563</div>
-    </div>
-    <div class="glass small-card">
-      <div class="small-label">Custo / engajamento</div>
-      <div class="small-value">R$0,04</div>
-    </div>
-    <div class="glass small-card">
-      <div class="small-label">Visitas ao perfil</div>
-      <div class="small-value">58</div>
-    </div>
-    <div class="glass small-card">
-      <div class="small-label">Custo / ThruPlay</div>
-      <div class="small-value">R$0,38</div>
+      <canvas id="chartEng" role="img" aria-label="Engajamentos por campanha: reconhecimento 1806, Copa 1563, atual 1938">Engajamentos: reconhecimento 1806. Copa 1563. Atual 1938.</canvas>
     </div>
   </div>
 
   <!-- Footer -->
   <div class="footer">
     Rocker's Burger — Relatório de Tráfego Pago<br>
-    11–18 jun 2026 · R$58,12 investidos
+    22–27 jun 2026 · R$69,90 investidos
   </div>
 
 </div>
 
 <script>
-const textColor = 'rgba(255,255,255,0.55)';
-const gridColor = 'rgba(255,255,255,0.08)';
 const green = '#3ecf8e';
-const gray = 'rgba(255,255,255,0.25)';
-const amber = '#e8b84b';
-const purple = '#9b8cf2';
+const greenDim = 'rgba(62,207,142,0.3)';
+const gold = '#e8b84b';
+const white = 'rgba(255,255,255,0.85)';
+const muted = 'rgba(255,255,255,0.45)';
+const grid = 'rgba(255,255,255,0.07)';
+const purp = '#9b8cf2';
 
-const baseOpts = {
-  indexAxis: 'y',
+const base = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
     legend: { display: false },
-    tooltip: { backgroundColor: '#15171a', borderColor: gridColor, borderWidth: 1, titleColor: '#fff', bodyColor: textColor, padding: 10, titleFont: { weight: 800 }, bodyFont: { weight: 700 } }
-  },
-  scales: {
-    x: { ticks: { color: textColor, font: { size: 11, weight: 700 } }, grid: { color: gridColor }, border: { display: false } },
-    y: { ticks: { color: '#fff', font: { size: 12, weight: 800 } }, grid: { display: false }, border: { display: false } }
+    tooltip: {
+      backgroundColor: '#0e1210',
+      borderColor: 'rgba(255,255,255,0.1)',
+      borderWidth: 1,
+      titleColor: '#fff',
+      bodyColor: muted,
+      padding: 10,
+      titleFont: { weight: 800, family: 'Manrope' },
+      bodyFont: { weight: 700, family: 'Manrope' }
+    }
   }
 };
 
+// CTR evolution
 new Chart(document.getElementById('chartCTR'), {
   type: 'bar',
   data: {
-    labels: ['Antes', 'Agora'],
-    datasets: [{ data: [0.08, 1.24], backgroundColor: [gray, green], borderRadius: 8, barThickness: 26 }]
+    labels: ['Reconhecimento', 'Copa', 'Campanha 04'],
+    datasets: [{
+      data: [0.08, 1.24, 1.93],
+      backgroundColor: ['rgba(255,255,255,0.15)', 'rgba(62,207,142,0.4)', green],
+      borderRadius: 10,
+      barThickness: 36,
+    }]
   },
-  options: { ...baseOpts, scales: { ...baseOpts.scales, x: { ...baseOpts.scales.x, ticks: { ...baseOpts.scales.x.ticks, callback: v => v + '%' } } } }
+  options: {
+    ...base,
+    indexAxis: 'x',
+    scales: {
+      x: { ticks: { color: muted, font: { size: 11, weight: 700 } }, grid: { display: false }, border: { display: false } },
+      y: { ticks: { color: muted, font: { size: 11, weight: 700 }, callback: v => v + '%' }, grid: { color: grid }, border: { display: false } }
+    }
+  }
 });
 
-new Chart(document.getElementById('chartCPM'), {
+// Engajamentos
+new Chart(document.getElementById('chartEng'), {
   type: 'bar',
   data: {
-    labels: ['Antes', 'Agora'],
-    datasets: [{ data: [1.27, 4.99], backgroundColor: [gray, amber], borderRadius: 8, barThickness: 26 }]
+    labels: ['Reconhecimento', 'Copa', 'Campanha 04'],
+    datasets: [{
+      data: [1806, 1563, 1938],
+      backgroundColor: ['rgba(255,255,255,0.15)', 'rgba(155,140,242,0.4)', purp],
+      borderRadius: 10,
+      barThickness: 36,
+    }]
   },
-  options: { ...baseOpts, scales: { ...baseOpts.scales, x: { ...baseOpts.scales.x, ticks: { ...baseOpts.scales.x.ticks, callback: v => 'R$' + v.toFixed(2) } } } }
-});
-
-new Chart(document.getElementById('chartRetencao'), {
-  type: 'bar',
-  data: {
-    labels: ['25%', '50%', '75%', '95%', '100%'],
-    datasets: [{ data: [47.2, 46.7, 11.1, 7.6, 7.6], backgroundColor: purple, borderRadius: 8, barThickness: 18 }]
-  },
-  options: { ...baseOpts, scales: { ...baseOpts.scales, x: { ...baseOpts.scales.x, ticks: { ...baseOpts.scales.x.ticks, callback: v => v + '%' }, max: 55 } } }
+  options: {
+    ...base,
+    indexAxis: 'x',
+    scales: {
+      x: { ticks: { color: muted, font: { size: 11, weight: 700 } }, grid: { display: false }, border: { display: false } },
+      y: { ticks: { color: muted, font: { size: 11, weight: 700 } }, grid: { color: grid }, border: { display: false } }
+    }
+  }
 });
 </script>
 </body>
