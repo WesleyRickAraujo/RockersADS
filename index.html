@@ -257,12 +257,47 @@
     </div>
   </div>
 
-  <!-- Chart comparativo -->
+  <!-- Comparativo claro: dias no ar vs conversas -->
   <div class="glass chart-card">
-    <div class="chart-title">Conversas por dia no ar</div>
-    <div class="chart-subtitle">Quando ajustamos pelo tempo que cada vídeo ficou ativo</div>
-    <div class="chart-wrap" style="height: 150px;">
-      <canvas id="chartConv" role="img" aria-label="Conversas por dia: M. Shadows 4 por dia, Fecha Mês 0,5 por dia">M. Shadows: 4 conversas por dia. Fecha Mês: 0,5 conversa por dia.</canvas>
+    <div class="chart-title">O que mais impressiona</div>
+    <div class="chart-subtitle">O vídeo campeão ficou menos tempo no ar e mesmo assim rendeu mais</div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 4px;">
+
+      <!-- M Shadows -->
+      <div style="background: rgba(20,120,75,0.18); border: 1px solid rgba(62,207,142,0.3); border-radius: 16px; padding: 0.9rem 1rem;">
+        <div style="font-size: 13px; font-weight: 800; color: #3ecf8e; margin-bottom: 10px;">🏆 Vídeo "M. Shadows"</div>
+        <div style="display: flex; gap: 10px;">
+          <div style="flex: 1; text-align: center; background: rgba(255,255,255,0.06); border-radius: 12px; padding: 0.6rem 0.3rem;">
+            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; line-height: 1;">2 dias</div>
+            <div style="font-size: 9px; font-weight: 800; color: rgba(255,255,255,0.45); text-transform: uppercase; margin-top: 4px;">no ar</div>
+          </div>
+          <div style="flex: 1; text-align: center; background: rgba(255,255,255,0.06); border-radius: 12px; padding: 0.6rem 0.3rem;">
+            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #3ecf8e; line-height: 1;">8</div>
+            <div style="font-size: 9px; font-weight: 800; color: rgba(62,207,142,0.7); text-transform: uppercase; margin-top: 4px;">conversas</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fecha Mês -->
+      <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 0.9rem 1rem;">
+        <div style="font-size: 13px; font-weight: 800; color: rgba(255,255,255,0.7); margin-bottom: 10px;">🍔 Vídeo "Fecha Mês"</div>
+        <div style="display: flex; gap: 10px;">
+          <div style="flex: 1; text-align: center; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 0.6rem 0.3rem;">
+            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; line-height: 1;">6 dias</div>
+            <div style="font-size: 9px; font-weight: 800; color: rgba(255,255,255,0.45); text-transform: uppercase; margin-top: 4px;">no ar</div>
+          </div>
+          <div style="flex: 1; text-align: center; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 0.6rem 0.3rem;">
+            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: rgba(255,255,255,0.8); line-height: 1;">3</div>
+            <div style="font-size: 9px; font-weight: 800; color: rgba(255,255,255,0.45); text-transform: uppercase; margin-top: 4px;">conversas</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="font-size: 12px; font-weight: 600; color: rgba(62,207,142,0.75); line-height: 1.6; margin-top: 12px; text-align: center;">
+      Em <b style="color:#3ecf8e;">3x menos tempo</b>, o "M. Shadows" trouxe <b style="color:#3ecf8e;">mais que o dobro</b> de conversas.
     </div>
   </div>
 
@@ -311,32 +346,7 @@
 </div>
 
 <script>
-const green = '#3ecf8e';
-const muted = 'rgba(255,255,255,0.45)';
-const grid = 'rgba(255,255,255,0.07)';
-
-new Chart(document.getElementById('chartConv'), {
-  type: 'bar',
-  data: {
-    labels: ['M. Shadows', 'Fecha Mês'],
-    datasets: [{
-      data: [4.0, 0.5],
-      backgroundColor: [green, 'rgba(255,255,255,0.2)'],
-      borderRadius: 10, barThickness: 40,
-    }]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false, indexAxis: 'y',
-    plugins: {
-      legend: { display: false },
-      tooltip: { backgroundColor: '#0e1210', borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, titleColor: '#fff', bodyColor: muted, padding: 10, titleFont: { weight: 800 }, bodyFont: { weight: 700 }, callbacks: { label: c => c.parsed.x + ' conversas por dia' } }
-    },
-    scales: {
-      x: { ticks: { color: muted, font: { size: 11, weight: 700 }, callback: v => v + '/dia' }, grid: { color: grid }, border: { display: false } },
-      y: { ticks: { color: '#fff', font: { size: 12, weight: 800 } }, grid: { display: false }, border: { display: false } }
-    }
-  }
-});
+// Sem gráficos dinâmicos — comparativo é estático para máxima clareza
 </script>
 </body>
 </html>
