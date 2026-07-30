@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Rocker's Burger — Campanha 05</title>
+<title>Rocker's Burger — Campanha FechaMês</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
@@ -18,13 +18,13 @@
   body::before {
     content: ''; position: fixed;
     top: -10%; left: -20%; width: 70%; height: 40%;
-    background: radial-gradient(circle, rgba(20,90,60,0.38) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(20,90,60,0.35) 0%, transparent 70%);
     pointer-events: none; z-index: 0;
   }
   body::after {
     content: ''; position: fixed;
-    bottom: -10%; right: -20%; width: 70%; height: 40%;
-    background: radial-gradient(circle, rgba(232,184,75,0.13) 0%, transparent 70%);
+    bottom: -5%; right: -20%; width: 70%; height: 40%;
+    background: radial-gradient(circle, rgba(232,184,75,0.12) 0%, transparent 70%);
     pointer-events: none; z-index: 0;
   }
   .container { max-width: 420px; margin: 0 auto; position: relative; z-index: 1; }
@@ -51,26 +51,20 @@
     text-transform: uppercase; letter-spacing: 0.07em;
   }
 
-  /* Hero */
-  .hero { padding: 1.5rem 1.3rem; margin-bottom: 12px; text-align: center; }
-  .hero-tag {
-    display: inline-block; font-size: 10px; font-weight: 800;
-    text-transform: uppercase; letter-spacing: 0.08em;
-    color: #3ecf8e; background: rgba(62,207,142,0.15);
-    border-radius: 20px; padding: 4px 12px; margin-bottom: 14px;
-  }
-  .hero-number { font-family: 'Bebas Neue', sans-serif; font-size: 64px; line-height: 1; color: #3ecf8e; }
-  .hero-label { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.6); margin-top: 8px; line-height: 1.5; }
-  .hero-label b { color: #3ecf8e; font-weight: 800; }
-
   /* Section title */
   .section-title {
     font-size: 10px; font-weight: 800; text-transform: uppercase;
     letter-spacing: 0.09em; color: rgba(255,255,255,0.38);
-    margin: 1.5rem 0 10px; padding-left: 2px;
+    margin: 1.6rem 0 10px; padding-left: 2px;
   }
 
-  /* Grid */
+  /* Intro */
+  .intro-card { padding: 1.15rem 1.2rem; margin-bottom: 1rem; }
+  .intro-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.09em; color: rgba(62,207,142,0.7); margin-bottom: 8px; }
+  .intro-body { font-size: 14px; font-weight: 600; line-height: 1.7; color: #fff; }
+  .intro-body b { color: #3ecf8e; font-weight: 800; }
+
+  /* KPI grid */
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
   .metric-card { padding: 0.95rem 1rem; border-radius: 20px; }
   .metric-card.green { background: rgba(20,120,75,0.2); border: 1px solid rgba(62,207,142,0.3); }
@@ -82,42 +76,61 @@
   .m-note { font-size: 10.5px; font-weight: 700; color: rgba(255,255,255,0.4); margin-top: 5px; line-height: 1.4; }
   .metric-card.green .m-note { color: rgba(62,207,142,0.65); }
 
-  /* Highlight text card */
-  .text-card { padding: 1.15rem 1.2rem; margin-bottom: 10px; }
-  .text-card-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.09em; color: rgba(62,207,142,0.7); margin-bottom: 8px; }
-  .text-card-label.amber-label { color: rgba(232,184,75,0.8); }
-  .text-card-body { font-size: 14px; font-weight: 600; line-height: 1.7; color: #fff; }
-  .text-card-body b { color: #3ecf8e; font-weight: 800; }
-  .text-card-body b.gold { color: #e8b84b; }
+  /* Warning card */
+  .warn-card { padding: 1.2rem 1.25rem; margin-bottom: 1rem; }
+  .warn-head { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; }
+  .warn-icon { font-size: 20px; }
+  .warn-title { font-size: 14px; font-weight: 800; color: #e8b84b; }
+  .warn-body { font-size: 13.5px; font-weight: 600; line-height: 1.7; color: rgba(255,255,255,0.72); }
+  .warn-body b { color: #e8b84b; font-weight: 800; }
 
-  /* Comparison row */
-  .comp-row { display: flex; align-items: center; padding: 0.85rem 1.1rem; margin-bottom: 8px; gap: 10px; }
-  .comp-label { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.55); flex: 1; }
-  .comp-before { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: rgba(255,255,255,0.3); white-space: nowrap; }
-  .comp-arrow { font-size: 14px; color: rgba(255,255,255,0.2); }
-  .comp-after { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #3ecf8e; white-space: nowrap; }
-  .comp-delta { font-size: 10px; font-weight: 800; color: #3ecf8e; background: rgba(62,207,142,0.12); border-radius: 20px; padding: 3px 8px; white-space: nowrap; }
+  /* Creative comparison cards */
+  .creative-card { padding: 1.1rem 1.15rem; margin-bottom: 10px; position: relative; }
+  .creative-card.winner { background: rgba(20,120,75,0.2); border: 1px solid rgba(62,207,142,0.4); }
+  .creative-card.didnt-run { opacity: 0.85; }
+  .creative-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .creative-name { font-size: 14px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 8px; }
+  .creative-tag { font-size: 9px; font-weight: 800; padding: 3px 9px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .tag-winner { background: rgba(62,207,142,0.2); color: #3ecf8e; }
+  .tag-ok { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
+  .tag-off { background: rgba(232,184,75,0.15); color: #e8b84b; }
+  .creative-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .cstat { text-align: center; padding: 0.5rem 0.2rem; background: rgba(255,255,255,0.04); border-radius: 12px; }
+  .creative-card.winner .cstat { background: rgba(255,255,255,0.06); }
+  .cstat-value { font-family: 'Bebas Neue', sans-serif; font-size: 21px; color: #fff; line-height: 1; }
+  .cstat-value.hl { color: #3ecf8e; }
+  .cstat-label { font-size: 8.5px; font-weight: 800; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-top: 3px; letter-spacing: 0.02em; }
+  .creative-note { font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,0.5); margin-top: 10px; line-height: 1.5; }
+  .creative-card.winner .creative-note { color: rgba(62,207,142,0.75); }
+  .didnt-run-msg { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.55); padding: 0.3rem 0.2rem; line-height: 1.6; }
+  .didnt-run-msg::first-line { color: #e8b84b; }
 
-  /* Chart card */
+  /* Chart */
   .chart-card { padding: 1.1rem 1.1rem 1.2rem; margin-bottom: 10px; }
-  .chart-title { font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+  .chart-title { font-size: 12.5px; font-weight: 800; color: #fff; margin-bottom: 2px; }
   .chart-subtitle { font-size: 10.5px; font-weight: 600; color: rgba(255,255,255,0.4); margin-bottom: 0.9rem; }
   .chart-wrap { position: relative; width: 100%; }
 
-  /* Saturation card */
-  .sat-card { padding: 1.2rem 1.25rem; margin-bottom: 10px; }
-  .sat-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.09em; color: rgba(232,184,75,0.75); margin-bottom: 8px; }
-  .sat-title { font-size: 15px; font-weight: 800; color: #e8b84b; margin-bottom: 8px; }
-  .sat-body { font-size: 13.5px; font-weight: 600; line-height: 1.7; color: rgba(255,255,255,0.7); }
-  .sat-body b { color: #e8b84b; font-weight: 800; }
+  /* Winner highlight */
+  .winner-hero { padding: 1.4rem 1.3rem; margin-bottom: 1rem; text-align: center; }
+  .winner-hero-tag { display: inline-block; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #3ecf8e; background: rgba(62,207,142,0.15); border-radius: 20px; padding: 4px 12px; margin-bottom: 12px; }
+  .winner-hero-name { font-family: 'Bebas Neue', sans-serif; font-size: 40px; line-height: 1; color: #3ecf8e; }
+  .winner-hero-sub { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.65); margin-top: 8px; line-height: 1.5; }
+  .winner-hero-sub b { color: #3ecf8e; font-weight: 800; }
 
-  /* Next step pill */
+  /* Glossary */
+  .gloss-card { padding: 1.1rem 1.2rem; margin-bottom: 10px; }
+  .gloss-item { padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .gloss-item:last-child { border-bottom: none; }
+  .gloss-term { font-size: 12.5px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+  .gloss-def { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  /* Next step */
   .next-card { padding: 1.1rem 1.2rem; margin-bottom: 10px; display: flex; align-items: flex-start; gap: 12px; }
   .next-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
-  .next-title { font-size: 13px; font-weight: 800; color: #e8b84b; margin-bottom: 4px; }
+  .next-title { font-size: 13px; font-weight: 800; color: #3ecf8e; margin-bottom: 4px; }
   .next-body { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); line-height: 1.6; }
 
-  /* Footer */
   .footer { margin-top: 1.75rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 10.5px; font-weight: 700; color: rgba(255,255,255,0.3); text-align: center; line-height: 1.6; }
 </style>
 </head>
@@ -131,133 +144,153 @@
     </div>
     <div>
       <div class="brand-title">Rocker's Burger</div>
-      <div class="brand-sub">Campanha 05 — Engajamento</div>
+      <div class="brand-sub">Campanha "Fecha Mês" — Pedidos no WhatsApp</div>
     </div>
   </div>
 
-  <span class="period-pill">29 de junho a 6 de julho · 2026</span>
+  <span class="period-pill">23 a 29 de julho · 2026</span>
 
-  <!-- Hero -->
-  <div class="glass green hero">
-    <div class="hero-tag">Maior alcance da conta até agora</div>
-    <div class="hero-number">10.977</div>
-    <div class="hero-label">pessoas únicas alcançadas — <b>+57% em relação à campanha anterior</b>, com o mesmo orçamento de R$ 70.</div>
-  </div>
-
-  <!-- Por que o alcance cresceu -->
-  <div class="glass green text-card">
-    <div class="text-card-label">Por que isso aconteceu</div>
-    <div class="text-card-body">
-      Com o fim da Copa do Mundo, o leilão de anúncios normalizou. O CPM caiu <b>31%</b> — de R$ 6,94 para R$ 4,81 — e o mesmo orçamento passou a comprar muito mais espaço. O algoritmo está mais maduro e entregando com mais eficiência.
+  <!-- Intro / macro -->
+  <div class="glass green intro-card">
+    <div class="intro-label">Resumo da campanha</div>
+    <div class="intro-body">
+      Esta campanha teve como meta levar as pessoas a <b>iniciar uma conversa no WhatsApp</b> para fazer o pedido. No total, foram <b>11 conversas iniciadas</b> por um custo médio de <b>R$ 6,39 cada</b> — um ótimo resultado para pedidos vindos de anúncio.
     </div>
   </div>
 
-  <!-- KPIs -->
-  <p class="section-title">Resultados da campanha</p>
+  <!-- Macro KPIs -->
   <div class="grid2">
     <div class="metric-card green">
-      <div class="m-label">CPM</div>
-      <div class="m-value">R$4,81</div>
-      <div class="m-note">✓ -31% vs camp. anterior</div>
+      <div class="m-label">Conversas no WhatsApp</div>
+      <div class="m-value">11</div>
+      <div class="m-note">✓ Pessoas chamando para pedir</div>
     </div>
     <div class="metric-card green">
-      <div class="m-label">Frequência</div>
-      <div class="m-value">1,22</div>
-      <div class="m-note">✓ Saudável e controlada</div>
-    </div>
-    <div class="metric-card green">
-      <div class="m-label">Engajamentos</div>
-      <div class="m-value">1.987</div>
-      <div class="m-note">✓ Recorde histórico da conta</div>
-    </div>
-    <div class="metric-card green">
-      <div class="m-label">Custo / engajamento</div>
-      <div class="m-value">R$0,03</div>
-      <div class="m-note">✓ Mais barato que antes</div>
+      <div class="m-label">Custo por conversa</div>
+      <div class="m-value">R$6,39</div>
+      <div class="m-note">✓ Valor saudável</div>
     </div>
     <div class="metric-card neutral">
-      <div class="m-label">Cliques no link</div>
-      <div class="m-value">144</div>
-      <div class="m-note">Direcionados ao Anotai</div>
+      <div class="m-label">Investido</div>
+      <div class="m-value">R$70</div>
+      <div class="m-note">de R$80 previstos</div>
     </div>
     <div class="metric-card neutral">
-      <div class="m-label">Visitas ao perfil</div>
-      <div class="m-value">82</div>
-      <div class="m-note">Novos visitantes do IG</div>
+      <div class="m-label">Pessoas alcançadas</div>
+      <div class="m-value">4.214</div>
+      <div class="m-note">no bairro e região</div>
     </div>
   </div>
 
-  <!-- Evolução alcance e CPM -->
-  <p class="section-title">Evolução campanha a campanha</p>
+  <!-- Warning about 3 creatives -->
+  <div class="glass amber warn-card">
+    <div class="warn-head">
+      <span class="warn-icon">⚠️</span>
+      <span class="warn-title">Um aprendizado importante desta campanha</span>
+    </div>
+    <div class="warn-body">
+      Durante esta campanha, <b>trocamos de material 3 vezes no meio do caminho</b> — foram dois vídeos e uma imagem. Isso aconteceu por uma questão de urgência, mas o ideal é evitar. Cada vez que um material novo entra, o sistema de anúncios <b>recomeça o aprendizado do zero</b> — como um atleta que precisa reaquecer toda vez que troca de posição. O resultado: um dos materiais nem chegou a ser exibido, e os outros tiveram menos tempo para render. <b>Na próxima, o ideal é definir o material antes de começar</b> e deixá-lo rodar o período inteiro.
+    </div>
+  </div>
+
+  <!-- Creative comparison -->
+  <p class="section-title">Comparativo dos 3 materiais</p>
+
+  <!-- Winner -->
+  <div class="glass creative-card winner">
+    <div class="creative-head">
+      <span class="creative-name">🎸 Vídeo "M. Shadows"</span>
+      <span class="creative-tag tag-winner">🏆 Melhor</span>
+    </div>
+    <div class="creative-stats">
+      <div class="cstat">
+        <div class="cstat-value hl">8</div>
+        <div class="cstat-label">Conversas</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-value hl">R$5,97</div>
+        <div class="cstat-label">Por conversa</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-value hl">28%</div>
+        <div class="cstat-label">Prenderam atenção</div>
+      </div>
+    </div>
+    <div class="creative-note">
+      Mesmo no ar por apenas 2 dias, foi o grande vencedor. Prendeu a atenção de quase 3x mais gente e trouxe mais conversas, mais baratas. O sistema percebeu a qualidade e direcionou a verba para ele automaticamente.
+    </div>
+  </div>
+
+  <!-- FechaMês -->
+  <div class="glass creative-card">
+    <div class="creative-head">
+      <span class="creative-name">🍔 Vídeo "Fecha Mês"</span>
+      <span class="creative-tag tag-ok">Rodou</span>
+    </div>
+    <div class="creative-stats">
+      <div class="cstat">
+        <div class="cstat-value">3</div>
+        <div class="cstat-label">Conversas</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-value">R$7,50</div>
+        <div class="cstat-label">Por conversa</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-value">11%</div>
+        <div class="cstat-label">Prenderam atenção</div>
+      </div>
+    </div>
+    <div class="creative-note">
+      Ficou no ar mais tempo (6 dias), mas prendeu menos a atenção e trouxe menos conversas, com custo mais alto. Cumpriu seu papel, mas perdeu na comparação.
+    </div>
+  </div>
+
+  <!-- Combo XSalada - didn't run -->
+  <div class="glass creative-card didnt-run">
+    <div class="creative-head">
+      <span class="creative-name">🥤 Estático "Combo X-Salada"</span>
+      <span class="creative-tag tag-off">Não entregue</span>
+    </div>
+    <div class="didnt-run-msg">
+      Diferente dos outros, este era uma imagem (não um vídeo). Foi criado e adicionado à campanha, mas o sistema praticamente não o exibiu. Isso costuma acontecer quando um material entra depois que a campanha já começou: o sistema tende a concentrar a verba nos anúncios que já vinham rodando e deixa o novo sem espaço. Não há confirmação oficial do motivo — o Meta não detalha essa decisão — mas essa é a explicação mais provável. Por isso, ele merece rodar sozinho em uma campanha própria para ser avaliado com justiça.
+    </div>
+  </div>
+
+  <!-- Chart comparativo -->
   <div class="glass chart-card">
-    <div class="chart-title">Alcance — crescimento consistente</div>
-    <div class="chart-subtitle">Pessoas únicas alcançadas por campanha</div>
-    <div class="chart-wrap" style="height: 160px;">
-      <canvas id="chartAlcance" role="img" aria-label="Evolução do alcance: campanha de reconhecimento 37671, Copa 9850, campanha 04 6992, campanha 05 10977">Alcance por campanha: reconhecimento 37671, Copa 9850, camp04 6992, camp05 10977.</canvas>
+    <div class="chart-title">Conversas por dia no ar</div>
+    <div class="chart-subtitle">Quando ajustamos pelo tempo que cada vídeo ficou ativo</div>
+    <div class="chart-wrap" style="height: 150px;">
+      <canvas id="chartConv" role="img" aria-label="Conversas por dia: M. Shadows 4 por dia, Fecha Mês 0,5 por dia">M. Shadows: 4 conversas por dia. Fecha Mês: 0,5 conversa por dia.</canvas>
     </div>
   </div>
 
-  <div class="glass chart-card">
-    <div class="chart-title">CPM — voltando ao controle</div>
-    <div class="chart-subtitle">Custo por mil pessoas alcançadas</div>
-    <div class="chart-wrap" style="height: 160px;">
-      <canvas id="chartCPM" role="img" aria-label="Evolução do CPM: reconhecimento R$1,32, Copa R$4,99, campanha 04 R$6,94, campanha 05 R$4,81">CPM: R$1,32 reconhecimento, R$4,99 Copa, R$6,94 camp04, R$4,81 camp05.</canvas>
+  <!-- Winner hero -->
+  <div class="glass green winner-hero">
+    <div class="winner-hero-tag">O grande destaque</div>
+    <div class="winner-hero-name">8x MAIS</div>
+    <div class="winner-hero-sub">Ajustado pelo tempo no ar, o vídeo <b>"M. Shadows"</b> trouxe 8 vezes mais conversas por dia que os demais. É o nosso vídeo campeão.</div>
+  </div>
+
+  <!-- Glossary -->
+  <p class="section-title">O que cada termo significa</p>
+  <div class="glass gloss-card">
+    <div class="gloss-item">
+      <div class="gloss-term">Conversa iniciada</div>
+      <div class="gloss-def">Quando uma pessoa clica no anúncio e abre o WhatsApp para falar com a hamburgueria.</div>
     </div>
-  </div>
-
-  <!-- Retenção melhora -->
-  <div class="glass green text-card">
-    <div class="text-card-label">✓ Destaque — retenção do vídeo</div>
-    <div class="text-card-body">
-      De quem parou para assistir, <b>72% chegou à metade do vídeo</b> — contra 49% na campanha anterior. O público que se interessa está assistindo mais. Isso é uma evolução real de qualidade de audiência.
+    <div class="gloss-item">
+      <div class="gloss-term">Custo por conversa</div>
+      <div class="gloss-def">Quanto foi investido, em média, para cada pessoa que chamou no WhatsApp.</div>
     </div>
-  </div>
-
-  <!-- Comparativo -->
-  <p class="section-title">Comparativo com campanha anterior</p>
-  <div class="comp-row glass">
-    <span class="comp-label">CPM</span>
-    <span class="comp-before">R$6,94</span>
-    <span class="comp-arrow">→</span>
-    <span class="comp-after">R$4,81</span>
-    <span class="comp-delta">-31%</span>
-  </div>
-  <div class="comp-row glass">
-    <span class="comp-label">Alcance</span>
-    <span class="comp-before">6.992</span>
-    <span class="comp-arrow">→</span>
-    <span class="comp-after">10.977</span>
-    <span class="comp-delta">+57%</span>
-  </div>
-  <div class="comp-row glass">
-    <span class="comp-label">Engajamentos</span>
-    <span class="comp-before">1.938</span>
-    <span class="comp-arrow">→</span>
-    <span class="comp-after">1.987</span>
-    <span class="comp-delta">+49</span>
-  </div>
-  <div class="comp-row glass">
-    <span class="comp-label">Retenção 50%</span>
-    <span class="comp-before">49%</span>
-    <span class="comp-arrow">→</span>
-    <span class="comp-after">72%</span>
-    <span class="comp-delta">+23pts</span>
-  </div>
-  <div class="comp-row glass">
-    <span class="comp-label">Frequência</span>
-    <span class="comp-before">1,44</span>
-    <span class="comp-arrow">→</span>
-    <span class="comp-after">1,22</span>
-    <span class="comp-delta">✓ Saudável</span>
-  </div>
-
-  <!-- Saturação suavizada -->
-  <p class="section-title">Próximo passo natural</p>
-  <div class="glass amber sat-card">
-    <div class="sat-label">Oportunidade identificada</div>
-    <div class="sat-title">Hora de apresentar um novo criativo 🎬</div>
-    <div class="sat-body">
-      Após rodar por <b>várias semanas</b>, é natural que qualquer vídeo comece a ser reconhecido pelo público. Isso é sinal de que a marca está presente e fixando — mas também indica que um <b>criativo novo vai reacender o interesse</b> e potencializar os ótimos números de alcance que conquistamos nessa campanha. É o próximo passo estratégico.
+    <div class="gloss-item">
+      <div class="gloss-term">Prenderam a atenção</div>
+      <div class="gloss-def">Percentual de pessoas que pararam para assistir os primeiros segundos do vídeo em vez de passar direto.</div>
+    </div>
+    <div class="gloss-item">
+      <div class="gloss-term">Pessoas alcançadas</div>
+      <div class="gloss-def">Quantas pessoas diferentes viram o anúncio pelo menos uma vez.</div>
     </div>
   </div>
 
@@ -265,70 +298,42 @@
   <div class="glass next-card">
     <div class="next-icon">🤘</div>
     <div>
-      <div class="next-title">O que vem por aí</div>
-      <div class="next-body">Novo vídeo food porn com gancho diferente nos primeiros 2 segundos — aproveitar o alcance crescente e o CPM normalizado para registrar os melhores números da conta.</div>
+      <div class="next-title">Próximo passo</div>
+      <div class="next-body">Usar o vídeo "M. Shadows" como principal desde o início da próxima campanha e dar uma chance justa ao estático "Combo X-Salada" em um teste separado. Sem trocas no meio do caminho.</div>
     </div>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
     Rocker's Burger — Relatório de Tráfego Pago<br>
-    29 jun – 6 jul 2026 · R$64,16 investidos
+    23–29 jul 2026 · R$70,25 investidos · 11 conversas no WhatsApp
   </div>
 
 </div>
 
 <script>
 const green = '#3ecf8e';
-const gold = '#e8b84b';
 const muted = 'rgba(255,255,255,0.45)';
 const grid = 'rgba(255,255,255,0.07)';
-const purp = '#9b8cf2';
 
-const base = {
-  responsive: true, maintainAspectRatio: false,
-  plugins: {
-    legend: { display: false },
-    tooltip: { backgroundColor: '#0e1210', borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, titleColor: '#fff', bodyColor: muted, padding: 10, titleFont: { weight: 800 }, bodyFont: { weight: 700 } }
-  }
-};
-
-// Alcance
-new Chart(document.getElementById('chartAlcance'), {
+new Chart(document.getElementById('chartConv'), {
   type: 'bar',
   data: {
-    labels: ['Reconhecimento', 'Copa', 'Camp 04', 'Camp 05'],
+    labels: ['M. Shadows', 'Fecha Mês'],
     datasets: [{
-      data: [37671, 9850, 6992, 10977],
-      backgroundColor: ['rgba(255,255,255,0.12)', 'rgba(62,207,142,0.25)', 'rgba(62,207,142,0.45)', green],
-      borderRadius: 10, barThickness: 32,
+      data: [4.0, 0.5],
+      backgroundColor: [green, 'rgba(255,255,255,0.2)'],
+      borderRadius: 10, barThickness: 40,
     }]
   },
   options: {
-    ...base, indexAxis: 'x',
+    responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+    plugins: {
+      legend: { display: false },
+      tooltip: { backgroundColor: '#0e1210', borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, titleColor: '#fff', bodyColor: muted, padding: 10, titleFont: { weight: 800 }, bodyFont: { weight: 700 }, callbacks: { label: c => c.parsed.x + ' conversas por dia' } }
+    },
     scales: {
-      x: { ticks: { color: muted, font: { size: 10, weight: 700 } }, grid: { display: false }, border: { display: false } },
-      y: { ticks: { color: muted, font: { size: 10, weight: 700 }, callback: v => v >= 1000 ? (v/1000).toFixed(0)+'k' : v }, grid: { color: grid }, border: { display: false } }
-    }
-  }
-});
-
-// CPM
-new Chart(document.getElementById('chartCPM'), {
-  type: 'bar',
-  data: {
-    labels: ['Reconhecimento', 'Copa', 'Camp 04', 'Camp 05'],
-    datasets: [{
-      data: [1.32, 4.99, 6.94, 4.81],
-      backgroundColor: ['rgba(255,255,255,0.12)', 'rgba(232,184,75,0.3)', 'rgba(232,184,75,0.55)', gold],
-      borderRadius: 10, barThickness: 32,
-    }]
-  },
-  options: {
-    ...base, indexAxis: 'x',
-    scales: {
-      x: { ticks: { color: muted, font: { size: 10, weight: 700 } }, grid: { display: false }, border: { display: false } },
-      y: { ticks: { color: muted, font: { size: 10, weight: 700 }, callback: v => 'R$' + v.toFixed(2) }, grid: { color: grid }, border: { display: false } }
+      x: { ticks: { color: muted, font: { size: 11, weight: 700 }, callback: v => v + '/dia' }, grid: { color: grid }, border: { display: false } },
+      y: { ticks: { color: '#fff', font: { size: 12, weight: 800 } }, grid: { display: false }, border: { display: false } }
     }
   }
 });
