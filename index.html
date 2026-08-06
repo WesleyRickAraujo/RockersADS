@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Rocker's Burger — Campanha FechaMês</title>
+<title>Rocker's Burger — Balanço Geral</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
@@ -17,121 +17,96 @@
   }
   body::before {
     content: ''; position: fixed;
-    top: -10%; left: -20%; width: 70%; height: 40%;
+    top: -8%; left: -20%; width: 70%; height: 38%;
     background: radial-gradient(circle, rgba(20,90,60,0.35) 0%, transparent 70%);
     pointer-events: none; z-index: 0;
   }
   body::after {
     content: ''; position: fixed;
-    bottom: -5%; right: -20%; width: 70%; height: 40%;
-    background: radial-gradient(circle, rgba(232,184,75,0.12) 0%, transparent 70%);
+    bottom: -5%; right: -20%; width: 70%; height: 38%;
+    background: radial-gradient(circle, rgba(232,184,75,0.1) 0%, transparent 70%);
     pointer-events: none; z-index: 0;
   }
-  .container { max-width: 420px; margin: 0 auto; position: relative; z-index: 1; }
+  .container { max-width: 440px; margin: 0 auto; position: relative; z-index: 1; }
 
   .glass {
     background: rgba(255,255,255,0.06);
     backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255,255,255,0.11); border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.11); border-radius: 18px;
   }
   .glass.green { background: rgba(20,120,75,0.2); border: 1px solid rgba(62,207,142,0.35); }
-  .glass.amber { background: rgba(232,184,75,0.09); border: 1px solid rgba(232,184,75,0.28); }
 
   /* Header */
-  .header { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; padding: 0.9rem 1.1rem; }
-  .logo { width: 46px; height: 46px; border-radius: 13px; overflow: hidden; flex-shrink: 0; background: rgba(255,255,255,0.08); }
+  .header { display: flex; align-items: center; gap: 12px; margin-bottom: 1.25rem; padding: 0.85rem 1rem; }
+  .logo { width: 44px; height: 44px; border-radius: 12px; overflow: hidden; flex-shrink: 0; background: rgba(255,255,255,0.08); }
   .logo img { width: 100%; height: 100%; object-fit: cover; }
-  .brand-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.03em; line-height: 1.1; }
-  .brand-sub { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.45); margin-top: 2px; }
+  .brand-title { font-family: 'Bebas Neue', sans-serif; font-size: 21px; letter-spacing: 0.03em; line-height: 1.1; }
+  .brand-sub { font-size: 10.5px; font-weight: 700; color: rgba(255,255,255,0.45); margin-top: 2px; }
   .period-pill {
     display: inline-block; font-size: 10px; font-weight: 800;
     color: #3ecf8e; background: rgba(62,207,142,0.12);
     border: 1px solid rgba(62,207,142,0.28); border-radius: 20px;
-    padding: 5px 12px; margin-bottom: 1.4rem;
+    padding: 5px 12px; margin-bottom: 1.2rem;
     text-transform: uppercase; letter-spacing: 0.07em;
   }
 
-  /* Section title */
   .section-title {
     font-size: 10px; font-weight: 800; text-transform: uppercase;
     letter-spacing: 0.09em; color: rgba(255,255,255,0.38);
-    margin: 1.6rem 0 10px; padding-left: 2px;
+    margin: 1.5rem 0 10px; padding-left: 2px;
   }
 
-  /* Intro */
-  .intro-card { padding: 1.15rem 1.2rem; margin-bottom: 1rem; }
-  .intro-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.09em; color: rgba(62,207,142,0.7); margin-bottom: 8px; }
-  .intro-body { font-size: 14px; font-weight: 600; line-height: 1.7; color: #fff; }
-  .intro-body b { color: #3ecf8e; font-weight: 800; }
+  /* Hero row - the week's headline numbers */
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 9px; }
+  .hero-card { padding: 1rem; border-radius: 18px; text-align: center; }
+  .hero-card.big { grid-column: span 2; background: rgba(20,120,75,0.22); border: 1px solid rgba(62,207,142,0.4); }
+  .hero-card.sub { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.11); }
+  .hero-val { font-family: 'Bebas Neue', sans-serif; line-height: 1; }
+  .hero-card.big .hero-val { font-size: 52px; color: #3ecf8e; }
+  .hero-card.sub .hero-val { font-size: 30px; color: #fff; }
+  .hero-lbl { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 6px; color: rgba(255,255,255,0.5); }
+  .hero-card.big .hero-lbl { color: rgba(62,207,142,0.75); font-size: 11px; }
 
-  /* KPI grid */
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
-  .metric-card { padding: 0.95rem 1rem; border-radius: 20px; }
-  .metric-card.green { background: rgba(20,120,75,0.2); border: 1px solid rgba(62,207,142,0.3); }
-  .metric-card.neutral { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.11); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
-  .m-label { font-size: 10px; font-weight: 800; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
-  .metric-card.green .m-label { color: rgba(62,207,142,0.7); }
-  .m-value { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: #fff; line-height: 1; }
-  .metric-card.green .m-value { color: #3ecf8e; }
-  .m-note { font-size: 10.5px; font-weight: 700; color: rgba(255,255,255,0.4); margin-top: 5px; line-height: 1.4; }
-  .metric-card.green .m-note { color: rgba(62,207,142,0.65); }
-
-  /* Warning card */
-  .warn-card { padding: 1.2rem 1.25rem; margin-bottom: 1rem; }
-  .warn-head { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; }
-  .warn-icon { font-size: 20px; }
-  .warn-title { font-size: 14px; font-weight: 800; color: #e8b84b; }
-  .warn-body { font-size: 13.5px; font-weight: 600; line-height: 1.7; color: rgba(255,255,255,0.72); }
-  .warn-body b { color: #e8b84b; font-weight: 800; }
-
-  /* Creative comparison cards */
-  .creative-card { padding: 1.1rem 1.15rem; margin-bottom: 10px; position: relative; }
-  .creative-card.winner { background: rgba(20,120,75,0.2); border: 1px solid rgba(62,207,142,0.4); }
-  .creative-card.didnt-run { opacity: 0.85; }
-  .creative-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-  .creative-name { font-size: 14px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 8px; }
-  .creative-tag { font-size: 9px; font-weight: 800; padding: 3px 9px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
-  .tag-winner { background: rgba(62,207,142,0.2); color: #3ecf8e; }
-  .tag-ok { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
-  .tag-off { background: rgba(232,184,75,0.15); color: #e8b84b; }
-  .creative-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-  .cstat { text-align: center; padding: 0.5rem 0.2rem; background: rgba(255,255,255,0.04); border-radius: 12px; }
-  .creative-card.winner .cstat { background: rgba(255,255,255,0.06); }
-  .cstat-value { font-family: 'Bebas Neue', sans-serif; font-size: 21px; color: #fff; line-height: 1; }
-  .cstat-value.hl { color: #3ecf8e; }
-  .cstat-label { font-size: 8.5px; font-weight: 800; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-top: 3px; letter-spacing: 0.02em; }
-  .creative-note { font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,0.5); margin-top: 10px; line-height: 1.5; }
-  .creative-card.winner .creative-note { color: rgba(62,207,142,0.75); }
-  .didnt-run-msg { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.55); padding: 0.3rem 0.2rem; line-height: 1.6; }
-  .didnt-run-msg::first-line { color: #e8b84b; }
-
-  /* Chart */
-  .chart-card { padding: 1.1rem 1.1rem 1.2rem; margin-bottom: 10px; }
+  /* Chart card */
+  .chart-card { padding: 1rem 1rem 1.1rem; margin-bottom: 10px; }
   .chart-title { font-size: 12.5px; font-weight: 800; color: #fff; margin-bottom: 2px; }
-  .chart-subtitle { font-size: 10.5px; font-weight: 600; color: rgba(255,255,255,0.4); margin-bottom: 0.9rem; }
+  .chart-subtitle { font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.4); margin-bottom: 0.8rem; }
   .chart-wrap { position: relative; width: 100%; }
 
-  /* Winner highlight */
-  .winner-hero { padding: 1.4rem 1.3rem; margin-bottom: 1rem; text-align: center; }
-  .winner-hero-tag { display: inline-block; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #3ecf8e; background: rgba(62,207,142,0.15); border-radius: 20px; padding: 4px 12px; margin-bottom: 12px; }
-  .winner-hero-name { font-family: 'Bebas Neue', sans-serif; font-size: 40px; line-height: 1; color: #3ecf8e; }
-  .winner-hero-sub { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.65); margin-top: 8px; line-height: 1.5; }
-  .winner-hero-sub b { color: #3ecf8e; font-weight: 800; }
+  /* Data table */
+  .table-card { padding: 0.5rem 0.3rem; margin-bottom: 10px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  th { font-size: 8.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; color: rgba(255,255,255,0.4); padding: 8px 6px; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  th:first-child { text-align: left; }
+  td { padding: 9px 6px; text-align: right; font-weight: 700; color: rgba(255,255,255,0.8); border-bottom: 1px solid rgba(255,255,255,0.05); font-variant-numeric: tabular-nums; }
+  td:first-child { text-align: left; font-weight: 800; color: #fff; font-size: 10.5px; }
+  tr.highlight td { background: rgba(62,207,142,0.1); color: #3ecf8e; }
+  tr.highlight td:first-child { color: #3ecf8e; }
+  .obj-badge { font-size: 8px; font-weight: 800; padding: 1px 5px; border-radius: 8px; text-transform: uppercase; }
+  .obj-rec { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
+  .obj-eng { background: rgba(155,140,242,0.18); color: #9b8cf2; }
+  .obj-ven { background: rgba(62,207,142,0.18); color: #3ecf8e; }
 
-  /* Glossary */
-  .gloss-card { padding: 1.1rem 1.2rem; margin-bottom: 10px; }
-  .gloss-item { padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .gloss-item:last-child { border-bottom: none; }
-  .gloss-term { font-size: 12.5px; font-weight: 800; color: #fff; margin-bottom: 2px; }
-  .gloss-def { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5); line-height: 1.5; }
+  /* Winner strip */
+  .duel-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 10px; }
+  .duel-box { padding: 0.9rem; border-radius: 16px; text-align: center; }
+  .duel-box.win { background: rgba(20,120,75,0.22); border: 1px solid rgba(62,207,142,0.4); }
+  .duel-box.lose { background: rgba(55,120,190,0.12); border: 1px solid rgba(90,160,230,0.25); }
+  .duel-type { font-size: 9px; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; }
+  .duel-box.win .duel-type { color: #3ecf8e; }
+  .duel-box.lose .duel-type { color: #6ab0e8; }
+  .duel-num { font-family: 'Bebas Neue', sans-serif; font-size: 34px; line-height: 1; color: #fff; }
+  .duel-box.win .duel-num { color: #3ecf8e; }
+  .duel-cap { font-size: 9.5px; font-weight: 700; color: rgba(255,255,255,0.45); margin-top: 4px; }
 
-  /* Next step */
-  .next-card { padding: 1.1rem 1.2rem; margin-bottom: 10px; display: flex; align-items: flex-start; gap: 12px; }
-  .next-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
-  .next-title { font-size: 13px; font-weight: 800; color: #3ecf8e; margin-bottom: 4px; }
-  .next-body { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); line-height: 1.6; }
+  /* Success factors */
+  .factors { display: flex; flex-direction: column; gap: 7px; margin-bottom: 10px; }
+  .factor { display: flex; align-items: center; gap: 10px; padding: 0.7rem 0.95rem; border-radius: 13px; background: rgba(20,120,75,0.13); border: 1px solid rgba(62,207,142,0.2); }
+  .factor-num { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: #3ecf8e; width: 18px; flex-shrink: 0; }
+  .factor-txt { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.8); line-height: 1.35; }
+  .factor-txt b { color: #3ecf8e; font-weight: 800; }
 
-  .footer { margin-top: 1.75rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 10.5px; font-weight: 700; color: rgba(255,255,255,0.3); text-align: center; line-height: 1.6; }
+  .footer { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.3); text-align: center; line-height: 1.6; }
 </style>
 </head>
 <body>
@@ -144,209 +119,230 @@
     </div>
     <div>
       <div class="brand-title">Rocker's Burger</div>
-      <div class="brand-sub">Campanha "Fecha Mês" — Pedidos no WhatsApp</div>
+      <div class="brand-sub">Balanço geral · 6 campanhas</div>
     </div>
   </div>
 
-  <span class="period-pill">23 a 29 de julho · 2026</span>
+  <span class="period-pill">Maio a Agosto · 2026</span>
 
-  <!-- Intro / macro -->
-  <div class="glass green intro-card">
-    <div class="intro-label">Resumo da campanha</div>
-    <div class="intro-body">
-      Esta campanha teve como meta levar as pessoas a <b>iniciar uma conversa no WhatsApp</b> para fazer o pedido. No total, foram <b>11 conversas iniciadas</b> por um custo médio de <b>R$ 6,39 cada</b> — um ótimo resultado para pedidos vindos de anúncio.
+  <!-- Hero: the winning week -->
+  <p class="section-title">A melhor semana até agora — campanha 50Reais</p>
+  <div class="hero-grid">
+    <div class="hero-card big">
+      <div class="hero-val">5</div>
+      <div class="hero-lbl">Vendas fechadas na semana</div>
+    </div>
+    <div class="hero-card sub">
+      <div class="hero-val">19</div>
+      <div class="hero-lbl">Conversas no zap</div>
+    </div>
+    <div class="hero-card sub">
+      <div class="hero-val">R$13</div>
+      <div class="hero-lbl">Custo por venda</div>
+    </div>
+    <div class="hero-card sub">
+      <div class="hero-val">2,7x</div>
+      <div class="hero-lbl">Retorno estimado</div>
+    </div>
+    <div class="hero-card sub">
+      <div class="hero-val">R$67</div>
+      <div class="hero-lbl">Investido</div>
     </div>
   </div>
 
-  <!-- Macro KPIs -->
-  <div class="grid2">
-    <div class="metric-card green">
-      <div class="m-label">Conversas no WhatsApp</div>
-      <div class="m-value">11</div>
-      <div class="m-note">✓ Pessoas chamando para pedir</div>
-    </div>
-    <div class="metric-card green">
-      <div class="m-label">Custo por conversa</div>
-      <div class="m-value">R$6,39</div>
-      <div class="m-note">✓ Valor saudável</div>
-    </div>
-    <div class="metric-card neutral">
-      <div class="m-label">Investido</div>
-      <div class="m-value">R$70</div>
-      <div class="m-note">de R$80 previstos</div>
-    </div>
-    <div class="metric-card neutral">
-      <div class="m-label">Pessoas alcançadas</div>
-      <div class="m-value">4.214</div>
-      <div class="m-note">no bairro e região</div>
-    </div>
-  </div>
-
-  <!-- Warning about 3 creatives -->
-  <div class="glass amber warn-card">
-    <div class="warn-head">
-      <span class="warn-icon">⚠️</span>
-      <span class="warn-title">Um aprendizado importante desta campanha</span>
-    </div>
-    <div class="warn-body">
-      Durante esta campanha, <b>trocamos de material 3 vezes no meio do caminho</b> — foram dois vídeos e uma imagem. Isso aconteceu por uma questão de urgência, mas o ideal é evitar. Cada vez que um material novo entra, o sistema de anúncios <b>recomeça o aprendizado do zero</b> — como um atleta que precisa reaquecer toda vez que troca de posição. O resultado: um dos materiais nem chegou a ser exibido, e os outros tiveram menos tempo para render. <b>Na próxima, o ideal é definir o material antes de começar</b> e deixá-lo rodar o período inteiro.
-    </div>
-  </div>
-
-  <!-- Creative comparison -->
-  <p class="section-title">Comparativo dos 3 materiais</p>
-
-  <!-- Winner -->
-  <div class="glass creative-card winner">
-    <div class="creative-head">
-      <span class="creative-name">🎸 Vídeo "M. Shadows"</span>
-      <span class="creative-tag tag-winner">🏆 Melhor</span>
-    </div>
-    <div class="creative-stats">
-      <div class="cstat">
-        <div class="cstat-value hl">8</div>
-        <div class="cstat-label">Conversas</div>
-      </div>
-      <div class="cstat">
-        <div class="cstat-value hl">R$5,97</div>
-        <div class="cstat-label">Por conversa</div>
-      </div>
-      <div class="cstat">
-        <div class="cstat-value hl">28%</div>
-        <div class="cstat-label">Prenderam atenção</div>
-      </div>
-    </div>
-    <div class="creative-note">
-      Mesmo no ar por apenas 2 dias, foi o grande vencedor. Prendeu a atenção de quase 3x mais gente e trouxe mais conversas, mais baratas. O sistema percebeu a qualidade e direcionou a verba para ele automaticamente.
-    </div>
-  </div>
-
-  <!-- FechaMês -->
-  <div class="glass creative-card">
-    <div class="creative-head">
-      <span class="creative-name">🍔 Vídeo "Fecha Mês"</span>
-      <span class="creative-tag tag-ok">Rodou</span>
-    </div>
-    <div class="creative-stats">
-      <div class="cstat">
-        <div class="cstat-value">3</div>
-        <div class="cstat-label">Conversas</div>
-      </div>
-      <div class="cstat">
-        <div class="cstat-value">R$7,50</div>
-        <div class="cstat-label">Por conversa</div>
-      </div>
-      <div class="cstat">
-        <div class="cstat-value">11%</div>
-        <div class="cstat-label">Prenderam atenção</div>
-      </div>
-    </div>
-    <div class="creative-note">
-      Ficou no ar mais tempo (6 dias), mas prendeu menos a atenção e trouxe menos conversas, com custo mais alto. Cumpriu seu papel, mas perdeu na comparação.
-    </div>
-  </div>
-
-  <!-- Combo XSalada - didn't run -->
-  <div class="glass creative-card didnt-run">
-    <div class="creative-head">
-      <span class="creative-name">🥤 Estático "Combo X-Salada"</span>
-      <span class="creative-tag tag-off">Não entregue</span>
-    </div>
-    <div class="didnt-run-msg">
-      Diferente dos outros, este era uma imagem (não um vídeo). Foi criado e adicionado à campanha, mas o sistema praticamente não o exibiu. Isso costuma acontecer quando um material entra depois que a campanha já começou: o sistema tende a concentrar a verba nos anúncios que já vinham rodando e deixa o novo sem espaço. Não há confirmação oficial do motivo — o Meta não detalha essa decisão — mas essa é a explicação mais provável. Por isso, ele merece rodar sozinho em uma campanha própria para ser avaliado com justiça.
-    </div>
-  </div>
-
-  <!-- Comparativo claro: dias no ar vs conversas -->
+  <!-- Chart: custo por conversa nas campanhas de venda -->
   <div class="glass chart-card">
-    <div class="chart-title">O que mais impressiona</div>
-    <div class="chart-subtitle">O vídeo campeão ficou menos tempo no ar e mesmo assim rendeu mais</div>
-
-    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 4px;">
-
-      <!-- M Shadows -->
-      <div style="background: rgba(20,120,75,0.18); border: 1px solid rgba(62,207,142,0.3); border-radius: 16px; padding: 0.9rem 1rem;">
-        <div style="font-size: 13px; font-weight: 800; color: #3ecf8e; margin-bottom: 10px;">🏆 Vídeo "M. Shadows"</div>
-        <div style="display: flex; gap: 10px;">
-          <div style="flex: 1; text-align: center; background: rgba(255,255,255,0.06); border-radius: 12px; padding: 0.6rem 0.3rem;">
-            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; line-height: 1;">2 dias</div>
-            <div style="font-size: 9px; font-weight: 800; color: rgba(255,255,255,0.45); text-transform: uppercase; margin-top: 4px;">no ar</div>
-          </div>
-          <div style="flex: 1; text-align: center; background: rgba(255,255,255,0.06); border-radius: 12px; padding: 0.6rem 0.3rem;">
-            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #3ecf8e; line-height: 1;">8</div>
-            <div style="font-size: 9px; font-weight: 800; color: rgba(62,207,142,0.7); text-transform: uppercase; margin-top: 4px;">conversas</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fecha Mês -->
-      <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 0.9rem 1rem;">
-        <div style="font-size: 13px; font-weight: 800; color: rgba(255,255,255,0.7); margin-bottom: 10px;">🍔 Vídeo "Fecha Mês"</div>
-        <div style="display: flex; gap: 10px;">
-          <div style="flex: 1; text-align: center; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 0.6rem 0.3rem;">
-            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; line-height: 1;">6 dias</div>
-            <div style="font-size: 9px; font-weight: 800; color: rgba(255,255,255,0.45); text-transform: uppercase; margin-top: 4px;">no ar</div>
-          </div>
-          <div style="flex: 1; text-align: center; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 0.6rem 0.3rem;">
-            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: rgba(255,255,255,0.8); line-height: 1;">3</div>
-            <div style="font-size: 9px; font-weight: 800; color: rgba(255,255,255,0.45); text-transform: uppercase; margin-top: 4px;">conversas</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div style="font-size: 12px; font-weight: 600; color: rgba(62,207,142,0.75); line-height: 1.6; margin-top: 12px; text-align: center;">
-      Em <b style="color:#3ecf8e;">3x menos tempo</b>, o "M. Shadows" trouxe <b style="color:#3ecf8e;">mais que o dobro</b> de conversas.
+    <div class="chart-title">Custo por conversa — caindo</div>
+    <div class="chart-subtitle">Nas campanhas com objetivo de venda (quanto menor, melhor)</div>
+    <div class="chart-wrap" style="height: 150px;">
+      <canvas id="chartCusto" role="img" aria-label="Custo por conversa: FechaMês R$6,39, campanha 50Reais R$3,52">Custo por conversa caiu de R$6,39 para R$3,52.</canvas>
     </div>
   </div>
 
-  <!-- Winner hero -->
-  <div class="glass green winner-hero">
-    <div class="winner-hero-tag">O grande destaque</div>
-    <div class="winner-hero-name">8x MAIS</div>
-    <div class="winner-hero-sub">Ajustado pelo tempo no ar, o vídeo <b>"M. Shadows"</b> trouxe 8 vezes mais conversas por dia que os demais. É o nosso vídeo campeão.</div>
-  </div>
-
-  <!-- Glossary -->
-  <p class="section-title">O que cada termo significa</p>
-  <div class="glass gloss-card">
-    <div class="gloss-item">
-      <div class="gloss-term">Conversa iniciada</div>
-      <div class="gloss-def">Quando uma pessoa clica no anúncio e abre o WhatsApp para falar com a hamburgueria.</div>
-    </div>
-    <div class="gloss-item">
-      <div class="gloss-term">Custo por conversa</div>
-      <div class="gloss-def">Quanto foi investido, em média, para cada pessoa que chamou no WhatsApp.</div>
-    </div>
-    <div class="gloss-item">
-      <div class="gloss-term">Prenderam a atenção</div>
-      <div class="gloss-def">Percentual de pessoas que pararam para assistir os primeiros segundos do vídeo em vez de passar direto.</div>
-    </div>
-    <div class="gloss-item">
-      <div class="gloss-term">Pessoas alcançadas</div>
-      <div class="gloss-def">Quantas pessoas diferentes viram o anúncio pelo menos uma vez.</div>
+  <!-- Chart: conversas por dia -->
+  <div class="glass chart-card">
+    <div class="chart-title">Conversas por dia no ar</div>
+    <div class="chart-subtitle">Ajustado pelo tempo que cada campanha ficou ativa</div>
+    <div class="chart-wrap" style="height: 150px;">
+      <canvas id="chartConvDia" role="img" aria-label="Conversas por dia: FechaMês 1,57, 50Reais 2,38">Conversas por dia subiram de 1,57 para 2,38.</canvas>
     </div>
   </div>
 
-  <!-- Next step -->
-  <div class="glass next-card">
-    <div class="next-icon">🤘</div>
-    <div>
-      <div class="next-title">Próximo passo</div>
-      <div class="next-body">Usar o vídeo "M. Shadows" como principal desde o início da próxima campanha e dar uma chance justa ao estático "Combo X-Salada" em um teste separado. Sem trocas no meio do caminho.</div>
+  <!-- Full history table -->
+  <p class="section-title">Todas as campanhas — visão completa</p>
+  <div class="glass table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Campanha</th>
+          <th>Dias</th>
+          <th>Invest.</th>
+          <th>Alcance</th>
+          <th>CPM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Reconhec.</td>
+          <td>5</td>
+          <td>R$52</td>
+          <td>39,1k</td>
+          <td>R$1,32</td>
+        </tr>
+        <tr>
+          <td>Copa</td>
+          <td>8</td>
+          <td>R$58</td>
+          <td>9,8k</td>
+          <td>R$4,99</td>
+        </tr>
+        <tr>
+          <td>Engaj. 1</td>
+          <td>6</td>
+          <td>R$70</td>
+          <td>7,0k</td>
+          <td>R$6,94</td>
+        </tr>
+        <tr>
+          <td>Engaj. 2</td>
+          <td>8</td>
+          <td>R$64</td>
+          <td>11,0k</td>
+          <td>R$4,81</td>
+        </tr>
+        <tr>
+          <td>FechaMês</td>
+          <td>7</td>
+          <td>R$70</td>
+          <td>4,2k</td>
+          <td>R$11,35</td>
+        </tr>
+        <tr class="highlight">
+          <td>50Reais 🏆</td>
+          <td>8</td>
+          <td>R$67</td>
+          <td>6,0k</td>
+          <td>R$9,14</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Vídeo vs Estático -->
+  <p class="section-title">Vídeo vs Imagem — o teste decisivo</p>
+  <div class="duel-strip">
+    <div class="duel-box lose">
+      <div class="duel-type">🎬 Vídeo</div>
+      <div class="duel-num">5</div>
+      <div class="duel-cap">conversas · R$5,73 cada</div>
+    </div>
+    <div class="duel-box win">
+      <div class="duel-type">🖼️ Imagem 👑</div>
+      <div class="duel-num">14</div>
+      <div class="duel-cap">conversas · R$2,73 cada</div>
+    </div>
+  </div>
+
+  <!-- Chart comparativo vídeo vs imagem -->
+  <div class="glass chart-card">
+    <div class="chart-title">Imagem entregou quase 3x mais</div>
+    <div class="chart-subtitle">Conversas geradas por cada material, no mesmo período</div>
+    <div class="chart-wrap" style="height: 140px;">
+      <canvas id="chartDuel" role="img" aria-label="Imagem 14 conversas versus vídeo 5 conversas">Imagem: 14 conversas. Vídeo: 5 conversas.</canvas>
+    </div>
+  </div>
+
+  <!-- Success factors -->
+  <p class="section-title">Por que acertamos — a receita</p>
+  <div class="factors">
+    <div class="factor">
+      <span class="factor-num">1</span>
+      <span class="factor-txt">Objetivo <b>Vendas</b> — o sistema passou a buscar quem compra, não quem só curte</span>
+    </div>
+    <div class="factor">
+      <span class="factor-num">2</span>
+      <span class="factor-txt"><b>Preço na arte</b> (R$ 35,90) — quem clica já vem decidido</span>
+    </div>
+    <div class="factor">
+      <span class="factor-num">3</span>
+      <span class="factor-txt"><b>Imagem direta</b> superou vídeo para delivery</span>
+    </div>
+    <div class="factor">
+      <span class="factor-num">4</span>
+      <span class="factor-txt">Pedido pelo <b>WhatsApp</b> — contato direto e quente</span>
+    </div>
+    <div class="factor">
+      <span class="factor-num">5</span>
+      <span class="factor-txt">Raio de <b>4km</b> cobrindo o público certo</span>
     </div>
   </div>
 
   <div class="footer">
-    Rocker's Burger — Relatório de Tráfego Pago<br>
-    23–29 jul 2026 · R$70,25 investidos · 11 conversas no WhatsApp
+    Rocker's Burger — Balanço de Tráfego Pago<br>
+    Mai–Ago 2026 · 6 campanhas · melhor semana: 30 jul–6 ago
   </div>
 
 </div>
 
 <script>
-// Sem gráficos dinâmicos — comparativo é estático para máxima clareza
+const green = '#3ecf8e';
+const blue = '#6ab0e8';
+const gold = '#e8b84b';
+const muted = 'rgba(255,255,255,0.45)';
+const grid = 'rgba(255,255,255,0.07)';
+
+const base = {
+  responsive: true, maintainAspectRatio: false,
+  plugins: {
+    legend: { display: false },
+    tooltip: { backgroundColor: '#0e1210', borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, titleColor: '#fff', bodyColor: muted, padding: 9, titleFont: { weight: 800 }, bodyFont: { weight: 700 } }
+  }
+};
+
+// Custo por conversa
+new Chart(document.getElementById('chartCusto'), {
+  type: 'bar',
+  data: {
+    labels: ['FechaMês', '50Reais 🏆'],
+    datasets: [{ data: [6.39, 3.52], backgroundColor: ['rgba(255,255,255,0.2)', green], borderRadius: 10, barThickness: 46 }]
+  },
+  options: { ...base, indexAxis: 'y',
+    scales: {
+      x: { ticks: { color: muted, font: { size: 11, weight: 700 }, callback: v => 'R$'+v }, grid: { color: grid }, border: { display: false } },
+      y: { ticks: { color: '#fff', font: { size: 12, weight: 800 } }, grid: { display: false }, border: { display: false } }
+    }
+  }
+});
+
+// Conversas por dia
+new Chart(document.getElementById('chartConvDia'), {
+  type: 'bar',
+  data: {
+    labels: ['FechaMês', '50Reais 🏆'],
+    datasets: [{ data: [1.57, 2.38], backgroundColor: ['rgba(255,255,255,0.2)', green], borderRadius: 10, barThickness: 46 }]
+  },
+  options: { ...base, indexAxis: 'y',
+    scales: {
+      x: { ticks: { color: muted, font: { size: 11, weight: 700 }, callback: v => v+'/dia' }, grid: { color: grid }, border: { display: false } },
+      y: { ticks: { color: '#fff', font: { size: 12, weight: 800 } }, grid: { display: false }, border: { display: false } }
+    }
+  }
+});
+
+// Duel
+new Chart(document.getElementById('chartDuel'), {
+  type: 'bar',
+  data: {
+    labels: ['🖼️ Imagem', '🎬 Vídeo'],
+    datasets: [{ data: [14, 5], backgroundColor: [green, blue], borderRadius: 10, barThickness: 40 }]
+  },
+  options: { ...base, indexAxis: 'y',
+    scales: {
+      x: { ticks: { color: muted, font: { size: 11, weight: 700 } }, grid: { color: grid }, border: { display: false } },
+      y: { ticks: { color: '#fff', font: { size: 12, weight: 800 } }, grid: { display: false }, border: { display: false } }
+    }
+  }
+});
 </script>
 </body>
 </html>
