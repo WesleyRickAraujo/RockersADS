@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Rocker's Burger — Balanço Geral</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #060807; min-height: 100vh; }
+  body {
+    font-family: 'Manrope', sans-serif;
+    color: #fff; font-weight: 600;
+    padding: 1.25rem 0.9rem 3.5rem;
+    position: relative; overflow-x: hidden;
+  }
+  body::before {
+    content: ''; position: fixed;
+    top: -8%; left: -20%; width: 70%; height: 38%;
+    background: radial-gradient(circle, rgba(20,90,60,0.35) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+  body::after {
+    content: ''; position: fixed;
+    bottom: -5%; right: -20%; width: 70%; height: 38%;
+    background: radial-gradient(circle, rgba(232,184,75,0.1) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+  .container { max-width: 440px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .glass {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.11); border-radius: 18px;
+  }
+  .glass.green { background: rgba(20,120,75,0.2); border: 1px solid rgba(62,207,142,0.35); }
+
+  /* Header */
+  .header { display: flex; align-items: center; gap: 12px; margin-bottom: 1.25rem; padding: 0.85rem 1rem; }
+  .logo { width: 44px; height: 44px; border-radius: 12px; overflow: hidden; flex-shrink: 0; background: rgba(255,255,255,0.08); }
+  .logo img { width: 100%; height: 100%; object-fit: cover; }
+  .brand-title { font-family: 'Bebas Neue', sans-serif; font-size: 21px; letter-spacing: 0.03em; line-height: 1.1; }
+  .brand-sub { font-size: 10.5px; font-weight: 700; color: rgba(255,255,255,0.45); margin-top: 2px; }
+  .period-pill {
+    display: inline-block; font-size: 10px; font-weight: 800;
+    color: #3ecf8e; background: rgba(62,207,142,0.12);
+    border: 1px solid rgba(62,207,142,0.28); border-radius: 20px;
+    padding: 5px 12px; margin-bottom: 1.2rem;
+    text-transform: uppercase; letter-spacing: 0.07em;
+  }
+
+  .section-title {
+    font-size: 10px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.09em; color: rgba(255,255,255,0.38);
+    margin: 1.5rem 0 10px; padding-left: 2px;
+  }
+
+  /* Hero row - the week's headline numbers */
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 9px; }
+  .hero-card { padding: 1rem; border-radius: 18px; text-align: center; }
+  .hero-card.big { grid-column: span 2; background: rgba(20,120,75,0.22); border: 1px solid rgba(62,207,142,0.4); }
+  .hero-card.sub { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.11); }
+  .hero-val { font-family: 'Bebas Neue', sans-serif; line-height: 1; }
+  .hero-card.big .hero-val { font-size: 52px; color: #3ecf8e; }
+  .hero-card.sub .hero-val { font-size: 30px; color: #fff; }
+  .hero-lbl { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 6px; color: rgba(255,255,255,0.5); }
+  .hero-card.big .hero-lbl { color: rgba(62,207,142,0.75); font-size: 11px; }
+
+  /* Chart card */
+  .chart-card { padding: 1rem 1rem 1.1rem; margin-bottom: 10px; }
+  .chart-title { font-size: 12.5px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+  .chart-subtitle { font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.4); margin-bottom: 0.8rem; }
+  .chart-wrap { position: relative; width: 100%; }
+
+  /* Data table */
+  .table-card { padding: 0.5rem 0.3rem; margin-bottom: 10px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  th { font-size: 8.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; color: rgba(255,255,255,0.4); padding: 8px 6px; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  th:first-child { text-align: left; }
+  td { padding: 9px 6px; text-align: right; font-weight: 700; color: rgba(255,255,255,0.8); border-bottom: 1px solid rgba(255,255,255,0.05); font-variant-numeric: tabular-nums; }
+  td:first-child { text-align: left; font-weight: 800; color: #fff; font-size: 10.5px; }
+  tr.highlight td { background: rgba(62,207,142,0.1); color: #3ecf8e; }
+  tr.highlight td:first-child { color: #3ecf8e; }
+  .obj-badge { font-size: 8px; font-weight: 800; padding: 1px 5px; border-radius: 8px; text-transform: uppercase; }
+  .obj-rec { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
+  .obj-eng { background: rgba(155,140,242,0.18); color: #9b8cf2; }
+  .obj-ven { background: rgba(62,207,142,0.18); color: #3ecf8e; }
+
+  /* Winner strip */
+  .duel-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 10px; }
+  .duel-box { padding: 0.9rem; border-radius: 16px; text-align: center; }
+  .duel-box.win { background: rgba(20,120,75,0.22); border: 1px solid rgba(62,207,142,0.4); }
+  .duel-box.lose { background: rgba(55,120,190,0.12); border: 1px solid rgba(90,160,230,0.25); }
+  .duel-type { font-size: 9px; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; }
+  .duel-box.win .duel-type { color: #3ecf8e; }
+  .duel-box.lose .duel-type { color: #6ab0e8; }
+  .duel-num { font-family: 'Bebas Neue', sans-serif; font-size: 34px; line-height: 1; color: #fff; }
+  .duel-box.win .duel-num { color: #3ecf8e; }
+  .duel-cap { font-size: 9.5px; font-weight: 700; color: rgba(255,255,255,0.45); margin-top: 4px; }
+
+  /* Success factors */
+  .factors { display: flex; flex-direction: column; gap: 7px; margin-bottom: 10px; }
+  .factor { display: flex; align-items: center; gap: 10px; padding: 0.7rem 0.95rem; border-radius: 13px; background: rgba(20,120,75,0.13); border: 1px solid rgba(62,207,142,0.2); }
+  .factor-num { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: #3ecf8e; width: 18px; flex-shrink: 0; }
+  .factor-txt { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.8); line-height: 1.35; }
+  .factor-txt b { color: #3ecf8e; font-weight: 800; }
+
+  .footer { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.3); text-align: center; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header glass">
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/WesleyRickAraujo/RockersADS/main/logo.png" alt="Rocker's Burger">
+    </div>
+    <div>
+      <div class="brand-title">Rocker's Burger</div>
+      <div class="brand-sub">Balanço geral · 6 campanhas</div>
+    </div>
+  </div>
+
+  <span class="period-pill">Maio a Agosto · 2026</span>
+
+  <!-- Hero: the winning week -->
+  <p class="section-title">A melhor semana até agora — campanha 50Reais</p>
+  <div class="hero-grid">
+    <div class="hero-card big">
+      <div class="hero-val">5</div>
+      <div class="hero-lbl">Vendas fechadas na semana</div>
+    </div>
+    <div class="hero-card sub">
+      <div class="hero-val">19</div>
+      <div class="hero-lbl">Conversas no zap</div>
+    </div>
+    <div class="hero-card sub">
+      <div class="hero-val">R$13</div>
+      <div class="hero-lbl">Custo por venda</div>
+    </div>
+    <div class="hero-card sub">
+      <div class="hero-val">2,7x</div>
+      <div class="hero-lbl">Retorno estimado</div>
+    </div>
+    <div class="hero-card sub">
+      <div class="hero-val">R$67</div>
+      <div class="hero-lbl">Investido</div>
+    </div>
+  </div>
+
+  <!-- Chart: custo por conversa nas campanhas de venda -->
+  <div class="glass chart-card">
+    <div class="chart-title">Custo por conversa — caindo</div>
+    <div class="chart-subtitle">Nas campanhas com objetivo de venda (quanto menor, melhor)</div>
+    <div class="chart-wrap" style="height: 150px;">
+      <canvas id="chartCusto" role="img" aria-label="Custo por conversa: FechaMês R$6,39, campanha 50Reais R$3,52">Custo por conversa caiu de R$6,39 para R$3,52.</canvas>
+    </div>
+  </div>
+
+  <!-- Chart: conversas por dia -->
+  <div class="glass chart-card">
+    <div class="chart-title">Conversas por dia no ar</div>
+    <div class="chart-subtitle">Ajustado pelo tempo que cada campanha ficou ativa</div>
+    <div class="chart-wrap" style="height: 150px;">
+      <canvas id="chartConvDia" role="img" aria-label="Conversas por dia: FechaMês 1,57, 50Reais 2,38">Conversas por dia subiram de 1,57 para 2,38.</canvas>
+    </div>
+  </div>
+
+  <!-- Full history table -->
+  <p class="section-title">Todas as campanhas — visão completa</p>
+  <div class="glass table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Campanha</th>
+          <th>Dias</th>
+          <th>Invest.</th>
+          <th>Alcance</th>
+          <th>CPM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Reconhec.</td>
+          <td>5</td>
+          <td>R$52</td>
+          <td>39,1k</td>
+          <td>R$1,32</td>
+        </tr>
+        <tr>
+          <td>Copa</td>
+          <td>8</td>
+          <td>R$58</td>
+          <td>9,8k</td>
+          <td>R$4,99</td>
+        </tr>
+        <tr>
+          <td>Engaj. 1</td>
+          <td>6</td>
+          <td>R$70</td>
+          <td>7,0k</td>
+          <td>R$6,94</td>
+        </tr>
+        <tr>
+          <td>Engaj. 2</td>
+          <td>8</td>
+          <td>R$64</td>
+          <td>11,0k</td>
+          <td>R$4,81</td>
+        </tr>
+        <tr>
+          <td>FechaMês</td>
+          <td>7</td>
+          <td>R$70</td>
+          <td>4,2k</td>
+          <td>R$11,35</td>
+        </tr>
+        <tr class="highlight">
+          <td>50Reais 🏆</td>
+          <td>8</td>
+          <td>R$67</td>
+          <td>6,0k</td>
+          <td>R$9,14</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Vídeo vs Estático -->
+  <p class="section-title">Vídeo vs Imagem — o teste decisivo</p>
+  <div class="duel-strip">
+    <div class="duel-box lose">
+      <div class="duel-type">🎬 Vídeo</div>
+      <div class="duel-num">5</div>
+      <div class="duel-cap">conversas · R$5,73 cada</div>
+    </div>
+    <div class="duel-box win">
+      <div class="duel-type">🖼️ Imagem 👑</div>
+      <div class="duel-num">14</div>
+      <div class="duel-cap">conversas · R$2,73 cada</div>
+    </div>
+  </div>
+
+  <!-- Chart comparativo vídeo vs imagem -->
+  <div class="glass chart-card">
+    <div class="chart-title">Imagem entregou quase 3x mais</div>
+    <div class="chart-subtitle">Conversas geradas por cada material, no mesmo período</div>
+    <div class="chart-wrap" style="height: 140px;">
+      <canvas id="chartDuel" role="img" aria-label="Imagem 14 conversas versus vídeo 5 conversas">Imagem: 14 conversas. Vídeo: 5 conversas.</canvas>
+    </div>
+  </div>
+
+  <!-- Success factors -->
+  <p class="section-title">Por que acertamos — a receita</p>
+  <div class="factors">
+    <div class="factor">
+      <span class="factor-num">1</span>
+      <span class="factor-txt">Objetivo <b>Vendas</b> — o sistema passou a buscar quem compra, não quem só curte</span>
+    </div>
+    <div class="factor">
+      <span class="factor-num">2</span>
+      <span class="factor-txt"><b>Preço na arte</b> (R$ 35,90) — quem clica já vem decidido</span>
+    </div>
+    <div class="factor">
+      <span class="factor-num">3</span>
+      <span class="factor-txt"><b>Imagem direta</b> superou vídeo para delivery</span>
+    </div>
+    <div class="factor">
+      <span class="factor-num">4</span>
+      <span class="factor-txt">Pedido pelo <b>WhatsApp</b> — contato direto e quente</span>
+    </div>
+    <div class="factor">
+      <span class="factor-num">5</span>
+      <span class="factor-txt">Raio de <b>4km</b> cobrindo o público certo</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    Rocker's Burger — Balanço de Tráfego Pago<br>
+    Mai–Ago 2026 · 6 campanhas · melhor semana: 30 jul–6 ago
+  </div>
+
+</div>
+
+<script>
+const green = '#3ecf8e';
+const blue = '#6ab0e8';
+const gold = '#e8b84b';
+const muted = 'rgba(255,255,255,0.45)';
+const grid = 'rgba(255,255,255,0.07)';
+
+const base = {
+  responsive: true, maintainAspectRatio: false,
+  plugins: {
+    legend: { display: false },
+    tooltip: { backgroundColor: '#0e1210', borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, titleColor: '#fff', bodyColor: muted, padding: 9, titleFont: { weight: 800 }, bodyFont: { weight: 700 } }
+  }
+};
+
+// Custo por conversa
+new Chart(document.getElementById('chartCusto'), {
+  type: 'bar',
+  data: {
+    labels: ['FechaMês', '50Reais 🏆'],
+    datasets: [{ data: [6.39, 3.52], backgroundColor: ['rgba(255,255,255,0.2)', green], borderRadius: 10, barThickness: 46 }]
+  },
+  options: { ...base, indexAxis: 'y',
+    scales: {
+      x: { ticks: { color: muted, font: { size: 11, weight: 700 }, callback: v => 'R$'+v }, grid: { color: grid }, border: { display: false } },
+      y: { ticks: { color: '#fff', font: { size: 12, weight: 800 } }, grid: { display: false }, border: { display: false } }
+    }
+  }
+});
+
+// Conversas por dia
+new Chart(document.getElementById('chartConvDia'), {
+  type: 'bar',
+  data: {
+    labels: ['FechaMês', '50Reais 🏆'],
+    datasets: [{ data: [1.57, 2.38], backgroundColor: ['rgba(255,255,255,0.2)', green], borderRadius: 10, barThickness: 46 }]
+  },
+  options: { ...base, indexAxis: 'y',
+    scales: {
+      x: { ticks: { color: muted, font: { size: 11, weight: 700 }, callback: v => v+'/dia' }, grid: { color: grid }, border: { display: false } },
+      y: { ticks: { color: '#fff', font: { size: 12, weight: 800 } }, grid: { display: false }, border: { display: false } }
+    }
+  }
+});
+
+// Duel
+new Chart(document.getElementById('chartDuel'), {
+  type: 'bar',
+  data: {
+    labels: ['🖼️ Imagem', '🎬 Vídeo'],
+    datasets: [{ data: [14, 5], backgroundColor: [green, blue], borderRadius: 10, barThickness: 40 }]
+  },
+  options: { ...base, indexAxis: 'y',
+    scales: {
+      x: { ticks: { color: muted, font: { size: 11, weight: 700 } }, grid: { color: grid }, border: { display: false } },
+      y: { ticks: { color: '#fff', font: { size: 12, weight: 800 } }, grid: { display: false }, border: { display: false } }
+    }
+  }
+});
+</script>
+</body>
+</html>
