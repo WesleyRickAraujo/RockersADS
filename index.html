@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Rocker's Burger — Apresentação Estratégica</title>
+<title>Rocker's Burger — Relatório de Agosto 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -15,7 +15,6 @@
   .glass{background:rgba(255,255,255,0.06);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,0.11);border-radius:20px}
   .glass.green{background:rgba(20,120,75,0.2);border:1px solid rgba(62,207,142,0.35)}
   .glass.amber{background:rgba(232,184,75,0.09);border:1px solid rgba(232,184,75,0.28)}
-  .glass.red{background:rgba(220,60,60,0.1);border:1px solid rgba(220,80,80,0.3)}
   .glass.blue{background:rgba(55,120,190,0.12);border:1px solid rgba(90,160,230,0.25)}
 
   .header{display:flex;align-items:center;gap:12px;margin-bottom:1.25rem;padding:0.9rem 1.1rem}
@@ -24,34 +23,23 @@
   .brand-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.03em;line-height:1.1}
   .brand-sub{font-size:10.5px;font-weight:700;color:rgba(255,255,255,0.45);margin-top:2px}
   .section-title{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.09em;color:rgba(255,255,255,0.38);margin:2rem 0 10px;padding-left:2px}
-  .page-hero{text-align:center;margin-bottom:2rem;padding-top:0.5rem}
-  .page-hero h1{font-family:'Bebas Neue',sans-serif;font-size:28px;line-height:1.15;color:#fff;margin-bottom:6px}
+  .page-hero{text-align:center;margin-bottom:1.75rem;padding-top:0.5rem}
+  .page-hero h1{font-family:'Bebas Neue',sans-serif;font-size:30px;line-height:1.12;color:#fff;margin-bottom:6px}
   .page-hero p{font-size:12px;font-weight:700;color:rgba(255,255,255,0.45)}
 
-  /* Timeline */
-  .timeline{position:relative;padding-left:28px;margin-bottom:1rem}
-  .timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,rgba(255,255,255,0.15),rgba(62,207,142,0.5));border-radius:2px}
-  .tl-item{position:relative;margin-bottom:14px}
-  .tl-item:last-child{margin-bottom:0}
-  .tl-dot{position:absolute;left:-24px;top:10px;width:10px;height:10px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);background:#060807}
-  .tl-item.alcance .tl-dot{border-color:rgba(255,255,255,0.4);background:rgba(255,255,255,0.2)}
-  .tl-item.engajamento .tl-dot{border-color:#6ab0e8;background:rgba(106,176,232,0.3)}
-  .tl-item.vendas .tl-dot{border-color:#3ecf8e;background:rgba(62,207,142,0.3)}
-  .tl-card{padding:0.85rem 1rem;border-radius:16px}
-  .tl-phase{font-size:8.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px}
-  .tl-item.alcance .tl-phase{color:rgba(255,255,255,0.5)}
-  .tl-item.engajamento .tl-phase{color:#6ab0e8}
-  .tl-item.vendas .tl-phase{color:#3ecf8e}
-  .tl-name{font-size:14px;font-weight:800;color:#fff;margin-bottom:3px}
-  .tl-date{font-size:10px;font-weight:800;color:rgba(255,255,255,0.35);margin-bottom:6px;letter-spacing:0.02em}
-  .tl-detail{font-size:11.5px;font-weight:600;color:rgba(255,255,255,0.5);line-height:1.45}
-  .tl-detail b{font-weight:800}
-  .tl-item.vendas .tl-detail b{color:#3ecf8e}
-  .tl-item.engajamento .tl-detail b{color:#6ab0e8}
-  .tl-badge{display:inline-block;font-size:9px;font-weight:800;padding:2px 8px;border-radius:12px;margin-top:6px}
-  .badge-good{background:rgba(62,207,142,0.15);color:#3ecf8e}
-  .badge-best{background:rgba(62,207,142,0.25);color:#3ecf8e}
-  .badge-learn{background:rgba(106,176,232,0.15);color:#6ab0e8}
+  /* KPI grid */
+  .kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+  .kpi{padding:0.95rem 0.85rem;text-align:center}
+  .kpi-val{font-family:'Bebas Neue',sans-serif;font-size:32px;line-height:1;color:#3ecf8e}
+  .kpi-val.white{color:#fff}
+  .kpi-label{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:rgba(255,255,255,0.4);margin-top:5px}
+  .kpi-sub{font-size:10px;font-weight:700;color:rgba(255,255,255,0.35);margin-top:3px}
+  .kpi.span2{grid-column:span 2}
+  .kpi-hero{padding:1.5rem 1.1rem 1.35rem;text-align:center;margin-bottom:8px;position:relative;overflow:hidden}
+  .kpi-hero::after{content:'';position:absolute;top:-60%;left:50%;transform:translateX(-50%);width:150%;height:160%;background:radial-gradient(circle,rgba(232,184,75,0.18) 0%,transparent 65%);pointer-events:none}
+  .kpi-hero-val{font-family:'Bebas Neue',sans-serif;font-size:62px;line-height:0.95;color:#e8b84b;text-shadow:0 0 28px rgba(232,184,75,0.45);position:relative}
+  .kpi-hero-label{font-size:12px;font-weight:800;color:#e8b84b;letter-spacing:0.04em;margin-top:8px;position:relative}
+  .kpi-hero-sub{font-size:11px;font-weight:700;color:rgba(232,184,75,0.6);margin-top:5px;line-height:1.45;position:relative}
 
   /* Insight */
   .insight-card{padding:1.15rem 1.2rem;margin-bottom:12px}
@@ -60,65 +48,106 @@
   .insight-body b{font-weight:800}
   .green-txt b{color:#3ecf8e}
   .amber-txt b{color:#e8b84b}
-  .red-txt b{color:#e87070}
+  .blue-txt b{color:#6ab0e8}
 
   /* Math */
   .math-card{padding:1.2rem 1.1rem;margin-bottom:12px}
-  .math-title{font-size:14px;font-weight:800;color:#e8b84b;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .math-title{font-size:14px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px}
   .math-row{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.06)}
   .math-row:last-child{margin-bottom:0;border-bottom:none}
   .math-icon{font-size:18px;flex-shrink:0;width:26px;text-align:center}
   .math-text{flex:1;font-size:12.5px;font-weight:600;color:rgba(255,255,255,0.65);line-height:1.4}
-  .math-val{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;white-space:nowrap}
-  .math-val.amber{color:#e8b84b}
-  .math-val.red{color:#e87070}
-  .math-val.green{color:#3ecf8e}
+  .math-val{font-family:'Bebas Neue',sans-serif;font-size:23px;color:#fff;white-space:nowrap}
+  .math-val.green{color:#3ecf8e;font-size:26px}
   .math-note{font-size:10px;font-weight:600;color:rgba(255,255,255,0.35);margin-top:2px}
 
-  /* Noise */
-  .noise-card{padding:1.1rem 1.15rem;margin-bottom:12px}
-  .noise-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
-  .noise-item:last-child{margin-bottom:0}
-  .noise-icon{font-size:16px;flex-shrink:0;margin-top:1px}
-  .noise-text{font-size:12.5px;font-weight:600;color:rgba(255,255,255,0.6);line-height:1.5}
-  .noise-text b{color:#e87070;font-weight:800}
+  /* Amy Lee versus */
+  .vs-card{padding:1.15rem 1.1rem;margin-bottom:12px}
+  .vs-title{font-family:'Bebas Neue',sans-serif;font-size:20px;color:#3ecf8e;margin-bottom:4px}
+  .vs-sub{font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:14px}
+  .vs-row{margin-bottom:14px}
+  .vs-row:last-child{margin-bottom:0}
+  .vs-label{font-size:11px;font-weight:800;color:rgba(255,255,255,0.6);margin-bottom:6px;display:flex;justify-content:space-between;align-items:baseline}
+  .vs-gain{font-size:10px;font-weight:800;color:#3ecf8e}
+  .vs-bars{display:flex;flex-direction:column;gap:4px}
+  .vs-bar{display:flex;align-items:center;gap:7px}
+  .vs-name{font-size:9px;font-weight:800;color:rgba(255,255,255,0.35);width:52px;flex-shrink:0;text-transform:uppercase}
+  .vs-track{flex:1;height:16px;background:rgba(255,255,255,0.05);border-radius:8px;overflow:hidden}
+  .vs-fill{height:100%;border-radius:8px}
+  .vs-fill.hero{background:linear-gradient(90deg,rgba(62,207,142,0.55),#3ecf8e)}
+  .vs-fill.other{background:rgba(255,255,255,0.18)}
+  .vs-num{font-family:'Bebas Neue',sans-serif;font-size:16px;width:58px;text-align:right;flex-shrink:0}
+  .vs-num.hero{color:#3ecf8e}
+  .vs-num.other{color:rgba(255,255,255,0.45)}
 
-  /* Alternatives */
-  .alt-card{padding:1.1rem 1.15rem;margin-bottom:10px}
-  .alt-head{display:flex;align-items:center;gap:9px;margin-bottom:10px}
-  .alt-icon{font-size:20px}
-  .alt-title{font-size:14px;font-weight:800}
-  .alt-body{font-size:13px;font-weight:600;line-height:1.65;color:rgba(255,255,255,0.65)}
-  .alt-body b{font-weight:800}
-  .alt-pros{margin-top:8px;font-size:11.5px;font-weight:700;line-height:1.5}
-  .alt-pros .pro{color:rgba(62,207,142,0.8)}
-  .alt-pros .con{color:rgba(232,184,75,0.8)}
+  /* Chart */
+  .chart-card{padding:1.15rem 1rem 1rem;margin-bottom:12px}
+  .chart-title{font-size:13.5px;font-weight:800;color:#fff;margin-bottom:3px}
+  .chart-sub{font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);line-height:1.45;margin-bottom:16px}
+  .chart-svg{width:100%;display:block}
 
-  /* Scale scenarios */
-  .scenario-card{padding:0.85rem 1rem;margin-bottom:8px;border-radius:18px}
-  .scenario-card.current{opacity:0.7}
-  .scenario-card.recommended{background:rgba(20,120,75,0.22)!important;border:1px solid rgba(62,207,142,0.4)!important}
-  .scenario-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-  .scenario-invest{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff}
-  .scenario-card.recommended .scenario-invest{color:#3ecf8e}
-  .scenario-tag{font-size:8.5px;font-weight:800;padding:3px 8px;border-radius:12px;text-transform:uppercase}
-  .tag-current{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.5)}
-  .tag-rec{background:rgba(62,207,142,0.2);color:#3ecf8e}
-  .tag-ideal{background:rgba(232,184,75,0.15);color:#e8b84b}
-  .scenario-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
-  .sc-stat{text-align:center;padding:0.45rem 0.2rem;background:rgba(255,255,255,0.04);border-radius:10px}
-  .sc-val{font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;line-height:1}
-  .scenario-card.recommended .sc-val{color:#3ecf8e}
-  .sc-label{font-size:8px;font-weight:800;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:3px}
+  /* Age rows */
+  .age-row{margin-bottom:13px}
+  .age-row:last-child{margin-bottom:0}
+  .age-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+  .age-name{font-size:12px;font-weight:800;color:#fff}
+  .age-name span{font-size:9.5px;font-weight:700;color:rgba(255,255,255,0.35);margin-left:6px}
+  .age-val{font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff}
+  .age-val.green{color:#3ecf8e}
+  .age-track{height:14px;background:rgba(255,255,255,0.05);border-radius:7px;overflow:hidden}
+  .age-fill{height:100%;border-radius:7px}
+  .f-green{background:linear-gradient(90deg,rgba(62,207,142,0.5),#3ecf8e)}
+  .f-white{background:rgba(255,255,255,0.28)}
+  .f-blue{background:linear-gradient(90deg,rgba(106,176,232,0.45),#6ab0e8)}
+  .age-foot{font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);margin-top:4px}
+  .age-foot b{color:#3ecf8e;font-weight:800}
 
-  /* Caveat */
-  .caveat{padding:0.9rem 1rem;margin-bottom:12px;font-size:11.5px;font-weight:600;color:rgba(255,255,255,0.5);line-height:1.6}
-  .caveat b{color:#e8b84b;font-weight:800}
+  /* Legend */
+  .legend{display:flex;gap:14px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+  .lg{display:flex;align-items:center;gap:5px;font-size:9.5px;font-weight:800;color:rgba(255,255,255,0.4)}
+  .lg i{width:10px;height:10px;border-radius:3px;display:block}
+
+  /* Days */
+  .days-wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:5px;height:132px;margin-bottom:8px}
+  .day-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+  .day-num{font-family:'Bebas Neue',sans-serif;font-size:15px;color:rgba(255,255,255,0.75);margin-bottom:4px;line-height:1}
+  .day-col.top .day-num{color:#3ecf8e;font-size:18px}
+  .day-col.soft .day-num{color:rgba(232,184,75,0.85)}
+  .day-bar{width:100%;border-radius:7px 7px 3px 3px;background:rgba(255,255,255,0.16)}
+  .day-col.top .day-bar{background:linear-gradient(180deg,#3ecf8e,rgba(62,207,142,0.45))}
+  .day-col.good .day-bar{background:rgba(62,207,142,0.45)}
+  .day-col.soft .day-bar{background:rgba(232,184,75,0.35)}
+  .days-labels{display:flex;justify-content:space-between;gap:5px}
+  .days-labels span{flex:1;text-align:center;font-size:10px;font-weight:800;color:rgba(255,255,255,0.4)}
+  .days-labels span.hi{color:#3ecf8e}
+
+  .dcost{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.07)}
+  .dcost div{text-align:center}
+  .dcost .dc-v{font-family:'Bebas Neue',sans-serif;font-size:13px;color:rgba(255,255,255,0.7)}
+  .dcost .dc-v.hi{color:#3ecf8e}
+  .dcost .dc-l{font-size:8px;font-weight:800;color:rgba(255,255,255,0.28);margin-top:1px}
+
+  /* Engagement */
+  .eng-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+  .eng{padding:0.85rem 0.4rem;text-align:center}
+  .eng-val{font-family:'Bebas Neue',sans-serif;font-size:24px;color:#fff;line-height:1}
+  .eng-val.green{color:#3ecf8e}
+  .eng-label{font-size:8.5px;font-weight:800;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:4px;line-height:1.3}
+
+  /* Takeaways */
+  .take{padding:1.1rem 1.15rem;margin-bottom:12px}
+  .take-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:11px}
+  .take-item:last-child{margin-bottom:0}
+  .take-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+  .take-text{font-size:12.5px;font-weight:600;color:rgba(255,255,255,0.62);line-height:1.5}
+  .take-text b{color:#3ecf8e;font-weight:800}
+
+  .badge{display:inline-block;font-size:9px;font-weight:800;padding:3px 9px;border-radius:12px;background:rgba(62,207,142,0.18);color:#3ecf8e;margin-bottom:8px}
 
   /* CTA */
   .cta-card{padding:1.3rem 1.2rem;text-align:center;margin-bottom:12px}
   .cta-title{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1.15;color:#3ecf8e;margin-bottom:10px}
-  .cta-body{font-size:13px;font-weight:600;color:rgba(255,255,255,0.65);line-height:1.6}
+  .cta-body{font-size:13.5px;font-weight:600;color:rgba(255,255,255,0.68);line-height:1.65}
   .cta-body b{color:#3ecf8e;font-weight:800}
 
   .footer{margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.08);font-size:10px;font-weight:700;color:rgba(255,255,255,0.3);text-align:center;line-height:1.6}
@@ -135,267 +164,315 @@
     </div>
     <div>
       <div class="brand-title">Rocker's Burger</div>
-      <div class="brand-sub">Apresentação estratégica · Tráfego pago</div>
+      <div class="brand-sub">Relatório de agosto · Tráfego pago</div>
     </div>
   </div>
 
   <div class="page-hero">
-    <h1>De onde viemos,<br>onde estamos<br>e pra onde podemos ir.</h1>
-    <p>Maio a Agosto de 2026 · 9 campanhas · R$ 538 investidos</p>
+    <h1>O mês de consolidação<br>da marca.</h1>
+    <p>1 a 31 de agosto de 2026 · 5 campanhas · R$ 357 investidos</p>
   </div>
 
-  <!-- ==================== PARTE 1: JORNADA ==================== -->
-  <p class="section-title">A jornada até aqui — 3 fases</p>
+  <!-- ============ KPIs ============ -->
+  <p class="section-title">Os números de agosto</p>
 
-  <div class="timeline">
-    <div class="tl-item alcance">
-      <div class="tl-dot"></div>
-      <div class="tl-card glass">
-        <div class="tl-phase">Fase 1 · Reconhecimento</div>
-        <div class="tl-name">"Existimos"</div>
-        <div class="tl-date">Início: 26 de maio de 2026</div>
-        <div class="tl-detail">Objetivo: fazer as pessoas do bairro conhecerem a Rocker's. Investimos R$ 52 e alcançamos <b>39 mil pessoas</b> na região do Parque 10. A conta era nova e o primeiro passo era aparecer.</div>
-        <span class="tl-badge badge-learn">Base construída</span>
-      </div>
+  <div class="glass amber kpi-hero">
+    <div class="kpi-hero-val">748</div>
+    <div class="kpi-hero-label">Visitas ao perfil do Instagram</div>
+    <div class="kpi-hero-sub">Gente do bairro que parou o feed e foi conhecer a marca</div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="glass green kpi">
+      <div class="kpi-val">56</div>
+      <div class="kpi-label">Conversas no WhatsApp</div>
+      <div class="kpi-sub">1,8 por dia de veiculação</div>
     </div>
-
-    <div class="tl-item engajamento">
-      <div class="tl-dot"></div>
-      <div class="tl-card glass">
-        <div class="tl-phase">Fase 2 · Engajamento</div>
-        <div class="tl-name">"Gostaram de nós"</div>
-        <div class="tl-date">Início: 11 de junho de 2026</div>
-        <div class="tl-detail">3 campanhas testando diferentes criativos e públicos. As pessoas passaram a <b>interagir com os anúncios</b> — curtir, comentar, visitar o perfil. Aprendemos o que funciona e o que não funciona. Mas ainda não estávamos vendendo de verdade.</div>
-        <span class="tl-badge badge-learn">Aprendizado de mercado</span>
-      </div>
+    <div class="glass green kpi">
+      <div class="kpi-val">64.272</div>
+      <div class="kpi-label">Exibições do anúncio</div>
+      <div class="kpi-sub">no raio de 4 km</div>
     </div>
-
-    <div class="tl-item vendas">
-      <div class="tl-dot"></div>
-      <div class="tl-card glass">
-        <div class="tl-phase">Fase 3 · Vendas</div>
-        <div class="tl-name">"Estamos vendendo"</div>
-        <div class="tl-date">Início: 23 de julho de 2026</div>
-        <div class="tl-detail">Mudamos o foco para gerar <b>pedidos reais pelo WhatsApp</b>. Em 5 campanhas, geramos <b>56 conversas</b> e sentimos aumento de pedidos. A melhor semana teve <b>5 vendas confirmadas</b> com custo de R$ 13 por venda.</div>
-        <span class="tl-badge badge-best">🏆 Onde estamos hoje</span>
-      </div>
+    <div class="glass kpi span2">
+      <div class="kpi-val white">9.560</div>
+      <div class="kpi-label">Interações no post</div>
+      <div class="kpi-sub">curtidas, salvos e compartilhamentos</div>
     </div>
   </div>
 
-  <!-- O que aprendemos -->
   <div class="glass green insight-card">
-    <div class="insight-label green-txt" style="color:rgba(62,207,142,0.7);">O que aprendemos nessa jornada</div>
+    <div class="insight-label" style="color:rgba(62,207,142,0.7);">O resumo em uma frase</div>
     <div class="insight-body green-txt">
-      Descobrimos que o <b>WhatsApp traz clientes reais</b>, enquanto o Instagram Direct traz curiosos. Aprendemos quais criativos engajam e quais vendem. E descobrimos que, com a configuração certa, cada <b>R$ 5 investidos gera uma conversa</b> de um possível cliente.
+      Com <b>R$ 357 em todo o mês</b> — cerca de R$ 11,50 por dia — a Rocker's gerou <b>56 conversas de pedido</b> e foi vista <b>64 mil vezes</b> pela vizinhança. Cada conversa saiu a <b>R$ 6,38</b>.
     </div>
   </div>
 
   <hr class="divider">
 
-  <!-- ==================== PARTE 2: CENÁRIO ATUAL ==================== -->
-  <p class="section-title">O cenário de hoje — a conta real</p>
+  <!-- ============ AMY LEE ============ -->
+  <p class="section-title">O destaque do mês</p>
 
-  <div class="glass amber math-card">
-    <div class="math-title">📊 A matemática do orçamento atual</div>
-    <div class="math-row">
-      <span class="math-icon">💰</span>
-      <span class="math-text">Orçamento semanal<br><span class="math-note">R$ 110 com impostos da Meta</span></span>
-      <span class="math-val">R$100</span>
+  <div class="glass green vs-card">
+    <span class="badge">🏆 Melhor criativo já rodado na conta</span>
+    <div class="vs-title">Amy Lee [Reels]</div>
+    <div class="vs-sub">Comparado com a média dos outros anúncios de agosto</div>
+
+    <div class="vs-row">
+      <div class="vs-label"><span>Custo para alcançar 1.000 pessoas</span><span class="vs-gain">47% mais barato</span></div>
+      <div class="vs-bars">
+        <div class="vs-bar"><span class="vs-name">Amy Lee</span><span class="vs-track"><span class="vs-fill hero" style="width:53%"></span></span><span class="vs-num hero">R$4,66</span></div>
+        <div class="vs-bar"><span class="vs-name">Demais</span><span class="vs-track"><span class="vs-fill other" style="width:100%"></span></span><span class="vs-num other">R$8,79</span></div>
+      </div>
     </div>
-    <div class="math-row">
-      <span class="math-icon">📅</span>
-      <span class="math-text">Dias abertos (dom. fechado)</span>
-      <span class="math-val">6</span>
+
+    <div class="vs-row">
+      <div class="vs-label"><span>Custo por visita ao perfil</span><span class="vs-gain">45% mais barato</span></div>
+      <div class="vs-bars">
+        <div class="vs-bar"><span class="vs-name">Amy Lee</span><span class="vs-track"><span class="vs-fill hero" style="width:55%"></span></span><span class="vs-num hero">R$0,36</span></div>
+        <div class="vs-bar"><span class="vs-name">Demais</span><span class="vs-track"><span class="vs-fill other" style="width:100%"></span></span><span class="vs-num other">R$0,66</span></div>
+      </div>
     </div>
-    <div class="math-row">
-      <span class="math-icon">📉</span>
-      <span class="math-text">Isso dá por dia</span>
-      <span class="math-val amber">R$16,60</span>
+
+    <div class="vs-row">
+      <div class="vs-label"><span>Pessoas que pararam para assistir</span><span class="vs-gain">o dobro de retenção</span></div>
+      <div class="vs-bars">
+        <div class="vs-bar"><span class="vs-name">Amy Lee</span><span class="vs-track"><span class="vs-fill hero" style="width:100%"></span></span><span class="vs-num hero">17,3%</span></div>
+        <div class="vs-bar"><span class="vs-name">Demais</span><span class="vs-track"><span class="vs-fill other" style="width:50%"></span></span><span class="vs-num other">8,6%</span></div>
+      </div>
     </div>
+  </div>
+
+  <div class="glass math-card">
+    <div class="math-title" style="color:#3ecf8e;">🎬 O que o Amy Lee entregou sozinho</div>
     <div class="math-row">
-      <span class="math-icon">💬</span>
-      <span class="math-text">Custo médio por conversa</span>
-      <span class="math-val">R$5</span>
+      <span class="math-icon">👁️</span>
+      <span class="math-text">Exibições geradas<span class="math-note">61% de todo o alcance do mês</span></span>
+      <span class="math-val green">39.142</span>
     </div>
     <div class="math-row">
       <span class="math-icon">📱</span>
-      <span class="math-text">Conversas por dia</span>
-      <span class="math-val amber">~3</span>
+      <span class="math-text">Visitas ao perfil do Instagram<span class="math-note">61% do total, a R$ 0,36 cada</span></span>
+      <span class="math-val green">458</span>
     </div>
     <div class="math-row">
-      <span class="math-icon">📊</span>
-      <span class="math-text">Conversas por semana</span>
-      <span class="math-val amber">~20</span>
+      <span class="math-icon">❤️</span>
+      <span class="math-text">Interações no post<span class="math-note">74% de todo o engajamento de agosto</span></span>
+      <span class="math-val green">7.076</span>
+    </div>
+    <div class="math-row">
+      <span class="math-icon">▶️</span>
+      <span class="math-text">Assistiram o vídeo até o fim</span>
+      <span class="math-val">556</span>
+    </div>
+    <div class="math-row">
+      <span class="math-icon">🔁</span>
+      <span class="math-text">Frequência<span class="math-note">quase ninguém viu duas vezes ainda</span></span>
+      <span class="math-val">1,11</span>
     </div>
   </div>
 
-  <div class="glass red insight-card">
-    <div class="insight-label red-txt" style="color:rgba(232,100,100,0.8);">O que isso significa na prática</div>
-    <div class="insight-body red-txt">
-      Com ~3 conversas por dia, considerando que nem todas viram pedido (nossa taxa é de <b>~1 em cada 4</b>), o resultado real fica em torno de <b>5 vendas por semana</b>. O sistema de anúncios da Meta precisa de um volume mínimo para aprender e otimizar — e com R$ 16 por dia, ele tem <b>muita dificuldade de sair da fase de aprendizado</b>. É como um motor que demora muito para aquecer.
+  <!-- Gráfico de linha: cliques por dia -->
+  <div class="glass chart-card">
+    <div class="chart-title">O anúncio está ficando melhor com o tempo</div>
+    <div class="chart-sub">Cliques no Amy Lee de 21 a 31 de agosto, em média móvel de 3 dias. Em vez de cansar, ele triplicou.</div>
+    <svg class="chart-svg" viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cliques diários do anúncio Amy Lee subindo de 7 para 21">
+      <defs>
+        <linearGradient id="lineFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3ecf8e" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#3ecf8e" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <line x1="30" y1="20"  x2="392" y2="20"  stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+      <line x1="30" y1="60"  x2="392" y2="60"  stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+      <line x1="30" y1="100" x2="392" y2="100" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+      <line x1="30" y1="140" x2="392" y2="140" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <text x="24" y="24"  fill="rgba(255,255,255,0.3)" font-size="9" font-family="Manrope" font-weight="800" text-anchor="end">24</text>
+      <text x="24" y="64"  fill="rgba(255,255,255,0.3)" font-size="9" font-family="Manrope" font-weight="800" text-anchor="end">16</text>
+      <text x="24" y="104" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Manrope" font-weight="800" text-anchor="end">8</text>
+      <text x="24" y="144" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Manrope" font-weight="800" text-anchor="end">0</text>
+
+      <path d="M45,105 L83,100 L121,95 L159,85 L197,98 L235,92 L273,86 L311,64 L349,60 L387,52 L387,140 L45,140 Z" fill="url(#lineFill)"/>
+      <polyline points="45,105 83,100 121,95 159,85 197,98 235,92 273,86 311,64 349,60 387,52" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+
+      <circle cx="45"  cy="105" r="3.5" fill="#060807" stroke="#3ecf8e" stroke-width="2"/>
+      <circle cx="387" cy="52"  r="5"   fill="#3ecf8e"/>
+
+      <text x="45"  y="122" fill="rgba(255,255,255,0.55)" font-size="11" font-family="Bebas Neue" text-anchor="middle">7</text>
+      <text x="387" y="43"  fill="#3ecf8e" font-size="14" font-family="Bebas Neue" text-anchor="end">18</text>
+
+      <text x="45"  y="160" fill="rgba(255,255,255,0.32)" font-size="9" font-family="Manrope" font-weight="800" text-anchor="middle">21/08</text>
+      <text x="216" y="160" fill="rgba(255,255,255,0.32)" font-size="9" font-family="Manrope" font-weight="800" text-anchor="middle">26/08</text>
+      <text x="387" y="160" fill="rgba(255,255,255,0.32)" font-size="9" font-family="Manrope" font-weight="800" text-anchor="middle">31/08</text>
+    </svg>
+    <div style="font-size:10.5px;font-weight:700;color:rgba(255,255,255,0.35);margin-top:8px;line-height:1.5;">
+      O leve recuo em 26/08 foi um dia de veiculação reduzida. Na virada do mês o anúncio chegou a 21 cliques em um único dia — o melhor resultado de toda a campanha.
     </div>
   </div>
-
-  <p class="section-title">Os desafios que reduzem o resultado</p>
-  <div class="glass noise-card">
-    <div class="noise-item">
-      <span class="noise-icon">🔄</span>
-      <span class="noise-text">O sistema de anúncios precisa de <b>tempo e volume</b> para aprender quem é o cliente ideal. Com orçamento baixo, ele não acumula dados suficientes e recomeça o aprendizado a cada campanha nova.</span>
-    </div>
-    <div class="noise-item">
-      <span class="noise-icon">👥</span>
-      <span class="noise-text">Nem toda conversa vira pedido. De cada 4 pessoas que chamam no WhatsApp, em média <b>apenas 1 fecha a compra</b>. As outras são curiosos ou desistem antes de pedir.</span>
-    </div>
-    <div class="noise-item">
-      <span class="noise-icon">🎨</span>
-      <span class="noise-text">O material do anúncio (foto ou vídeo) <b>cansa com o tempo</b>. O mesmo público começa a ignorar depois de ver várias vezes. Precisamos renovar periodicamente para manter os resultados.</span>
-    </div>
-    <div class="noise-item">
-      <span class="noise-icon">⏱️</span>
-      <span class="noise-text">A <b>velocidade de resposta</b> no WhatsApp impacta diretamente. Cliente que espera mais de 5 minutos tende a desistir ou pedir em outro lugar.</span>
-    </div>
-  </div>
-
-  <hr class="divider">
-
-  <!-- ==================== PARTE 3: ALTERNATIVAS ==================== -->
-  <p class="section-title">Os caminhos possíveis daqui pra frente</p>
-
-  <!-- Alt A -->
-  <div class="glass blue alt-card">
-    <div class="alt-head">
-      <span class="alt-icon">🅰️</span>
-      <span class="alt-title" style="color:#6ab0e8;">Manter investimento + estabilizar</span>
-    </div>
-    <div class="alt-body">
-      Mantemos o orçamento atual de R$ 100/semana, mas <b>sem trocar o anúncio</b>. Um único criativo roda o <b>mês inteiro</b>, acumulando aprendizado de forma contínua. Sem trocas semanais, o sistema da Meta não precisa recomeçar do zero toda semana.
-      <div class="alt-pros">
-        <span class="pro">✓ Estabilidade máxima com o orçamento atual</span><br>
-        <span class="pro">✓ O aprendizado acumula ao longo de 30 dias</span><br>
-        <span class="con">△ Resultado modesto: ~20 conversas/semana, ~5 vendas</span><br>
-        <span class="con">△ Não atinge o volume mínimo da Meta (50/semana)</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Alt B -->
-  <div class="glass amber alt-card">
-    <div class="alt-head">
-      <span class="alt-icon">🅱️</span>
-      <span class="alt-title" style="color:#e8b84b;">Manter investimento + trocar objetivo</span>
-    </div>
-    <div class="alt-body">
-      Se a opção for continuar com R$ 100/semana mas <b>trocando o anúncio toda semana</b>, o ideal seria mudar o objetivo de Vendas para <b>Engajamento</b>. Isso gera <b>mais volume de visualizações e interações</b> — mais gente vê a marca, embora com menos qualidade de lead.
-      <div class="alt-pros">
-        <span class="pro">✓ Mais volume e visibilidade da marca</span><br>
-        <span class="pro">✓ Permite testar criativos novos toda semana</span><br>
-        <span class="con">△ Menos pedidos diretos — público menos qualificado</span><br>
-        <span class="con">△ Cada troca de anúncio reinicia o aprendizado da Meta</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Alt C -->
-  <div class="glass green alt-card">
-    <div class="alt-head">
-      <span class="alt-icon">🅲</span>
-      <span class="alt-title" style="color:#3ecf8e;">Aumentar investimento — escalar</span>
-    </div>
-    <div class="alt-body">
-      O único caminho para desbloquear todo o potencial do sistema de anúncios. A Meta exige <b>50 conversas por semana</b> para sair do modo de aprendizado e passar a otimizar de verdade. Quando isso acontece, estudos da própria Meta mostram que o <b>custo por conversa cai entre 19% e 40%</b> — ou seja, o dinheiro rende mais. Investir mais <b>não significa só mais conversas</b> — significa <b>conversas mais baratas</b>.
-      <div class="alt-pros">
-        <span class="pro">✓ Sistema sai do aprendizado e começa a otimizar</span><br>
-        <span class="pro">✓ Custo por conversa cai à medida que o volume sobe</span><br>
-        <span class="pro">✓ Mais vendas reais com retorno mensurável</span><br>
-        <span class="con">△ Requer aumento de investimento semanal</span>
-      </div>
-    </div>
-  </div>
-
-  <hr class="divider">
-
-  <!-- ==================== PARTE 4: CENÁRIOS DE ESCALA ==================== -->
-  <p class="section-title">Se escolhermos escalar — os cenários</p>
 
   <div class="glass green insight-card">
-    <div class="insight-label green-txt" style="color:rgba(62,207,142,0.7);">Por que investir mais funciona agora</div>
+    <div class="insight-label" style="color:rgba(62,207,142,0.7);">Por que isso importa tanto</div>
     <div class="insight-body green-txt">
-      Hoje, cada pessoa do bairro viu o anúncio em média <b>apenas 1,3 vezes</b>. Das ~100 mil pessoas no raio de entrega, estamos alcançando <b>menos de 6%</b>. Tem muita gente que ainda nem sabe que a Rocker's existe. Investir mais agora <b>não encarece o resultado</b> — alcança gente nova.
+      Normalmente um anúncio cansa depois de duas semanas: as pessoas veem demais e param de reagir. O Amy Lee fez o contrário — <b>ficou mais barato e mais clicado a cada dia</b>. Com frequência de apenas 1,11, ele ainda tem <b>meses de vida útil pela frente</b>. É um ativo pronto, testado e comprovado.
     </div>
-  </div>
-
-  <!-- Cenário atual -->
-  <div class="glass scenario-card current">
-    <div class="scenario-head">
-      <span class="scenario-invest">R$100 /semana</span>
-      <span class="scenario-tag tag-current">Atual</span>
-    </div>
-    <div class="scenario-stats">
-      <div class="sc-stat"><div class="sc-val">R$16</div><div class="sc-label">Por dia</div></div>
-      <div class="sc-stat"><div class="sc-val">~20</div><div class="sc-label">Conversas/sem</div></div>
-      <div class="sc-stat"><div class="sc-val">~5</div><div class="sc-label">Vendas/sem</div></div>
-    </div>
-  </div>
-
-  <!-- Transição -->
-  <div class="glass scenario-card">
-    <div class="scenario-head">
-      <span class="scenario-invest">R$150 /semana</span>
-      <span class="scenario-tag tag-current">Intermediário</span>
-    </div>
-    <div class="scenario-stats">
-      <div class="sc-stat"><div class="sc-val">R$25</div><div class="sc-label">Por dia</div></div>
-      <div class="sc-stat"><div class="sc-val">~33</div><div class="sc-label">Conversas/sem</div></div>
-      <div class="sc-stat"><div class="sc-val">~8</div><div class="sc-label">Vendas/sem</div></div>
-    </div>
-  </div>
-
-  <!-- Recomendado -->
-  <div class="glass scenario-card recommended">
-    <div class="scenario-head">
-      <span class="scenario-invest">R$175 /semana</span>
-      <span class="scenario-tag tag-rec">✓ Recomendado</span>
-    </div>
-    <div class="scenario-stats">
-      <div class="sc-stat"><div class="sc-val">R$29</div><div class="sc-label">Por dia</div></div>
-      <div class="sc-stat"><div class="sc-val">~50</div><div class="sc-label">Conversas/sem</div></div>
-      <div class="sc-stat"><div class="sc-val">~13</div><div class="sc-label">Vendas/sem</div></div>
-    </div>
-  </div>
-
-  <!-- Ideal -->
-  <div class="glass scenario-card">
-    <div class="scenario-head">
-      <span class="scenario-invest">R$200 /semana</span>
-      <span class="scenario-tag tag-ideal">Ideal</span>
-    </div>
-    <div class="scenario-stats">
-      <div class="sc-stat"><div class="sc-val">R$33</div><div class="sc-label">Por dia</div></div>
-      <div class="sc-stat"><div class="sc-val">~57</div><div class="sc-label">Conversas/sem</div></div>
-      <div class="sc-stat"><div class="sc-val">~15</div><div class="sc-label">Vendas/sem</div></div>
-    </div>
-  </div>
-
-  <!-- Caveat -->
-  <div class="glass amber caveat">
-    <b>⚠️ Importante:</b> esses resultados não são mágicos nem instantâneos. Nas primeiras 2-3 semanas de aumento, o custo por conversa pode se manter em R$ 4,50–5,00 enquanto o sistema acumula dados. A meta é atingir <b>R$ 3,50 por conversa</b> — e com trabalho contínuo, <b>R$ 3,00 é possível</b>, mas é um processo gradual. O sistema precisa aprender, e aprender leva tempo.
-    <br><br>
-    Projeções baseadas no custo médio comprovado da conta e estudos da Meta que apontam redução de 19% a 40% no custo após a saída da fase de aprendizado.
   </div>
 
   <hr class="divider">
 
-  <!-- ==================== PARTE 5: CTA ==================== -->
+  <!-- ============ IDADE ============ -->
+  <p class="section-title">Quem responde melhor — por idade</p>
+
+  <div class="glass chart-card">
+    <div class="chart-title">Volume: de onde vieram as 56 conversas</div>
+    <div class="chart-sub">Número de conversas iniciadas em cada faixa etária durante agosto.</div>
+
+    <div class="age-row">
+      <div class="age-head"><span class="age-name">25 a 34 anos <span>o coração do público</span></span><span class="age-val green">20</span></div>
+      <div class="age-track"><span class="age-fill f-green" style="width:100%"></span></div>
+    </div>
+    <div class="age-row">
+      <div class="age-head"><span class="age-name">18 a 24 anos</span><span class="age-val">17</span></div>
+      <div class="age-track"><span class="age-fill f-white" style="width:85%"></span></div>
+    </div>
+    <div class="age-row">
+      <div class="age-head"><span class="age-name">35 a 44 anos</span><span class="age-val">10</span></div>
+      <div class="age-track"><span class="age-fill f-white" style="width:50%"></span></div>
+    </div>
+    <div class="age-row">
+      <div class="age-head"><span class="age-name">55 a 64 anos</span><span class="age-val">5</span></div>
+      <div class="age-track"><span class="age-fill f-white" style="width:25%"></span></div>
+    </div>
+    <div class="age-row">
+      <div class="age-head"><span class="age-name">45 a 54 anos</span><span class="age-val">4</span></div>
+      <div class="age-track"><span class="age-fill f-white" style="width:20%"></span></div>
+    </div>
+    <div class="age-foot">Somadas, as faixas de <b>18 a 44 anos</b> respondem por 84% de todas as conversas do mês.</div>
+  </div>
+
+  <div class="glass chart-card">
+    <div class="chart-title">Qualidade: quem clica e realmente chama</div>
+    <div class="chart-sub">De cada 100 pessoas que clicaram no anúncio, quantas abriram conversa. Aqui a ordem muda completamente.</div>
+
+    <div class="age-row">
+      <div class="age-head"><span class="age-name">55 a 64 anos <span>surpresa do mês</span></span><span class="age-val green">45,5%</span></div>
+      <div class="age-track"><span class="age-fill f-green" style="width:100%"></span></div>
+      <div class="age-foot">Menor custo por conversa da conta: <b>R$ 3,09</b></div>
+    </div>
+    <div class="age-row">
+      <div class="age-head"><span class="age-name">35 a 44 anos</span><span class="age-val">23,3%</span></div>
+      <div class="age-track"><span class="age-fill f-blue" style="width:51%"></span></div>
+    </div>
+    <div class="age-row">
+      <div class="age-head"><span class="age-name">45 a 54 anos</span><span class="age-val">20,0%</span></div>
+      <div class="age-track"><span class="age-fill f-blue" style="width:44%"></span></div>
+    </div>
+    <div class="age-row">
+      <div class="age-head"><span class="age-name">25 a 34 anos</span><span class="age-val">19,0%</span></div>
+      <div class="age-track"><span class="age-fill f-blue" style="width:42%"></span></div>
+    </div>
+    <div class="age-row">
+      <div class="age-head"><span class="age-name">18 a 24 anos</span><span class="age-val">15,5%</span></div>
+      <div class="age-track"><span class="age-fill f-white" style="width:34%"></span></div>
+    </div>
+
+    <div class="legend">
+      <span class="lg"><i style="background:#3ecf8e"></i>Melhor taxa</span>
+      <span class="lg"><i style="background:#6ab0e8"></i>Acima da média</span>
+      <span class="lg"><i style="background:rgba(255,255,255,0.28)"></i>Na média</span>
+    </div>
+  </div>
+
+  <div class="glass blue insight-card">
+    <div class="insight-label" style="color:rgba(106,176,232,0.8);">A descoberta de agosto</div>
+    <div class="insight-body blue-txt">
+      Os jovens de <b>18 a 24 anos</b> dão o clique mais barato, mas são os que menos chamam no WhatsApp. Já quem tem <b>mais de 35 anos</b> clica menos e fecha muito mais — e a faixa de <b>55 a 64</b> fecha quase metade dos cliques.
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ============ DIAS ============ -->
+  <p class="section-title">Quando o cliente responde — por dia</p>
+
+  <div class="glass chart-card">
+    <div class="chart-title">Média de conversas por dia da semana</div>
+    <div class="chart-sub">Quarta-feira é disparado o melhor dia do mês: mais conversas e o menor custo por conversa.</div>
+
+    <div class="days-wrap">
+      <div class="day-col good"><span class="day-num">2,4</span><span class="day-bar" style="height:70px"></span></div>
+      <div class="day-col"><span class="day-num">1,5</span><span class="day-bar" style="height:44px"></span></div>
+      <div class="day-col top"><span class="day-num">3,8</span><span class="day-bar" style="height:110px"></span></div>
+      <div class="day-col soft"><span class="day-num">0,5</span><span class="day-bar" style="height:15px"></span></div>
+      <div class="day-col good"><span class="day-num">2,0</span><span class="day-bar" style="height:59px"></span></div>
+      <div class="day-col good"><span class="day-num">2,2</span><span class="day-bar" style="height:65px"></span></div>
+      <div class="day-col good"><span class="day-num">2,3</span><span class="day-bar" style="height:68px"></span></div>
+    </div>
+    <div class="days-labels">
+      <span>Seg</span><span>Ter</span><span class="hi">Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span>
+    </div>
+
+    <div class="dcost">
+      <div><div class="dc-v">R$5,95</div><div class="dc-l">Seg</div></div>
+      <div><div class="dc-v">R$4,69</div><div class="dc-l">Ter</div></div>
+      <div><div class="dc-v hi">R$3,38</div><div class="dc-l">Qua</div></div>
+      <div><div class="dc-v" style="color:rgba(232,184,75,0.85)">R$29</div><div class="dc-l">Qui</div></div>
+      <div><div class="dc-v">R$7,57</div><div class="dc-l">Sex</div></div>
+      <div><div class="dc-v">R$7,23</div><div class="dc-l">Sáb</div></div>
+      <div><div class="dc-v hi">R$5,33</div><div class="dc-l">Dom</div></div>
+    </div>
+    <div style="font-size:9.5px;font-weight:800;color:rgba(255,255,255,0.28);text-transform:uppercase;letter-spacing:0.06em;text-align:center;margin-top:8px;">Custo por conversa em cada dia</div>
+  </div>
+
+  <div class="glass green insight-card">
+    <div class="insight-label" style="color:rgba(62,207,142,0.7);">Duas descobertas de calendário</div>
+    <div class="insight-body green-txt">
+      <b>Quarta-feira</b> gera quase o dobro de conversas de um dia comum, pela metade do preço — é o dia certo para concentrar orçamento e promoção. E o <b>domingo</b>, que quase não recebia verba, foi o melhor dia da última quinzena: <b>3 conversas por dia a R$ 5,33</b>.
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ============ ENGAJAMENTO ============ -->
+  <p class="section-title">O engajamento que a marca construiu</p>
+
+  <div class="eng-grid">
+    <div class="glass eng"><div class="eng-val green">9.560</div><div class="eng-label">Interações<br>no post</div></div>
+    <div class="glass eng"><div class="eng-val">748</div><div class="eng-label">Visitas<br>ao perfil</div></div>
+    <div class="glass eng"><div class="eng-val">239</div><div class="eng-label">Curtidas</div></div>
+    <div class="glass eng"><div class="eng-val">1.541</div><div class="eng-label">Vídeos<br>assistidos</div></div>
+    <div class="glass eng"><div class="eng-val">49</div><div class="eng-label">Compartil-<br>hamentos</div></div>
+    <div class="glass eng"><div class="eng-val">24</div><div class="eng-label">Salvos<br>no perfil</div></div>
+  </div>
+
+  <div class="glass take">
+    <div class="take-item">
+      <span class="take-icon">💚</span>
+      <span class="take-text"><b>49 compartilhamentos</b> significam vizinhos mandando a Rocker's para outros vizinhos. É alcance que não custou nada.</span>
+    </div>
+    <div class="take-item">
+      <span class="take-icon">🔖</span>
+      <span class="take-text"><b>24 pessoas salvaram</b> o anúncio para pedir depois. Elas voltam — e é por isso que vale continuar aparecendo.</span>
+    </div>
+    <div class="take-item">
+      <span class="take-icon">👤</span>
+      <span class="take-text">As <b>748 visitas ao perfil</b> são pessoas que quiseram conhecer o cardápio antes de pedir. Um perfil ativo transforma essas visitas em vendas.</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ============ CTA ============ -->
+  <p class="section-title">O que agosto deixou pronto</p>
+
   <div class="glass green cta-card">
-    <div class="cta-title">A máquina está calibrada.<br>Só precisa de combustível.</div>
+    <div class="cta-title">Temos a estratégia certa,<br>o público certo<br>e o dia certo.</div>
     <div class="cta-body">
-      Já sabemos o que funciona: criativo com preço, WhatsApp direto, raio de 4km. Cada real investido gera resultado previsível e mensurável. O sistema de anúncios está pronto — <b>só precisa de volume suficiente para trabalhar no máximo da sua capacidade</b>.
+      Agosto respondeu as três perguntas que faltavam: o <b>Amy Lee</b> revelou a fórmula que funciona e vira o modelo dos próximos criativos, o público de <b>25 a 64 anos</b> é quem realmente chama no WhatsApp, e <b>quarta e domingo</b> são os dias que mais rendem. Setembro começa com o mapa na mão — agora é <b>concentrar a verba onde os números já mostraram o caminho</b>.
     </div>
   </div>
 
   <div class="footer">
-    Rocker's Burger — Apresentação Estratégica de Tráfego Pago<br>
-    Maio–Agosto 2026 · 9 campanhas · R$ 538 investidos
+    Rocker's Burger — Relatório de Agosto de 2026<br>
+    1 a 31 de agosto · 5 campanhas · R$ 357 investidos · 56 conversas · 64.272 exibições
   </div>
 
 </div>
