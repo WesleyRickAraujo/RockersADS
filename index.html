@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Rocker's Burger — Relatório 17 a 26/09</title>
+<title>Rocker's Burger — Relatório 27/09 a 05/10</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -14,8 +14,8 @@
   .container{max-width:440px;margin:0 auto;position:relative;z-index:1}
   .glass{background:rgba(255,255,255,0.06);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,0.11);border-radius:20px}
   .glass.green{background:rgba(20,120,75,0.2);border:1px solid rgba(62,207,142,0.35)}
-  .glass.blue{background:rgba(55,120,190,0.12);border:1px solid rgba(90,160,230,0.25)}
   .glass.amber{background:rgba(232,184,75,0.09);border:1px solid rgba(232,184,75,0.28)}
+  .glass.blue{background:rgba(55,120,190,0.12);border:1px solid rgba(90,160,230,0.25)}
   .header{display:flex;align-items:center;gap:12px;margin-bottom:1.25rem;padding:0.9rem 1.1rem}
   .logo{width:46px;height:46px;border-radius:13px;overflow:hidden;flex-shrink:0;background:rgba(255,255,255,0.08)}
   .logo img{width:100%;height:100%;object-fit:cover}
@@ -28,13 +28,13 @@
 
   .kpi-hero{padding:1.5rem 1rem 1.3rem;text-align:center;margin-bottom:8px;position:relative;overflow:hidden}
   .kpi-hero::after{content:'';position:absolute;top:-60%;left:50%;transform:translateX(-50%);width:150%;height:160%;background:radial-gradient(circle,rgba(62,207,142,0.16) 0%,transparent 65%);pointer-events:none}
-  .kpi-hero-val{font-family:'Bebas Neue',sans-serif;font-size:60px;line-height:0.95;color:#3ecf8e;text-shadow:0 0 28px rgba(62,207,142,0.35);position:relative}
+  .kpi-hero-val{font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:0.95;color:#3ecf8e;text-shadow:0 0 28px rgba(62,207,142,0.35);position:relative}
   .kpi-hero-label{font-size:12px;font-weight:800;color:#3ecf8e;letter-spacing:0.04em;margin-top:8px;position:relative}
   .kpi-hero-sub{font-size:11px;font-weight:700;color:rgba(62,207,142,0.55);margin-top:4px;position:relative;line-height:1.4}
 
   .kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
   .kpi{padding:0.9rem 0.7rem;text-align:center}
-  .kpi-val{font-family:'Bebas Neue',sans-serif;font-size:29px;line-height:1}
+  .kpi-val{font-family:'Bebas Neue',sans-serif;font-size:28px;line-height:1}
   .kpi-val.g{color:#3ecf8e}.kpi-val.w{color:#fff}
   .kpi-label{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;color:rgba(255,255,255,0.4);margin-top:5px;line-height:1.3}
   .kpi-sub{font-size:10px;font-weight:700;margin-top:3px;line-height:1.35}
@@ -44,8 +44,9 @@
   .chart-title{font-size:13.5px;font-weight:800;color:#fff;margin-bottom:3px}
   .chart-sub{font-size:11px;font-weight:600;color:rgba(255,255,255,0.42);line-height:1.45;margin-bottom:16px}
   .chart-foot{font-size:9.5px;font-weight:700;color:rgba(255,255,255,0.3);text-align:center;margin-top:9px;line-height:1.45}
+  .chart-svg{width:100%;display:block}
 
-  .bars{display:flex;align-items:flex-end;justify-content:space-between;gap:6px;height:126px;margin-bottom:7px}
+  .bars{display:flex;align-items:flex-end;justify-content:space-between;gap:6px;height:124px;margin-bottom:7px}
   .bcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
   .bnum{font-family:'Bebas Neue',sans-serif;font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:4px;line-height:1}
   .bcol.top .bnum{color:#3ecf8e;font-size:18px}
@@ -68,8 +69,6 @@
   .f-green{background:linear-gradient(90deg,rgba(62,207,142,0.5),#3ecf8e)}
   .f-blue{background:linear-gradient(90deg,rgba(106,176,232,0.45),#6ab0e8)}
   .f-white{background:rgba(255,255,255,0.25)}
-  .age-foot{font-size:10px;font-weight:700;color:rgba(255,255,255,0.38);margin-top:4px}
-  .age-foot b{font-weight:800;color:#3ecf8e}
 
   .insight-card{padding:1.15rem 1.2rem;margin-bottom:12px}
   .insight-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.09em;margin-bottom:8px}
@@ -87,19 +86,22 @@
   .win-new{font-family:'Bebas Neue',sans-serif;font-size:21px;color:#3ecf8e}
   .win-arr{color:rgba(62,207,142,0.5);font-size:11px}
 
-  table.life{width:100%;border-collapse:collapse}
-  table.life td{padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:11.5px;font-weight:700;color:rgba(255,255,255,0.6)}
-  table.life td:last-child{text-align:right;font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;font-weight:400}
-  table.life td.g:last-child{color:#3ecf8e;font-size:23px}
-  table.life tr:last-child td{border-bottom:none}
+  table.bm{width:100%;border-collapse:collapse;font-size:11px}
+  table.bm th{font-size:8.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:rgba(255,255,255,0.3);padding:0 0 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.09)}
+  table.bm th:first-child{text-align:left}
+  table.bm td{padding:9px 0;text-align:right;border-bottom:1px solid rgba(255,255,255,0.05);font-family:'Bebas Neue',sans-serif;font-size:17px;color:rgba(255,255,255,0.55)}
+  table.bm td:first-child{text-align:left;font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,0.6)}
+  table.bm td.g{color:#3ecf8e;font-size:20px}
+  table.bm td.a{color:#e8b84b}
+  table.bm tr:last-child td{border-bottom:none}
 
-  .map{padding:1.1rem 1.15rem;margin-bottom:12px}
-  .map-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px}
-  .map-item:last-child{margin-bottom:0}
-  .map-icon{font-size:16px;flex-shrink:0;margin-top:1px}
-  .map-text{font-size:12.5px;font-weight:600;color:rgba(255,255,255,0.6);line-height:1.55}
-  .map-text b{font-weight:800;color:rgba(255,255,255,0.85)}
-  .map-text b.g{color:#3ecf8e}
+  .plan{padding:1.1rem 1.15rem;margin-bottom:12px}
+  .plan-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px}
+  .plan-item:last-child{margin-bottom:0}
+  .plan-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+  .plan-text{font-size:12.5px;font-weight:600;color:rgba(255,255,255,0.6);line-height:1.55}
+  .plan-text b{font-weight:800;color:rgba(255,255,255,0.85)}
+  .plan-text b.g{color:#3ecf8e}
 
   .cta-card{padding:1.3rem 1.2rem;text-align:center;margin-bottom:12px}
   .cta-title{font-family:'Bebas Neue',sans-serif;font-size:25px;line-height:1.18;color:#3ecf8e;margin-bottom:10px}
@@ -115,201 +117,184 @@
 
   <div class="header glass">
     <div class="logo"><img src="https://raw.githubusercontent.com/WesleyRickAraujo/RockersADS/main/logo.png" alt="Rocker's Burger"></div>
-    <div><div class="brand-title">Rocker's Burger</div><div class="brand-sub">Relatório de encerramento · Campanha Amy Lee</div></div>
+    <div><div class="brand-title">Rocker's Burger</div><div class="brand-sub">Relatório de transição · Criativo M. Shadows</div></div>
   </div>
 
   <div class="page-hero">
-    <h1>O criativo fechou<br>seu ciclo no auge.</h1>
-    <p>17 a 26 de setembro de 2026</p>
+    <h1>O novo criativo<br>está calibrando<br>— e barateando.</h1>
+    <p>27 de setembro a 5 de outubro de 2026</p>
   </div>
 
   <!-- ===== 1 ===== -->
-  <p class="section-title">1 · O resultado do período</p>
+  <p class="section-title">1 · O destaque do período</p>
 
   <div class="glass green kpi-hero">
-    <div class="kpi-hero-val">318</div>
-    <div class="kpi-hero-label">Pessoas que agiram</div>
-    <div class="kpi-hero-sub">foram à Anotaí ou ao perfil · maior número<br>de todo o mês de setembro</div>
+    <div class="kpi-hero-val">−72%</div>
+    <div class="kpi-hero-label">Queda no custo por clique</div>
+    <div class="kpi-hero-sub">de R$ 6,87 no primeiro dia<br>para R$ 1,92 no último</div>
   </div>
 
   <div class="kpi-grid">
-    <div class="glass green kpi"><div class="kpi-val g">R$0,33</div><div class="kpi-label">Custo por ação</div><div class="kpi-sub up">estável há 3 semanas</div></div>
-    <div class="glass green kpi"><div class="kpi-val g">71</div><div class="kpi-label">Cliques para a Anotaí</div><div class="kpi-sub flat">247 foram ao perfil</div></div>
-    <div class="glass kpi"><div class="kpi-val w">19.388</div><div class="kpi-label">Exibições</div><div class="kpi-sub flat">R$ 106,40 investidos</div></div>
-    <div class="glass kpi"><div class="kpi-val w">20,0%</div><div class="kpi-label">Pararam para assistir</div><div class="kpi-sub up">recorde do criativo</div></div>
+    <div class="glass green kpi"><div class="kpi-val g">143</div><div class="kpi-label">Pessoas que agiram</div><div class="kpi-sub up">foram à Anotaí ou ao perfil</div></div>
+    <div class="glass green kpi"><div class="kpi-val g">2.024</div><div class="kpi-label">Pararam para assistir</div><div class="kpi-sub up">de 14.901 exibições</div></div>
+    <div class="glass kpi"><div class="kpi-val w">27</div><div class="kpi-label">Cliques para a Anotaí</div><div class="kpi-sub flat">116 foram ao perfil</div></div>
+    <div class="glass kpi"><div class="kpi-val w">R$96,65</div><div class="kpi-label">Investido</div><div class="kpi-sub flat">em 6 dias de veiculação</div></div>
   </div>
 
   <div class="glass green insight-card">
     <div class="insight-label" style="color:rgba(62,207,142,0.7);">A leitura do período</div>
     <div class="insight-body green-txt">
-      Em 8 dias de veiculação, <b>318 pessoas saíram do vídeo e foram procurar a Rocker's</b> — o maior volume de setembro. O custo para gerar cada uma dessas ações ficou em <b>R$ 0,33</b>, praticamente o mesmo das três semanas anteriores.
+      O M. Shadows estreou e a campanha passou por uma <b>reestruturação completa</b> — nova campanha, nova segmentação, novo nome. Em 6 dias de veiculação, <b>143 pessoas foram procurar a Rocker's</b> e o custo para trazer cada clique <b>caiu 72%</b>.
     </div>
   </div>
 
   <hr class="divider">
 
   <!-- ===== 2 ===== -->
-  <p class="section-title">2 · O engajamento bateu recorde</p>
+  <p class="section-title">2 · A curva de calibração</p>
+
+  <div class="glass chart-card">
+    <div class="chart-title">Custo por clique para a Anotaí, dia a dia</div>
+    <div class="chart-sub">Cada dia que passa, trazer uma pessoa até a plataforma de pedido fica mais barato.</div>
+    <svg class="chart-svg" viewBox="0 0 400 168" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Custo por clique caindo de R$6,87 para R$1,92">
+      <defs><linearGradient id="lf" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#3ecf8e" stop-opacity="0.32"/><stop offset="100%" stop-color="#3ecf8e" stop-opacity="0"/>
+      </linearGradient></defs>
+      <line x1="36" y1="24" x2="392" y2="24" stroke="rgba(255,255,255,0.07)"/>
+      <line x1="36" y1="63" x2="392" y2="63" stroke="rgba(255,255,255,0.07)"/>
+      <line x1="36" y1="102" x2="392" y2="102" stroke="rgba(255,255,255,0.07)"/>
+      <line x1="36" y1="141" x2="392" y2="141" stroke="rgba(255,255,255,0.13)"/>
+      <text x="30" y="28" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Manrope" font-weight="800" text-anchor="end">8</text>
+      <text x="30" y="67" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Manrope" font-weight="800" text-anchor="end">6</text>
+      <text x="30" y="106" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Manrope" font-weight="800" text-anchor="end">3</text>
+      <text x="30" y="145" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Manrope" font-weight="800" text-anchor="end">0</text>
+      <path d="M64,53 L173,102 L282,117 L391,122 L391,141 L64,141 Z" fill="url(#lf)"/>
+      <polyline points="64,53 173,102 282,117 391,122" fill="none" stroke="#3ecf8e" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="64" cy="53" r="3.5" fill="#060807" stroke="#3ecf8e" stroke-width="2"/>
+      <circle cx="173" cy="102" r="3.5" fill="#060807" stroke="#3ecf8e" stroke-width="2"/>
+      <circle cx="282" cy="117" r="3.5" fill="#060807" stroke="#3ecf8e" stroke-width="2"/>
+      <circle cx="391" cy="122" r="5.5" fill="#3ecf8e"/>
+      <text x="64" y="44" fill="rgba(255,255,255,0.62)" font-size="13" font-family="Bebas Neue" text-anchor="middle">R$6,87</text>
+      <text x="173" y="93" fill="rgba(255,255,255,0.62)" font-size="13" font-family="Bebas Neue" text-anchor="middle">R$3,04</text>
+      <text x="282" y="108" fill="rgba(255,255,255,0.62)" font-size="13" font-family="Bebas Neue" text-anchor="middle">R$2,16</text>
+      <text x="391" y="113" fill="#3ecf8e" font-size="15" font-family="Bebas Neue" text-anchor="end">R$1,92</text>
+      <text x="64" y="162" fill="rgba(255,255,255,0.32)" font-size="9" font-family="Manrope" font-weight="800" text-anchor="middle">27/09</text>
+      <text x="173" y="162" fill="rgba(255,255,255,0.32)" font-size="9" font-family="Manrope" font-weight="800" text-anchor="middle">01/10</text>
+      <text x="282" y="162" fill="rgba(255,255,255,0.32)" font-size="9" font-family="Manrope" font-weight="800" text-anchor="middle">02/10</text>
+      <text x="390" y="162" fill="#3ecf8e" font-size="9" font-family="Manrope" font-weight="800" text-anchor="end">05/10</text>
+    </svg>
+    <div class="chart-foot">Dias com clique registrado no link · 28 e 30/09 tiveram volume residual</div>
+  </div>
+
+  <div class="glass chart-card">
+    <div class="chart-title">Custo para aparecer para mil pessoas</div>
+    <div class="chart-sub">O preço da mídia caiu 58% ao longo do período. Quanto menor, melhor.</div>
+    <div class="bars">
+      <div class="bcol"><span class="bnum">R$7,55</span><span class="bbar" style="height:82px"></span></div>
+      <div class="bcol"><span class="bnum">R$9,28</span><span class="bbar" style="height:101px"></span></div>
+      <div class="bcol"><span class="bnum">R$8,23</span><span class="bbar" style="height:90px"></span></div>
+      <div class="bcol good"><span class="bnum">R$4,91</span><span class="bbar" style="height:54px"></span></div>
+      <div class="bcol top"><span class="bnum">R$3,16</span><span class="bbar" style="height:35px"></span></div>
+    </div>
+    <div class="blab"><span>27/09</span><span>28/09</span><span>01/10</span><span>02/10</span><span class="hi">05/10</span></div>
+  </div>
 
   <div class="glass green win">
     <div class="win-row">
-      <div class="win-txt">Compartilhamentos<span>Pessoas mandando o anúncio para amigos</span></div>
-      <div class="win-pair"><span class="win-old">8</span><span class="win-arr">→</span><span class="win-new">18</span></div>
+      <div class="win-txt">Custo por clique no link<span>Para levar 1 pessoa à Anotaí</span></div>
+      <div class="win-pair"><span class="win-old">R$6,87</span><span class="win-arr">→</span><span class="win-new">R$1,92</span></div>
     </div>
     <div class="win-row">
-      <div class="win-txt">Salvamentos<span>Guardaram o anúncio para pedir depois</span></div>
-      <div class="win-pair"><span class="win-old">8</span><span class="win-arr">→</span><span class="win-new">15</span></div>
+      <div class="win-txt">Custo por mil exibições<span>Preço da mídia</span></div>
+      <div class="win-pair"><span class="win-old">R$7,55</span><span class="win-arr">→</span><span class="win-new">R$3,16</span></div>
     </div>
     <div class="win-row">
-      <div class="win-txt">Curtidas por mil exibições<span>Reação de quem viu o anúncio</span></div>
-      <div class="win-pair"><span class="win-old">2,9</span><span class="win-arr">→</span><span class="win-new">4,3</span></div>
+      <div class="win-txt">Custo por interação<span>Qualquer clique no anúncio</span></div>
+      <div class="win-pair"><span class="win-old">R$1,15</span><span class="win-arr">→</span><span class="win-new">R$0,51</span></div>
     </div>
     <div class="win-row">
-      <div class="win-txt">Assistiram metade do vídeo<span>De cada 100 que pararam para ver</span></div>
-      <div class="win-pair"><span class="win-old">35,4</span><span class="win-arr">→</span><span class="win-new">44,1</span></div>
-    </div>
-    <div class="win-row">
-      <div class="win-txt">Assistiram até o fim<span>De cada 100 que pararam para ver</span></div>
-      <div class="win-pair"><span class="win-old">9,1</span><span class="win-arr">→</span><span class="win-new">10,6</span></div>
-    </div>
-    <div class="win-row">
-      <div class="win-txt">Visitas ao perfil<span>Foram conhecer o Instagram da marca</span></div>
-      <div class="win-pair"><span class="win-old">176</span><span class="win-arr">→</span><span class="win-new">247</span></div>
-    </div>
-  </div>
-
-  <div class="glass green insight-card">
-    <div class="insight-label" style="color:rgba(62,207,142,0.7);">O que isso significa</div>
-    <div class="insight-body green-txt">
-      <b>Compartilhamentos mais que dobraram</b> e os salvamentos quase dobraram. São as duas métricas que mostram vínculo com a marca — gente recomendando a Rocker's para amigos e guardando o anúncio para pedir depois. O vídeo terminou seu ciclo sendo <b>mais assistido e mais compartilhado do que em qualquer semana anterior</b>.
+      <div class="win-txt">Custo por ação<span>Clique na Anotaí ou visita ao perfil</span></div>
+      <div class="win-pair"><span class="win-old">R$1,23</span><span class="win-arr">→</span><span class="win-new">R$0,59</span></div>
     </div>
   </div>
 
   <hr class="divider">
 
   <!-- ===== 3 ===== -->
-  <p class="section-title">3 · A descoberta sobre o público</p>
+  <p class="section-title">3 · O público se confirmou de novo</p>
 
   <div class="glass chart-card">
-    <div class="chart-title">Ações a cada mil exibições, por idade</div>
-    <div class="chart-sub">Quantas pessoas de cada faixa saem do vídeo e vão procurar a Rocker's.</div>
+    <div class="chart-title">Quem para para assistir, por idade</div>
+    <div class="chart-sub">De cada 100 pessoas que veem o anúncio, quantas param nos 3 primeiros segundos. Quarta medição consecutiva com o mesmo padrão.</div>
 
     <div class="age-row">
-      <div class="age-head"><span class="age-name">45-54 anos <span>a grande revelação</span></span><span class="age-val g">28,1</span></div>
+      <div class="age-head"><span class="age-name">55-64 anos <span>maior retenção</span></span><span class="age-val g">30,1%</span></div>
       <div class="age-track"><span class="age-fill f-green" style="width:100%"></span></div>
-      <div class="age-foot">Saltou de 16,3 para 28,1 em duas semanas — <b>+72%</b></div>
     </div>
     <div class="age-row">
-      <div class="age-head"><span class="age-name">55-64 anos</span><span class="age-val w">25,7</span></div>
-      <div class="age-track"><span class="age-fill f-blue" style="width:91%"></span></div>
+      <div class="age-head"><span class="age-name">45-54 anos</span><span class="age-val w">23,0%</span></div>
+      <div class="age-track"><span class="age-fill f-blue" style="width:76%"></span></div>
     </div>
     <div class="age-row">
-      <div class="age-head"><span class="age-name">35-44 anos</span><span class="age-val w">20,0</span></div>
-      <div class="age-track"><span class="age-fill f-blue" style="width:71%"></span></div>
+      <div class="age-head"><span class="age-name">35-44 anos</span><span class="age-val w">17,8%</span></div>
+      <div class="age-track"><span class="age-fill f-blue" style="width:59%"></span></div>
     </div>
     <div class="age-row">
-      <div class="age-head"><span class="age-name">25-34 anos <span>recebe 64% das exibições</span></span><span class="age-val w">13,2</span></div>
-      <div class="age-track"><span class="age-fill f-white" style="width:47%"></span></div>
+      <div class="age-head"><span class="age-name">25-34 anos <span>recebe 67% das exibições</span></span><span class="age-val w">10,6%</span></div>
+      <div class="age-track"><span class="age-fill f-white" style="width:35%"></span></div>
     </div>
-  </div>
-
-  <div class="glass chart-card">
-    <div class="chart-title">Custo para gerar uma ação, por idade</div>
-    <div class="chart-sub">Quanto menor, melhor. A faixa de 35 a 44 anos passou a ser a mais econômica da campanha.</div>
-    <div class="bars">
-      <div class="bcol top"><span class="bnum">R$0,31</span><span class="bbar" style="height:86px"></span></div>
-      <div class="bcol top"><span class="bnum">R$0,32</span><span class="bbar" style="height:90px"></span></div>
-      <div class="bcol"><span class="bnum">R$0,35</span><span class="bbar" style="height:97px"></span></div>
-      <div class="bcol"><span class="bnum">R$0,40</span><span class="bbar" style="height:110px"></span></div>
-    </div>
-    <div class="blab"><span class="hi">35-44</span><span class="hi">45-54</span><span>25-34</span><span>55-64</span></div>
+    <div class="chart-foot">O público acima de 45 anos prende o dobro da atenção do mais jovem</div>
   </div>
 
   <div class="glass blue insight-card">
-    <div class="insight-label" style="color:rgba(106,176,232,0.8);">O público da Rocker's é mais maduro do que se imaginava</div>
+    <div class="insight-label" style="color:rgba(106,176,232,0.8);">O aprendizado que atravessa criativos</div>
     <div class="insight-body blue-txt">
-      As faixas <b>acima de 35 anos</b> são as que mais assistem, mais agem e custam menos por ação. A faixa de <b>45 a 54 anos</b> — que hoje recebe apenas 7,5% das exibições — tem <b>mais que o dobro da taxa de ação</b> da faixa mais jovem. É o público menos explorado e mais promissor da conta.
+      Pelo <b>quarto período consecutivo</b>, e agora com um vídeo totalmente diferente, as faixas acima de 45 anos aparecem no topo da retenção. É o dado mais estável da conta e <b>vale para qualquer criativo futuro</b>: o público da Rocker's é mais maduro do que a entrega automática sugere.
     </div>
   </div>
 
   <hr class="divider">
 
   <!-- ===== 4 ===== -->
-  <p class="section-title">4 · Os dias que mais rendem</p>
+  <p class="section-title">4 · Onde estamos frente ao histórico</p>
 
   <div class="glass chart-card">
-    <div class="chart-title">Média de ações por dia da semana</div>
-    <div class="chart-sub">Acumulado de toda a campanha, de 21/08 a 25/09.</div>
-    <div class="bars">
-      <div class="bcol top"><span class="bnum">67,2</span><span class="bbar" style="height:110px"></span></div>
-      <div class="bcol good"><span class="bnum">53,6</span><span class="bbar" style="height:88px"></span></div>
-      <div class="bcol good"><span class="bnum">48,6</span><span class="bbar" style="height:80px"></span></div>
-      <div class="bcol good"><span class="bnum">46,8</span><span class="bbar" style="height:77px"></span></div>
-      <div class="bcol"><span class="bnum">37,3</span><span class="bbar" style="height:61px"></span></div>
-      <div class="bcol"><span class="bnum">33,6</span><span class="bbar" style="height:55px"></span></div>
-    </div>
-    <div class="blab"><span class="hi">Dom</span><span>Sáb</span><span>Qui</span><span>Seg</span><span>Sex</span><span>Qua</span></div>
-    <div class="chart-foot">Domingo lidera em volume e também em custo: R$ 0,26 por ação, o mais barato da semana</div>
+    <div class="chart-title">M. Shadows comparado à média da conta</div>
+    <div class="chart-sub">Referência construída com todos os criativos de agosto e setembro.</div>
+    <table class="bm">
+      <tr><th>Métrica</th><th>Média da conta</th><th>M. Shadows</th></tr>
+      <tr><td>Custo por mil exibições<br><span style="font-size:9px;color:rgba(255,255,255,0.3)">último dia: R$ 3,16</span></td><td>R$5,47</td><td class="a">R$6,49</td></tr>
+      <tr><td>Pararam para assistir</td><td>16,0%</td><td class="a">13,6%</td></tr>
+      <tr><td>Custo por interação</td><td>R$0,38</td><td class="a">R$0,74</td></tr>
+      <tr><td>Ações por mil exibições</td><td>16,3</td><td class="a">9,6</td></tr>
+      <tr><td>Frequência</td><td>—</td><td class="g">1,09</td></tr>
+    </table>
   </div>
 
   <div class="glass green insight-card">
-    <div class="insight-label" style="color:rgba(62,207,142,0.7);">Domingo é o dia da Rocker's</div>
+    <div class="insight-label" style="color:rgba(62,207,142,0.7);">E a frequência abre espaço</div>
     <div class="insight-body green-txt">
-      Em cinco semanas de campanha, o domingo entregou <b>67 ações por dia</b> ao custo mais baixo de todos: <b>R$ 0,26</b>. É 25% mais que o segundo colocado. Um padrão consistente o suficiente para orientar promoções e reforço de verba.
+      Com <b>frequência de 1,09</b>, quase ninguém viu o anúncio mais de uma vez. Não há desgaste nem saturação — o público do bairro ainda está praticamente intocado por este criativo, e <b>89% do orçamento de outubro segue disponível</b>.
     </div>
   </div>
 
   <hr class="divider">
 
   <!-- ===== 5 ===== -->
-  <p class="section-title">5 · O balanço completo do Amy Lee</p>
-
-  <div class="glass green chart-card">
-    <div class="chart-title" style="color:#3ecf8e;">🏆 De 21 de agosto a 25 de setembro</div>
-    <div class="chart-sub">O criativo de maior alcance da história da conta, em 31 dias de veiculação.</div>
-    <table class="life">
-      <tr><td>Investimento total</td><td>R$455</td></tr>
-      <tr><td>Exibições no bairro</td><td class="g">92.925</td></tr>
-      <tr><td>Cliques para a Anotaí</td><td>356</td></tr>
-      <tr><td>Visitas ao perfil</td><td>1.117</td></tr>
-      <tr><td>Total de pessoas que agiram</td><td class="g">1.473</td></tr>
-      <tr><td>Custo médio por ação</td><td class="g">R$0,31</td></tr>
-    </table>
-  </div>
-
-  <div class="glass green insight-card">
-    <div class="insight-label" style="color:rgba(62,207,142,0.7);">Um ativo que cumpriu o que prometia</div>
-    <div class="insight-body green-txt">
-      Por <b>R$ 455 ao longo de cinco semanas</b>, o Amy Lee colocou a Rocker's na frente do bairro quase <b>93 mil vezes</b> e levou <b>1.473 pessoas</b> a procurar a marca — a 31 centavos cada. Encerrou com engajamento em máxima histórica, entregando o bastão para o novo criativo no melhor momento possível.
-    </div>
-  </div>
-
-  <hr class="divider">
-
-  <!-- ===== 6 ===== -->
-  <p class="section-title">6 · O mapa para o próximo criativo</p>
-
-  <div class="glass map">
-    <div class="map-item"><span class="map-icon">🎯</span><span class="map-text">Priorizar a entrega para <b class="g">35 a 54 anos</b>. É o público que mais assiste, mais age e custa menos — e o que menos recebeu exibições até agora.</span></div>
-    <div class="map-item"><span class="map-icon">📅</span><span class="map-text">Concentrar força em <b class="g">domingo, sábado e segunda</b>. Juntos respondem pela maior parte das ações da campanha.</span></div>
-    <div class="map-item"><span class="map-icon">🔄</span><span class="map-text">Definir um <b>ciclo de vida de 25 a 30 dias por criativo</b>. O Amy Lee mostrou onde fica o ponto de virada — agora dá para trocar antes dele, não depois.</span></div>
-    <div class="map-item"><span class="map-icon">🎬</span><span class="map-text">O formato funciona: <b>bastidor real, preço na tela e chamada direta</b>. O novo vídeo do M. Shadows segue a mesma fórmula, agora com o aprendizado de público embutido.</span></div>
-  </div>
-
   <div class="glass green cta-card">
-    <div class="cta-title">Cinco semanas<br>de aprendizado<br>viram vantagem.</div>
+    <div class="cta-title">A estrutura está certa.<br>O ajuste é cirúrgico.</div>
     <div class="cta-body">
-      A campanha sai deste ciclo sabendo <b>quem é o público, em que dia ele compra e qual formato prende a atenção</b>. O próximo criativo não começa do zero — começa com mapa na mão.
+      A campanha nova derrubou o custo por clique em <b>72%</b> em menos de uma semana e o público-alvo está mapeado com quatro medições independentes. O que falta é <b>um corte de vídeo mais direto</b> — e isso já está encaminhado, com 89% da verba do mês pela frente.
     </div>
   </div>
 
   <div class="nota">
-    Período de 17 a 26/09, com 8 dias de veiculação (terça-feira sem entrega). Comparações com a semana de 10 a 16/09. Ação = clique para a Anotaí + visita ao perfil do Instagram. Dados de dia da semana acumulados de 21/08 a 25/09.
+    Período de 27/09 a 05/10, com 6 dias de veiculação do criativo M. Shadows, atravessando o encerramento da campanha anterior e a estreia da campanha nova em 01/10. Ação = clique para a Anotaí + visita ao perfil do Instagram. Média da conta calculada sobre todos os criativos veiculados em agosto e setembro.
   </div>
 
   <div class="footer">
-    Rocker's Burger — Relatório de Encerramento · Campanha Amy Lee<br>
-    17 a 26 de setembro de 2026 · R$ 106,40 investidos · 318 ações geradas
+    Rocker's Burger — Relatório de Transição · Criativo M. Shadows<br>
+    27 de setembro a 5 de outubro de 2026 · R$ 96,65 investidos · 143 ações geradas
   </div>
 </div>
 </body>
