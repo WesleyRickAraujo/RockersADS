@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rockers Burguer — Resultados e Próxima Fase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400..700&family=DM+Sans:wght@400..700&display=swap">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; background: #0E0B09; overflow: hidden; }
+  body { font-family: 'DM Sans', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+
+  #viewport { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  #stage { position: relative; width: 1920px; height: 1080px; flex: none; transform-origin: center center; }
+
+  .slide { position: absolute !important; inset: 0; width: 1920px; height: 1080px; overflow: hidden;
+           opacity: 0; visibility: hidden; transition: opacity .45s ease, visibility 0s linear .45s; }
+  .slide.active { opacity: 1; visibility: visible; transition: opacity .45s ease; }
+  .slide h1 { font-size: 96px; font-weight: 600; line-height: 1.1; }
+  .slide h2 { font-size: 64px; font-weight: 600; line-height: 1.15; }
+  .slide h3 { font-size: 44px; font-weight: 600; line-height: 1.2; }
+  .slide p  { font-size: 32px; font-weight: 400; line-height: 1.4; }
+  .slide ul, .slide ol { padding-left: 1.2em; }
+  .slide li + li { margin-top: .15em; }
+  .slide table { width: 100%; border-collapse: collapse; }
+  .slide th, .slide td { padding: .35em .6em; border-bottom: 1px solid rgba(26,22,18,.18); vertical-align: middle; }
+  .slide th { font-weight: 700; border-bottom: 2px solid currentColor; }
+
+  #bar { position: fixed; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; gap: 12px;
+         padding: 14px; opacity: 0; transition: opacity .3s; pointer-events: none; }
+  body.ui #bar { opacity: 1; pointer-events: auto; }
+  #bar button { font: 600 15px 'DM Sans', Arial, sans-serif; color: #F5EFE6; background: rgba(26,22,18,.85);
+                border: 1px solid rgba(245,239,230,.2); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
+  #bar button:hover { background: #E8642C; border-color: #E8642C; }
+  #count { font: 600 15px 'DM Sans', Arial, sans-serif; color: #F5EFE6; background: rgba(26,22,18,.85);
+           border-radius: 999px; padding: 8px 16px; min-width: 76px; text-align: center; }
+  #progress { position: fixed; left: 0; top: 0; height: 4px; background: #E8642C; transition: width .3s ease; z-index: 2; }
+
+  @media print {
+    @page { size: 1920px 1080px; margin: 0; }
+    html, body { height: auto; overflow: visible; background: none; }
+    #viewport { position: static; display: block; }
+    #stage { transform: none !important; width: auto; height: auto; }
+    .slide { position: relative !important; opacity: 1; visibility: visible; transition: none; page-break-after: always; break-after: page; }
+    #bar, #progress { display: none; }
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="viewport"><div id="stage">
+<section class="slide" id="capa" data-transition="fade" style="background:#1A1612;color:#F5EFE6;font-family:'DM Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between">
+<div style="position:absolute;left:0;top:0;width:24px;height:1080px;background:#E8642C"></div>
+<p style="font-size:28px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#E8642C">Relatório de resultados · maio a outubro de 2026</p>
+<div style="display:flex;flex-direction:column;gap:32px">
+<h1 style="font-family:'Oswald', Arial, sans-serif;font-size:160px;font-weight:700;line-height:1.0;text-transform:uppercase;color:#F5EFE6">Rockers Burguer:<br>do zero ao palco</h1>
+<p style="font-size:44px;line-height:1.3;color:#D9CFC1">Seis meses de redes sociais, vídeo e tráfego pago — e o que vem a seguir.</p>
+</div>
+<p style="font-size:32px;color:#D9CFC1"><b>Deborah Ramos</b> · Videomaker e Tráfego Pago</p>
+
+</section>
+<section class="slide" id="marco" data-transition="fade" style="background:#F5EFE6;color:#1A1612;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#B4451A">De onde viemos</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#1A1612">O marco zero</h2>
+</div>
+<p style="font-size:44px;line-height:1.3;color:#1A1612">Em <b>6 de maio de 2026</b>, o perfil da Rockers tinha zero seguidores, zero visualizações e nenhum histórico. Tudo o que vem a seguir foi construído a partir daí.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:16px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F3;border-top:6px solid #E8642C;padding:24px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;color:#B4451A">06/05</p>
+<p style="font-size:26px;line-height:1.3">Perfil no ar</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F3;border-top:6px solid #E8642C;padding:24px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;color:#B4451A">12/05</p>
+<p style="font-size:26px;line-height:1.3">Primeiro pico: 193 visitas ao perfil em um dia</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F3;border-top:6px solid #E8642C;padding:24px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;color:#B4451A">26/05</p>
+<p style="font-size:26px;line-height:1.3">Primeira campanha: quase 7 mil pessoas alcançadas por dia</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F3;border-top:6px solid #E8642C;padding:24px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;color:#B4451A">Jun–Jul</p>
+<p style="font-size:26px;line-height:1.3">Combos da Copa: 517 cliques no link</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F3;border-top:6px solid #E8642C;padding:24px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;color:#B4451A">Agosto</p>
+<p style="font-size:26px;line-height:1.3">Nova estratégia: reels de produto e campanhas de mensagem</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F3;border-top:6px solid #E8642C;padding:24px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;color:#B4451A">Setembro</p>
+<p style="font-size:26px;line-height:1.3">Recorde: 1.152 visitas e 190 novos seguidores no mês</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#6B6055">Fonte: Meta Business Suite e Gerenciador de Anúncios</p>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#6B6055;text-align:right">02</p>
+
+</section>
+<section class="slide" id="numeros" data-transition="fade" style="background:#1A1612;color:#F5EFE6;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#E8642C">Total da conta · orgânico + patrocinado</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#F5EFE6">Cinco meses e meio, quatro números</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px 64px">
+<div style="display:flex;flex-direction:column;gap:8px;border-left:6px solid #E8642C;padding:0 0 0 32px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:120px;font-weight:700;line-height:1.0;color:#F5EFE6">427 mil</p>
+<p style="font-size:32px;color:#D9CFC1">visualizações dos conteúdos</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;border-left:6px solid #E8642C;padding:0 0 0 32px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:120px;font-weight:700;line-height:1.0;color:#F5EFE6">4.739</p>
+<p style="font-size:32px;color:#D9CFC1">visitas ao perfil</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;border-left:6px solid #E8642C;padding:0 0 0 32px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:120px;font-weight:700;line-height:1.0;color:#F5EFE6">1.676</p>
+<p style="font-size:32px;color:#D9CFC1">cliques no link do perfil (pedidos)</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;border-left:6px solid #E8642C;padding:0 0 0 32px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:120px;font-weight:700;line-height:1.0;color:#F5EFE6">612</p>
+<p style="font-size:32px;color:#D9CFC1">novos seguidores, partindo do zero</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#A89C8C">Fonte: Meta Business Suite, 06/05 a 20/10/2026</p>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#A89C8C;text-align:right">03</p>
+
+</section>
+<section class="slide" id="divisao" data-transition="fade" style="background:#F5EFE6;color:#1A1612;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#B4451A">Orgânico × patrocinado</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#1A1612">De onde veio cada resultado</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:40px">
+<div style="display:flex;flex-direction:row;align-items:center;gap:12px"><div style="width:32px;height:32px;background:#E8642C"></div><p style="font-size:26px">Patrocinado (anúncios)</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:12px"><div style="width:32px;height:32px;background:#1A1612"></div><p style="font-size:26px">Orgânico</p></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:36px">
+<div style="display:grid;grid-template-columns:360px 860px 1fr;gap:32px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:4px"><h3 style="font-size:32px;font-weight:700">Visualizações</h3><p style="font-size:24px;color:#4A4038">427 mil no total</p></div>
+<div style="display:flex;flex-direction:row;height:48px"><div style="width:691px;height:48px;background:#E8642C"></div><div style="width:169px;height:48px;background:#1A1612"></div></div>
+<p style="font-size:24px;line-height:1.35;color:#4A4038">80% pago · <b>20% orgânico</b><br>343 mil · 84 mil</p>
+</div>
+<div style="display:grid;grid-template-columns:360px 860px 1fr;gap:32px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:4px"><h3 style="font-size:32px;font-weight:700">Visitas ao perfil</h3><p style="font-size:24px;color:#4A4038">4.738 no total</p></div>
+<div style="display:flex;flex-direction:row;height:48px"><div style="width:385px;height:48px;background:#E8642C"></div><div style="width:475px;height:48px;background:#1A1612"></div></div>
+<p style="font-size:24px;line-height:1.35;color:#4A4038">45% pago · <b>55% orgânico</b><br>2.120 · 2.618</p>
+</div>
+<div style="display:grid;grid-template-columns:360px 860px 1fr;gap:32px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:4px"><h3 style="font-size:32px;font-weight:700">Cliques no link</h3><p style="font-size:24px;color:#4A4038">1.676 no total</p></div>
+<div style="display:flex;flex-direction:row;height:48px"><div style="width:796px;height:48px;background:#E8642C"></div><div style="width:64px;height:48px;background:#1A1612"></div></div>
+<p style="font-size:24px;line-height:1.35;color:#4A4038"><b>93% pago</b> · 7% orgânico<br>1.552 · 124</p>
+</div>
+<div style="display:grid;grid-template-columns:360px 860px 1fr;gap:32px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:4px"><h3 style="font-size:32px;font-weight:700">Interações</h3><p style="font-size:24px;color:#4A4038">4.162 no total</p></div>
+<div style="display:flex;flex-direction:row;height:48px"><div style="width:222px;height:48px;background:#E8642C"></div><div style="width:638px;height:48px;background:#1A1612"></div></div>
+<p style="font-size:24px;line-height:1.35;color:#4A4038">26% pago · <b>74% orgânico</b><br>1.075 · 3.087</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#6B6055">Orgânico = total da conta menos o resultado dos anúncios no Instagram, dia a dia. 06/05 a 20/10/2026</p>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#6B6055;text-align:right">04</p>
+
+</section>
+<section class="slide" id="halo" data-transition="fade" style="background:#1A1612;color:#F5EFE6;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#E8642C">Efeito do patrocinado no orgânico</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#F5EFE6">O anúncio também empurra o orgânico</h2>
+</div>
+<p style="font-size:32px;line-height:1.4;color:#D9CFC1">Média por dia: 97 dias com anúncio rodando × 71 dias sem anúncio.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#2A241E;padding:40px;border-radius:8px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:120px;font-weight:700;line-height:1.0;color:#E8642C">2,1×</p>
+<h3 style="font-size:32px;font-weight:700;color:#F5EFE6">visualizações orgânicas</h3>
+<p style="font-size:26px;color:#D9CFC1">644 por dia com anúncio × 302 sem</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#2A241E;padding:40px;border-radius:8px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:120px;font-weight:700;line-height:1.0;color:#E8642C">+69%</p>
+<h3 style="font-size:32px;font-weight:700;color:#F5EFE6">novos seguidores</h3>
+<p style="font-size:26px;color:#D9CFC1">4,4 por dia com anúncio × 2,6 sem</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#2A241E;padding:40px;border-radius:8px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:120px;font-weight:700;line-height:1.0;color:#E8642C">+32%</p>
+<h3 style="font-size:32px;font-weight:700;color:#F5EFE6">interações orgânicas</h3>
+<p style="font-size:26px;color:#D9CFC1">20,5 por dia com anúncio × 15,5 sem</p>
+</div>
+</div>
+<p style="font-size:32px;line-height:1.4;color:#F5EFE6">Na fase atual (ago–out), o efeito ficou maior: <span style="color:#E8642C"><b>3× mais seguidores</b></span> nos dias com anúncio (6,6 × 2,2 por dia).</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#A89C8C">Fonte: Meta Business Suite e Gerenciador de Anúncios, 06/05 a 20/10/2026</p>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#A89C8C;text-align:right">05</p>
+
+</section>
+<section class="slide" id="organico" data-transition="fade" style="background:#F5EFE6;color:#1A1612;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#B4451A">Orgânico</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#1A1612">O orgânico cresceu junto</h2>
+</div>
+<div style="display:grid;grid-template-columns:1.3fr 1fr;gap:80px">
+<div style="display:flex;flex-direction:column;gap:24px">
+<h3 style="font-size:32px;font-weight:700">Visualizações orgânicas por dia (média do mês)</h3>
+<div style="display:flex;flex-direction:row;align-items:end;gap:24px;height:360px">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">333</p><div style="width:80px;height:157px;background:#CBBFAE"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">470</p><div style="width:80px;height:222px;background:#CBBFAE"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">369</p><div style="width:80px;height:174px;background:#CBBFAE"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">591</p><div style="width:80px;height:279px;background:#CBBFAE"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">623</p><div style="width:80px;height:294px;background:#CBBFAE"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700;color:#B4451A">636</p><div style="width:80px;height:300px;background:#E8642C"></div></div>
+</div>
+<div style="display:flex;flex-direction:row;gap:24px;border-top:2px solid #1A1612;padding:12px 0 0 0">
+<p style="flex:1;font-size:24px;text-align:center">mai</p><p style="flex:1;font-size:24px;text-align:center">jun</p><p style="flex:1;font-size:24px;text-align:center">jul</p><p style="flex:1;font-size:24px;text-align:center">ago</p><p style="flex:1;font-size:24px;text-align:center">set</p><p style="flex:1;font-size:24px;text-align:center;font-weight:700">out*</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:8px;border-left:6px solid #E8642C;padding:0 0 0 32px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:96px;font-weight:700;line-height:1.0">+35%</p>
+<p style="font-size:28px;line-height:1.4;color:#4A4038">de visualizações orgânicas por dia, de junho para outubro</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;border-left:6px solid #E8642C;padding:0 0 0 32px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:96px;font-weight:700;line-height:1.0">2.618</p>
+<p style="font-size:28px;line-height:1.4;color:#4A4038">visitas ao perfil sem anúncio: gente que procurou a Rockers por conta própria</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#6B6055">*Outubro até o dia 20. Maio a partir do dia 6. Fonte: Meta Business Suite e Gerenciador de Anúncios</p>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#6B6055;text-align:right">06</p>
+
+</section>
+<section class="slide" id="crescimento" data-transition="fade" style="background:#F5EFE6;color:#1A1612;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#B4451A">Audiência</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#1A1612">Setembro: o melhor mês da história do perfil</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:96px">
+<div style="display:flex;flex-direction:column;gap:24px">
+<h3 style="font-size:32px;font-weight:700;color:#1A1612">Novos seguidores por mês</h3>
+<div style="display:flex;flex-direction:row;align-items:end;gap:24px;height:360px">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">127</p><div style="width:80px;height:201px;background:#CBBFAE"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">56</p><div style="width:80px;height:88px;background:#CBBFAE"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">50</p><div style="width:80px;height:79px;background:#CBBFAE"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">118</p><div style="width:80px;height:186px;background:#CBBFAE"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700;color:#B4451A">190</p><div style="width:80px;height:300px;background:#E8642C"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">71*</p><div style="width:80px;height:112px;background:#CBBFAE"></div></div>
+</div>
+<div style="display:flex;flex-direction:row;gap:24px;border-top:2px solid #1A1612;padding:12px 0 0 0">
+<p style="flex:1;font-size:24px;text-align:center">mai</p><p style="flex:1;font-size:24px;text-align:center">jun</p><p style="flex:1;font-size:24px;text-align:center">jul</p><p style="flex:1;font-size:24px;text-align:center">ago</p><p style="flex:1;font-size:24px;text-align:center;font-weight:700">set</p><p style="flex:1;font-size:24px;text-align:center">out*</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<h3 style="font-size:32px;font-weight:700;color:#1A1612">Visitas ao perfil por mês</h3>
+<div style="display:flex;flex-direction:row;align-items:end;gap:24px;height:360px">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">610</p><div style="width:80px;height:159px;background:#CBBFAE"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">735</p><div style="width:80px;height:191px;background:#CBBFAE"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">648</p><div style="width:80px;height:169px;background:#CBBFAE"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">1.053</p><div style="width:80px;height:274px;background:#CBBFAE"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700;color:#B4451A">1.152</p><div style="width:80px;height:300px;background:#E8642C"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-size:24px;font-weight:700">541*</p><div style="width:80px;height:141px;background:#CBBFAE"></div></div>
+</div>
+<div style="display:flex;flex-direction:row;gap:24px;border-top:2px solid #1A1612;padding:12px 0 0 0">
+<p style="flex:1;font-size:24px;text-align:center">mai</p><p style="flex:1;font-size:24px;text-align:center">jun</p><p style="flex:1;font-size:24px;text-align:center">jul</p><p style="flex:1;font-size:24px;text-align:center">ago</p><p style="flex:1;font-size:24px;text-align:center;font-weight:700">set</p><p style="flex:1;font-size:24px;text-align:center">out*</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#6B6055">*Outubro até o dia 20. Fonte: Meta Business Suite</p>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#6B6055;text-align:right">07</p>
+
+</section>
+<section class="slide" id="engajamento" data-transition="fade" style="background:#F5EFE6;color:#1A1612;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#B4451A">Engajamento</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#1A1612">Uma marca presente todos os dias</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:16px;background:#FBF8F3;border-top:6px solid #E8642C;padding:40px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:120px;font-weight:700;line-height:1.0;color:#1A1612">285</p>
+<h3 style="font-size:32px;font-weight:700">stories publicados</h3>
+<p style="font-size:28px;line-height:1.35;color:#4A4038">Quase 2 por dia: a Rockers aparece para quem já segue, todos os dias.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:#FBF8F3;border-top:6px solid #E8642C;padding:40px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:120px;font-weight:700;line-height:1.0;color:#1A1612">27</p>
+<h3 style="font-size:32px;font-weight:700">posts e reels no feed</h3>
+<p style="font-size:28px;line-height:1.35;color:#4A4038">Ideias, roteiros, gravação e edição da nossa equipe.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:#FBF8F3;border-top:6px solid #E8642C;padding:40px">
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:120px;font-weight:700;line-height:1.0;color:#1A1612">4.162</p>
+<h3 style="font-size:32px;font-weight:700">interações com o conteúdo</h3>
+<p style="font-size:28px;line-height:1.35;color:#4A4038">74% delas orgânicas: quem segue, interage.</p>
+</div>
+</div>
+<p style="font-size:32px;line-height:1.4;color:#1A1612"><span style="color:#B4451A"><b>Pico:</b></span> 199 interações em um único dia, em 10 de outubro — o perfil já gera conversa.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#6B6055">Fonte: Meta Business Suite, 06/05 a 20/10/2026</p>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#6B6055;text-align:right">08</p>
+
+</section>
+<section class="slide" id="publico" data-transition="fade" style="background:#1A1612;color:#F5EFE6;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#E8642C">Quem é o público</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#F5EFE6">O público está amadurecendo</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1.25fr;gap:96px">
+<div style="display:flex;flex-direction:column;gap:24px">
+<h3 style="font-size:30px;font-weight:700;line-height:1.3;color:#F5EFE6">Pessoas com 35 anos ou mais nas visitas ao perfil vindas de anúncio</h3>
+<div style="display:flex;flex-direction:row;align-items:end;gap:40px;height:260px">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600">6%</p><div style="width:120px;height:35px;background:#6B6055"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600">27%</p><div style="width:120px;height:155px;background:#6B6055"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><p style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;color:#E8642C">33%</p><div style="width:120px;height:190px;background:#E8642C"></div></div>
+</div>
+<div style="display:flex;flex-direction:row;gap:40px;border-top:2px solid #A89C8C;padding:12px 0 0 0">
+<p style="flex:1;font-size:24px;text-align:center;color:#D9CFC1">Alcance<br>mai–jun</p><p style="flex:1;font-size:24px;text-align:center;color:#D9CFC1">Engajamento<br>jun–jul</p><p style="flex:1;font-size:24px;text-align:center;color:#F5EFE6;font-weight:700">Mensagens<br>jul–out</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:28px">
+<h3 style="font-size:30px;font-weight:700;line-height:1.3;color:#F5EFE6">Cliques no link para pedir, a cada mil exibições do anúncio</h3>
+<div style="display:flex;flex-direction:row;align-items:center;gap:24px"><p style="width:140px;font-size:28px;color:#D9CFC1">18–24</p><div style="width:106px;height:40px;background:#6B6055"></div><p style="font-size:28px;font-weight:700">3,9</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:24px"><p style="width:140px;font-size:28px;color:#D9CFC1">25–34</p><div style="width:115px;height:40px;background:#6B6055"></div><p style="font-size:28px;font-weight:700">4,2</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:24px"><p style="width:140px;font-size:28px;color:#D9CFC1">35–44</p><div style="width:139px;height:40px;background:#6B6055"></div><p style="font-size:28px;font-weight:700">5,1</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:24px"><p style="width:140px;font-size:28px;color:#F5EFE6;font-weight:700">45–54</p><div style="width:243px;height:40px;background:#E8642C"></div><p style="font-size:28px;font-weight:700;color:#E8642C">8,9</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:24px"><p style="width:140px;font-size:28px;color:#F5EFE6;font-weight:700">55+</p><div style="width:480px;height:40px;background:#E8642C"></div><p style="font-size:28px;font-weight:700;color:#E8642C">17,6</p></div>
+</div>
+</div>
+<p style="font-size:32px;line-height:1.4;color:#F5EFE6">Quanto mais velho o público, <span style="color:#E8642C"><b>mais ele clica para pedir</b></span> — e é ele que mais cresce. 40% do público do perfil já tem 35 anos ou mais.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#A89C8C">Fonte: Gerenciador de Anúncios (por idade) e Meta Business Suite (público), 26/05 a 21/10/2026</p>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#A89C8C;text-align:right">09</p>
+
+</section>
+<section class="slide" id="trafego" data-transition="fade" style="background:#F5EFE6;color:#1A1612;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#B4451A">Tráfego pago</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#1A1612">Muito resultado com pouco investimento</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px">
+<div style="display:flex;flex-direction:column;justify-content:center;gap:16px;background:#1A1612;padding:48px;border-radius:8px">
+<p style="font-size:28px;color:#D9CFC1">Investimento total em anúncios</p>
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:120px;font-weight:700;line-height:1.0;color:#F5EFE6">R$ 1.409</p>
+<p style="font-size:28px;color:#D9CFC1">em 13 campanhas, de 26/05 a 21/10</p>
+</div>
+<table style="font-size:32px;color:#1A1612">
+<tr><th style="width:60%;text-align:left">Resultado</th><th style="width:40%;text-align:right">Total</th></tr>
+<tr><td>Impressões</td><td style="text-align:right">348 mil</td></tr>
+<tr><td>Visitas ao perfil</td><td style="text-align:right">2.142</td></tr>
+<tr><td>Cliques no link</td><td style="text-align:right">1.649</td></tr>
+<tr><td>Conversas no direct</td><td style="text-align:right">99</td></tr>
+</table>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:4px;border-top:4px solid #E8642C;padding:16px 0 0 0"><p style="font-family:'Oswald', Arial, sans-serif;font-size:56px;font-weight:600;color:#B4451A">R$ 4,05</p><p style="font-size:24px;color:#4A4038">por mil impressões</p></div>
+<div style="display:flex;flex-direction:column;gap:4px;border-top:4px solid #E8642C;padding:16px 0 0 0"><p style="font-family:'Oswald', Arial, sans-serif;font-size:56px;font-weight:600;color:#B4451A">R$ 0,66</p><p style="font-size:24px;color:#4A4038">por visita ao perfil</p></div>
+<div style="display:flex;flex-direction:column;gap:4px;border-top:4px solid #E8642C;padding:16px 0 0 0"><p style="font-family:'Oswald', Arial, sans-serif;font-size:56px;font-weight:600;color:#B4451A">R$ 0,85</p><p style="font-size:24px;color:#4A4038">por clique no link</p></div>
+<div style="display:flex;flex-direction:column;gap:4px;border-top:4px solid #E8642C;padding:16px 0 0 0"><p style="font-family:'Oswald', Arial, sans-serif;font-size:56px;font-weight:600;color:#B4451A">R$ 4,56</p><p style="font-size:24px;color:#4A4038">por conversa no direct*</p></div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#6B6055">*Média das campanhas de mensagem de jul–ago. Fonte: Gerenciador de Anúncios da Meta</p>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#6B6055;text-align:right">10</p>
+
+</section>
+<section class="slide" id="trafego-fases" data-transition="fade" style="background:#F5EFE6;color:#1A1612;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#B4451A">Tráfego pago · a evolução</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#1A1612">Três fases, um destino: o pedido</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F3;border-top:6px solid #CBBFAE;padding:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4A4038">Fase 1 · 26/05 a 09/06</p>
+<h3 style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;text-transform:uppercase">Alcance</h3>
+<p style="font-size:26px;line-height:1.4"><b>Objetivo:</b> apresentar a Rockers a todo mundo num raio de 3 km.</p>
+<p style="font-size:26px;line-height:1.4"><b>O que rodou:</b> vídeos de produto, para o maior número de pessoas.</p>
+<p style="font-size:26px;line-height:1.4;color:#B4451A"><b>108 mil exibições por R$ 1,22 o milheiro</b></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F3;border-top:6px solid #E8A07A;padding:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4A4038">Fase 2 · 11/06 a 10/07</p>
+<h3 style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;text-transform:uppercase">Engajamento</h3>
+<p style="font-size:26px;line-height:1.4"><b>Objetivo:</b> transformar quem viu em quem clica.</p>
+<p style="font-size:26px;line-height:1.4"><b>O que rodou:</b> Combos da Copa e Combo Salvar a Noite, com link direto.</p>
+<p style="font-size:26px;line-height:1.4;color:#B4451A"><b>807 cliques no link a R$ 0,35 cada</b></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#1A1612;border-top:6px solid #E8642C;padding:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#E8642C">Fase 3 · 23/07 a 21/10</p>
+<h3 style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;text-transform:uppercase;color:#F5EFE6">Mensagens</h3>
+<p style="font-size:26px;line-height:1.4;color:#D9CFC1"><b>Ofertas</b> (Fecha Mês, R$ 50, X-Salada, Box): <span style="color:#E8642C"><b>53 conversas a R$ 4,56</b></span></p>
+<p style="font-size:26px;line-height:1.4;color:#D9CFC1"><b>Reels de produto</b> (Amy Lee, M. Shadows, Box): <span style="color:#E8642C"><b>1.483 visitas a R$ 0,51</b></span></p>
+</div>
+</div>
+<p style="font-size:32px;line-height:1.4;color:#1A1612">Cada fase usou o que a anterior ensinou: primeiro <b>ser vista</b>, depois <b>fazer clicar</b>, agora <span style="color:#B4451A"><b>fazer conversar e pedir</b></span>.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#6B6055">Fonte: Gerenciador de Anúncios da Meta, 13 campanhas</p>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#6B6055;text-align:right">11</p>
+
+</section>
+<section class="slide" id="trafego-tabela" data-transition="fade" style="background:#F5EFE6;color:#1A1612;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#B4451A">Tráfego pago · os números de cada fase</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#1A1612">Cada fase entregou o que buscava</h2>
+</div>
+<table style="font-size:26px;color:#1A1612">
+<tr><th style="width:24%;text-align:left">Indicador</th><th style="width:19%;text-align:right">Alcance</th><th style="width:19%;text-align:right">Engajamento</th><th style="width:19%;text-align:right">Msg: ofertas</th><th style="width:19%;text-align:right">Msg: reels</th></tr>
+<tr><td>Objetivo da fase</td><td style="text-align:right">ser vista</td><td style="text-align:right">clique</td><td style="text-align:right">conversa</td><td style="text-align:right">visita ao perfil</td></tr>
+<tr><td>Investimento</td><td style="text-align:right">R$ 131,75</td><td style="text-align:right">R$ 281,13</td><td style="text-align:right">R$ 241,60</td><td style="text-align:right">R$ 754,92</td></tr>
+<tr style="background:#FBE3D5"><td><b>Resultado do objetivo</b></td><td style="text-align:right"><b>108 mil exibições</b></td><td style="text-align:right"><b>807 cliques</b></td><td style="text-align:right"><b>53 conversas</b></td><td style="text-align:right"><b>1.483 visitas</b></td></tr>
+<tr style="background:#FBE3D5"><td><b>Custo do resultado</b></td><td style="text-align:right"><b>R$ 1,22 / mil</b></td><td style="text-align:right"><b>R$ 0,35 / clique</b></td><td style="text-align:right"><b>R$ 4,56 / conversa</b></td><td style="text-align:right"><b>R$ 0,51 / visita</b></td></tr>
+<tr><td>Visitas ao perfil</td><td style="text-align:right">48</td><td style="text-align:right">343</td><td style="text-align:right">268</td><td style="text-align:right">1.483</td></tr>
+<tr><td>Custo por visita</td><td style="text-align:right">R$ 2,74</td><td style="text-align:right">R$ 0,82</td><td style="text-align:right">R$ 0,90</td><td style="text-align:right">R$ 0,51</td></tr>
+</table>
+<p style="font-size:32px;line-height:1.4;color:#1A1612">Na métrica que todas as fases têm em comum, a visita ao perfil, o custo caiu <span style="color:#B4451A"><b>81%</b></span>: de R$ 2,74 para R$ 0,51.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#6B6055">Custo do resultado = investimento da fase ÷ resultado do seu objetivo. Fonte: Gerenciador de Anúncios da Meta</p>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#6B6055;text-align:right">12</p>
+
+</section>
+<section class="slide" id="criativos" data-transition="fade" style="background:#F5EFE6;color:#1A1612;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#B4451A">Os campeões</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#1A1612">Os conteúdos que mais trouxeram clientes</h2>
+</div>
+<table style="font-size:30px;color:#1A1612">
+<tr><th style="width:34%;text-align:left">Criativo</th><th style="width:18%;text-align:right">Impressões</th><th style="width:18%;text-align:right">Visitas ao perfil</th><th style="width:30%;text-align:left">Destaque</th></tr>
+<tr style="background:#FBE3D5"><td><b>Reels Amy Lee</b></td><td style="text-align:right">92.925</td><td style="text-align:right">1.117</td><td>R$ 0,41 por visita</td></tr>
+<tr><td>Combos Copa do Mundo (3 peças)</td><td style="text-align:right">37.529</td><td style="text-align:right">315</td><td>517 cliques no link</td></tr>
+<tr><td>Combo X-Salada (3 peças)</td><td style="text-align:right">11.756</td><td style="text-align:right">95</td><td>24 conversas, R$ 4,07 cada</td></tr>
+<tr><td>Reels Box Rockers</td><td style="text-align:right">12.866</td><td style="text-align:right">163</td><td>15 conversas no direct</td></tr>
+</table>
+<p style="font-size:36px;line-height:1.4;color:#1A1612">O que funciona: <span style="color:#B4451A"><b>reels com o produto como protagonista</b></span> para atrair, e <span style="color:#B4451A"><b>oferta clara</b></span> para gerar conversa.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#6B6055">Fonte: Gerenciador de Anúncios da Meta, 26/05 a 21/10/2026</p>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#6B6055;text-align:right">13</p>
+
+</section>
+<section class="slide" id="pausa" data-transition="fade" style="background:#F5EFE6;color:#1A1612;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#B4451A">A prova: julho de 2026</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#1A1612">O que acontece quando o anúncio para</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center">
+<p style="font-size:24px;font-weight:700;color:#4A4038">Visualizações por dia, 29/06 a 02/08</p>
+<div style="display:flex;flex-direction:row;gap:32px">
+<div style="display:flex;flex-direction:row;align-items:center;gap:10px"><div style="width:24px;height:24px;background:#E8642C"></div><p style="font-size:24px">dia com anúncio</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:10px"><div style="width:24px;height:24px;background:#CBBFAE"></div><p style="font-size:24px">dia sem anúncio</p></div>
+</div>
+</div>
+<div style="position:relative;display:flex;flex-direction:column">
+<div style="display:flex;flex-direction:row;align-items:end;gap:6px;height:200px;border-bottom:2px solid #1A1612">
+<div style="flex:1;height:128px;background:#E8642C"></div><div style="flex:1;height:123px;background:#E8642C"></div><div style="flex:1;height:124px;background:#E8642C"></div><div style="flex:1;height:144px;background:#E8642C"></div><div style="flex:1;height:133px;background:#E8642C"></div><div style="flex:1;height:167px;background:#E8642C"></div><div style="flex:1;height:9px;background:#CBBFAE"></div><div style="flex:1;height:21px;background:#E8642C"></div><div style="flex:1;height:170px;background:#E8642C"></div><div style="flex:1;height:200px;background:#E8642C"></div><div style="flex:1;height:78px;background:#E8642C"></div><div style="flex:1;height:25px;background:#CBBFAE"></div>
+<div style="flex:1;height:16px;background:#CBBFAE"></div><div style="flex:1;height:8px;background:#CBBFAE"></div><div style="flex:1;height:33px;background:#CBBFAE"></div><div style="flex:1;height:22px;background:#CBBFAE"></div><div style="flex:1;height:2px;background:#CBBFAE"></div><div style="flex:1;height:2px;background:#CBBFAE"></div><div style="flex:1;height:8px;background:#CBBFAE"></div><div style="flex:1;height:4px;background:#CBBFAE"></div><div style="flex:1;height:2px;background:#CBBFAE"></div><div style="flex:1;height:6px;background:#CBBFAE"></div><div style="flex:1;height:16px;background:#CBBFAE"></div>
+<div style="flex:1;height:8px;background:#CBBFAE"></div><div style="flex:1;height:86px;background:#E8642C"></div><div style="flex:1;height:89px;background:#E8642C"></div><div style="flex:1;height:54px;background:#E8642C"></div><div style="flex:1;height:27px;background:#CBBFAE"></div><div style="flex:1;height:3px;background:#CBBFAE"></div><div style="flex:1;height:134px;background:#E8642C"></div><div style="flex:1;height:109px;background:#E8642C"></div><div style="flex:1;height:8px;background:#CBBFAE"></div><div style="flex:1;height:87px;background:#E8642C"></div><div style="flex:1;height:102px;background:#E8642C"></div><div style="flex:1;height:4px;background:#CBBFAE"></div>
+</div>
+<p style="position:absolute;left:572px;top:40px;width:519px;font-size:28px;font-weight:700;line-height:1.3;text-align:center;color:#B4451A">11 dias sem anúncio<br>0 cliques para pedir</p>
+</div>
+</div>
+<table style="font-size:26px;color:#1A1612">
+<tr><th style="width:31%;text-align:left">A cada 11 dias</th><th style="width:23%;text-align:right">Antes, com anúncio</th><th style="width:23%;text-align:right">Pausa, sem anúncio</th><th style="width:23%;text-align:right">Retomada</th></tr>
+<tr><td>Visualizações por dia</td><td style="text-align:right">2.342</td><td style="text-align:right"><b>207 (−91%)</b></td><td style="text-align:right">1.270</td></tr>
+<tr style="background:#FBE3D5"><td>Cliques no link (pedidos)</td><td style="text-align:right">345</td><td style="text-align:right"><b>0</b></td><td style="text-align:right">112</td></tr>
+<tr><td>Visitas ao perfil</td><td style="text-align:right">317</td><td style="text-align:right"><b>129 (−59%)</b></td><td style="text-align:right">253</td></tr>
+<tr><td>Novos seguidores</td><td style="text-align:right">22</td><td style="text-align:right"><b>5 (−77%)</b></td><td style="text-align:right">26</td></tr>
+</table>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#6B6055">Antes: 29/06 a 09/07 · Pausa: 11/07 a 21/07 · Retomada: 23/07 a 02/08. Fonte: Meta Business Suite e Gerenciador de Anúncios</p>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#6B6055;text-align:right">14</p>
+
+</section>
+<section class="slide" id="diagnostico" data-transition="fade" style="background:#E8642C;color:#1A1612;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#1A1612">Para onde vamos</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:100px;font-weight:700;line-height:1.05;text-transform:uppercase;color:#1A1612">A arrancada deu certo.<br>Agora é hora de consolidar.</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:64px">
+<p style="font-size:32px;line-height:1.4;color:#1A1612"><b>O sinal:</b> sem gestão de anúncios, o perfil perde 91% das visualizações e os cliques para pedir vão a zero.</p>
+<p style="font-size:32px;line-height:1.4;color:#1A1612"><b>O que significa:</b> é o normal de um perfil de 5 meses. A Rockers já tem público; o próximo passo é fazer esse público ficar, voltar e trazer outros.</p>
+</div>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#1A1612;text-align:right">15</p>
+
+</section>
+<section class="slide" id="fases" data-transition="fade" style="background:#F5EFE6;color:#1A1612;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#B4451A">O caminho</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#1A1612">Três fases para virar referência</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:16px;background:#E9E1D5;padding:40px;border-radius:8px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4A4038">Mai–out 2026 · Concluída</p>
+<h3 style="font-family:'Oswald', Arial, sans-serif;font-size:48px;font-weight:600;text-transform:uppercase;color:#4A4038">1. Arrancada</h3>
+<p style="font-size:28px;line-height:1.4;color:#4A4038">Criar o perfil, ganhar alcance, testar ofertas e descobrir o que o público responde.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:#1A1612;padding:40px;border-radius:8px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#E8642C">Nov 2026–jan 2027 · Próxima</p>
+<h3 style="font-family:'Oswald', Arial, sans-serif;font-size:48px;font-weight:600;text-transform:uppercase;color:#F5EFE6">2. Consolidação</h3>
+<p style="font-size:28px;line-height:1.4;color:#D9CFC1">Presença orgânica própria, comunidade ativa e clientes que voltam a pedir.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:#FBF8F3;padding:40px;border-radius:8px;border:2px dashed #B4451A">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#B4451A">2027</p>
+<h3 style="font-family:'Oswald', Arial, sans-serif;font-size:48px;font-weight:600;text-transform:uppercase;color:#1A1612">3. Referência</h3>
+<p style="font-size:28px;line-height:1.4;color:#4A4038">Ser a hamburgueria temática de rock mais lembrada da cidade: marca forte, clientes fiéis e eventos próprios.</p>
+</div>
+</div>
+<p style="font-size:36px;line-height:1.4;color:#1A1612">Quem construiu a fase 1 conhece a marca, o público e o que funciona. <span style="color:#B4451A"><b>A fase 2 começa de onde paramos, não do zero.</b></span></p>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#6B6055;text-align:right">16</p>
+
+</section>
+<section class="slide" id="pilares" data-transition="fade" style="display:flex; flex-direction:column; gap:48px; padding:128px 128px 160px; background:#f5efe6">
+  <div style="display:flex; flex-direction:column; gap:16px">
+    <p style="font-family:'DM Sans', Arial, sans-serif; font-size:24px; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:#b4451a">Fase 2 · Consolidação</p>
+    <h2 style="font-family:Oswald, Arial, sans-serif; font-size:72px; font-weight:600; line-height:1.1; text-transform:uppercase; color:#1a1612">Quatro pilares da próxima fase</h2>
+  </div>
+  <div style="display:grid; gap:32px; grid-template-columns:1fr 1fr">
+    <div style="display:flex; flex-direction:column; gap:12px; padding:32px 40px; background:#fbf8f3; border-left:6px solid #e8642c">
+      <h3 style="font-family:'DM Sans', Arial, sans-serif; font-size:36px; font-weight:700; color:#1a1612">Rede com voz própria</h3>
+      <p style="font-family:'DM Sans', Arial, sans-serif; font-size:28px; line-height:1.4; color:#4a4038">Ideias de quadros e vídeos temáticos com a cara da Rockers: rock, vlog e cardápio. Detalhes no próximo slide.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px; padding:32px 40px; background:#fbf8f3; border-left:6px solid #e8642c">
+      <h3 style="font-family:'DM Sans', Arial, sans-serif; font-size:36px; font-weight:700; color:#1a1612">Comunidade</h3>
+      <p style="font-family:'DM Sans', Arial, sans-serif; font-size:28px; line-height:1.4; color:#4a4038">Repostar clientes que marcam a Rockers, incentivar avaliações no Google e mostrar as pessoas da casa.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px; padding:32px 40px; background:#fbf8f3; border-left:6px solid #e8642c">
+      <h3 style="font-family:'DM Sans', Arial, sans-serif; font-size:36px; font-weight:700; color:#1a1612">Recorrência</h3>
+      <p style="font-family:'DM Sans', Arial, sans-serif; font-size:28px; line-height:1.4; color:#4a4038">Remarketing para quem já visitou o perfil ou clicou no link, e um canal direto de novidades (lista de transmissão).</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px; padding:32px 40px; background:#fbf8f3; border-left:6px solid #e8642c">
+      <h3 style="font-family:'DM Sans', Arial, sans-serif; font-size:36px; font-weight:700; color:#1a1612">Calendário estratégico</h3>
+      <p style="font-family:'DM Sans', Arial, sans-serif; font-size:28px; line-height:1.4; color:#4a4038">Black Friday, Natal, férias e datas da própria casa, como aniversário e lançamentos de sabor.</p>
+    </div>
+  </div>
+  <p style="position:absolute; right:128px; bottom:64px; width:100px; font-family:'DM Sans', Arial, sans-serif; font-size:24px; text-align:right; color:#6b6055">17</p>
+  
+</section>
+<section class="slide" id="conteudo" data-transition="fade" style="background:#1A1612;color:#F5EFE6;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#E8642C">Rede com voz própria · a cara da Rockers</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#F5EFE6">Ideias de quadros e vídeos temáticos</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:10px;background:#2A241E;border-left:6px solid #E8642C;padding:28px 36px">
+<div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center"><h3 style="font-size:36px;font-weight:700;color:#F5EFE6">Burger do Mês</h3><p style="font-size:24px;font-weight:700;color:#E8642C">Cardápio</p></div>
+<p style="font-size:26px;line-height:1.4;color:#D9CFC1">Um burger em destaque por mês: a história do cantor que dá nome a ele, o preparo e uma condição especial só naquele mês.</p>
+<p style="font-size:24px;line-height:1.4;color:#F5EFE6"><b>Por quê:</b> dá motivo para voltar e vira o anúncio do mês.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#2A241E;border-left:6px solid #E8642C;padding:28px 36px">
+<div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center"><h3 style="font-size:36px;font-weight:700;color:#F5EFE6">Quem canta esse burger?</h3><p style="font-size:24px;font-weight:700;color:#E8642C">Rock</p></div>
+<p style="font-size:26px;line-height:1.4;color:#D9CFC1">Curiosidades sobre os cantores que batizam o cardápio, como Amy Lee e M. Shadows, contadas junto do hambúrguer que leva o nome deles.</p>
+<p style="font-size:24px;line-height:1.4;color:#F5EFE6"><b>Por quê:</b> conteúdo de fã, feito para compartilhar e marcar amigos.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#2A241E;border-left:6px solid #E8642C;padding:28px 36px">
+<div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center"><h3 style="font-size:36px;font-weight:700;color:#F5EFE6">Vlog da Rockers</h3><p style="font-size:24px;font-weight:700;color:#E8642C">Bastidores</p></div>
+<p style="font-size:26px;line-height:1.4;color:#D9CFC1">Do mercado à chapa, no estilo vlog que vocês já gostam de fazer: as compras, o preparo, a montagem e a noite de movimento.</p>
+<p style="font-size:24px;line-height:1.4;color:#F5EFE6"><b>Por quê:</b> mostra cuidado e gente de verdade, e gera confiança.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#2A241E;border-left:6px solid #E8642C;padding:28px 36px">
+<div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center"><h3 style="font-size:36px;font-weight:700;color:#F5EFE6">Edição temática</h3><p style="font-size:24px;font-weight:700;color:#E8642C">Datas</p></div>
+<p style="font-size:26px;line-height:1.4;color:#D9CFC1">Episódios especiais como o de Halloween: Black Friday, Natal, férias, Dia do Rock e aniversário da casa.</p>
+<p style="font-size:24px;line-height:1.4;color:#F5EFE6"><b>Por quê:</b> aproveita o assunto do momento e puxa a promoção da data.</p>
+</div>
+</div>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#A89C8C;text-align:right">18</p>
+
+</section>
+<section class="slide" id="plano" data-transition="fade" style="background:#F5EFE6;color:#1A1612;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#B4451A">Plano de 90 dias</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#1A1612">A alta temporada começa agora</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F3;border-top:6px solid #E8642C;padding:32px">
+<h3 style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;text-transform:uppercase;color:#B4451A">Novembro</h3>
+<ul style="font-size:26px;line-height:1.4;color:#1A1612"><li>Black Friday da Rockers</li><li>Estreia do Burger do Mês</li><li>Remarketing para quem já visitou o perfil</li></ul>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F3;border-top:6px solid #E8642C;padding:32px">
+<h3 style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;text-transform:uppercase;color:#B4451A">Dezembro</h3>
+<ul style="font-size:26px;line-height:1.4;color:#1A1612"><li>Campanha de fim de ano: combos para grupos e confraternizações</li><li>Bastidores e equipe</li><li>Ação de avaliações no Google</li></ul>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F3;border-top:6px solid #E8642C;padding:32px">
+<h3 style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;text-transform:uppercase;color:#B4451A">Janeiro</h3>
+<ul style="font-size:26px;line-height:1.4;color:#1A1612"><li>Campanha de férias</li><li>Oferta de retorno para quem já pediu</li><li>Balanço do trimestre e novas metas</li></ul>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#4A4038">Metas propostas para o trimestre</p>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#1A1612;padding:24px;border-radius:8px"><p style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;color:#F5EFE6">+500</p><p style="font-size:24px;color:#D9CFC1">novos seguidores em 3 meses</p><p style="font-size:24px;line-height:1.35;color:#E8642C">Até aqui: 612 em quase 6 meses</p></div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#1A1612;padding:24px;border-radius:8px"><p style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;color:#F5EFE6">1.000+</p><p style="font-size:24px;color:#D9CFC1">visitas ao perfil por mês</p><p style="font-size:24px;line-height:1.35;color:#E8642C">Até aqui: 4.738 em quase 6 meses</p></div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#1A1612;padding:24px;border-radius:8px"><p style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;color:#F5EFE6">até R$ 5</p><p style="font-size:24px;color:#D9CFC1">por conversa no direct</p><p style="font-size:24px;line-height:1.35;color:#E8642C">Já fizemos R$ 4,56; melhor campanha: R$ 3,80</p></div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#1A1612;padding:24px;border-radius:8px"><p style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;color:#E8642C">[__]</p><p style="font-size:24px;color:#D9CFC1">pedidos via Anotaí</p><p style="font-size:24px;line-height:1.35;color:#E8642C">Definir juntos</p></div>
+</div>
+</div>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#6B6055;text-align:right">19</p>
+
+</section>
+<section class="slide" id="proposta" data-transition="fade" style="background:#F5EFE6;color:#1A1612;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#B4451A">Proposta</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.1;text-transform:uppercase;color:#1A1612">Seguir juntos na fase 2</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:20px;background:#FBF8F3;border-top:6px solid #E8642C;padding:40px 48px">
+<div style="display:flex;flex-direction:row;justify-content:space-between;align-items:baseline">
+<h3 style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;text-transform:uppercase;color:#1A1612">Videomaker</h3>
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:56px;font-weight:700;color:#B4451A">R$ 800</p>
+</div>
+<ul style="font-size:28px;line-height:1.5;color:#1A1612"><li><b>4 vídeos por mês</b></li><li>Planejamento e roteiro</li><li>Captação</li><li>Curadoria do material</li><li>Edição</li></ul>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px;background:#FBF8F3;border-top:6px solid #E8642C;padding:40px 48px">
+<div style="display:flex;flex-direction:row;justify-content:space-between;align-items:baseline">
+<h3 style="font-family:'Oswald', Arial, sans-serif;font-size:44px;font-weight:600;text-transform:uppercase;color:#1A1612">Tráfego pago</h3>
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:56px;font-weight:700;color:#B4451A">R$ 600</p>
+</div>
+<ul style="font-size:28px;line-height:1.5;color:#1A1612"><li><b>Gestão de até R$ 2.000 em anúncios</b></li><li>Planejamento das campanhas</li><li>Análise diária dos resultados</li><li>Reunião mensal de resultados</li></ul>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;justify-content:space-between;background:#1A1612;padding:36px 48px;border-radius:8px">
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:26px;color:#D9CFC1">Investimento mensal</p>
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.0;color:#F5EFE6">R$ 1.400</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:26px;color:#D9CFC1">Duração</p>
+<p style="font-family:'Oswald', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.0;color:#F5EFE6">12 meses</p>
+</div>
+<p style="width:520px;font-size:28px;line-height:1.4;color:#E8642C">O mesmo valor da parceria atual, por um ano inteiro: da Black Friday ao próximo fim de ano.</p>
+</div>
+<p style="position:absolute;right:128px;bottom:64px;width:100px;font-size:24px;color:#6B6055;text-align:right">20</p>
+
+</section>
+<section class="slide" id="fim" data-transition="fade" style="background:#1A1612;color:#F5EFE6;font-family:'DM Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between">
+<div style="position:absolute;left:0;top:0;width:24px;height:1080px;background:#E8642C"></div>
+<p style="font-size:28px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#E8642C">Obrigada</p>
+<h2 style="font-family:'Oswald', Arial, sans-serif;font-size:112px;font-weight:700;line-height:1.05;text-transform:uppercase;color:#F5EFE6">Construímos a base juntos.<br>Vamos consolidar a Rockers.</h2>
+<div style="display:flex;flex-direction:column;gap:24px">
+<p style="font-size:44px;line-height:1.3;color:#D9CFC1">E para vocês: <span style="color:#E8642C"><b>o que a Rockers precisa ser em 2027?</b></span></p>
+<p style="font-size:32px;color:#D9CFC1"><b>Deborah Ramos</b> · Videomaker e Tráfego Pago</p>
+</div>
+
+</section>
+</div></div>
+<div id="bar">
+  <button id="prev" aria-label="Slide anterior">&larr;</button>
+  <span id="count"></span>
+  <button id="next" aria-label="Próximo slide">&rarr;</button>
+  <button id="full" aria-label="Tela cheia">Tela cheia</button>
+</div>
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var count = document.getElementById('count');
+  var progress = document.getElementById('progress');
+  var i = 0;
+
+  function fit() {
+    var s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    stage.style.transform = 'scale(' + s + ')';
+  }
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function (el, k) { el.classList.toggle('active', k === i); });
+    count.textContent = (i + 1) + ' / ' + slides.length;
+    progress.style.width = ((i + 1) / slides.length * 100) + '%';
+    if (location.hash !== '#' + (i + 1)) history.replaceState(null, '', '#' + (i + 1));
+  }
+  function fromHash() {
+    var n = parseInt(location.hash.slice(1), 10);
+    return isNaN(n) ? 0 : n - 1;
+  }
+  function toggleFull() {
+    if (!document.fullscreenElement) { (document.documentElement.requestFullscreen || function(){}).call(document.documentElement); }
+    else { document.exitFullscreen(); }
+  }
+
+  document.addEventListener('keydown', function (e) {
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ' || k === 'Enter') { e.preventDefault(); show(i + 1); }
+    else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); show(i - 1); }
+    else if (k === 'Home') show(0);
+    else if (k === 'End') show(slides.length - 1);
+    else if (k === 'f' || k === 'F') toggleFull();
+  });
+  document.getElementById('viewport').addEventListener('click', function (e) {
+    show(e.clientX > window.innerWidth / 3 ? i + 1 : i - 1);
+  });
+  document.getElementById('prev').addEventListener('click', function () { show(i - 1); });
+  document.getElementById('next').addEventListener('click', function () { show(i + 1); });
+  document.getElementById('full').addEventListener('click', toggleFull);
+
+  var x0 = null;
+  document.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) show(dx < 0 ? i + 1 : i - 1);
+    x0 = null;
+  });
+
+  var t;
+  document.addEventListener('mousemove', function () {
+    document.body.classList.add('ui');
+    clearTimeout(t);
+    t = setTimeout(function () { document.body.classList.remove('ui'); }, 1800);
+  });
+
+  window.addEventListener('resize', fit);
+  window.addEventListener('hashchange', function () { show(fromHash()); });
+  fit();
+  show(fromHash());
+})();
+</script>
+</body>
+</html>
